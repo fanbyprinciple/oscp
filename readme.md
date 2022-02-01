@@ -89,3 +89,6 @@ Essential tools in kali - learn netcat
 Passive recon - https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html
 
 This looks good!
+
+# Getting VMs from Abatchy's blog
+https://www.abatchy.com/2017/02/oscp-like-vulnhub-vms
