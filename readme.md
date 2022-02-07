@@ -2,6 +2,9 @@
     <h1>OSCP<h1>
 </div>
 
+# OSCP link
+https://github.com/0x4D31/awesome-oscp
+
 # Notes from Adithyan's Blog
 
 https://blog.adithyanak.com/oscp-preparation-guide

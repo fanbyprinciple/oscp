@@ -256,3 +256,6 @@ Use of uninitialized value $global_workgroup in concatenation (.) or string at .
 ```
 # trying to exploit splunk httpd
 
+NOt able to.
+
+
