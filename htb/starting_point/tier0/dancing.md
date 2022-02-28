@@ -35,5 +35,5 @@ Nmap done: 1 IP address (1 host up) scanned in 2.30 seconds
 6. -L
 7. to acess smb simply put \\10.129.199.30 in command line.
 Worshares
-8. 
+8. get
 9. flag - 5f61c10dffbc77a704d76016a22f1664
