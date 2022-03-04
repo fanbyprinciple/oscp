@@ -98,3 +98,10 @@ https://www.abatchy.com/2017/02/oscp-like-vulnhub-vms
 
 
 # htb
+
+
+# exploit development
+
+corelan blog - 
+https://www.corelan.be/
+
