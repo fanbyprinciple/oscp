@@ -2,6 +2,8 @@
     <h1>OSCP<h1>
 </div>
 
+Note adding yourself to link with github : https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key
+
 # OSCP link
 https://github.com/0x4D31/awesome-oscp
 
