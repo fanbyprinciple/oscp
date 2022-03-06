@@ -5,6 +5,10 @@
 Note adding yourself to link with github : 
 1. https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key
 2. https://www.youtube.com/watch?v=2ISu2KTPzuQ
+
+using ssh:
+
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
    
 # OSCP link
 https://github.com/0x4D31/awesome-oscp
