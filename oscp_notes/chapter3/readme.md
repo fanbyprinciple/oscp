@@ -145,3 +145,66 @@ file on your Kali Linux system.
 
 ![](new_file.png)
 
+## text searching and manipulation
+
+`grep`
+
+`sed`
+
+```
+ ~/codeplay/oscp  master !1  echo "I need to enumerate hard" | sed 's/hard/harder/'                                                                                             0|1 ✘   
+I need to enumerate harder
+```
+
+`cut`
+
+```
+ ~/codeplay/oscp  master !1  echo "I need to enumerate hard" | cut -f 2 -d ' '                                                                                                  0|1 ✘   
+need
+```
+
+`awk`
+
+```
+echo "hello::there::friend" | awk -F "::" '{print $1, $3}'
+```
+
+```
+gunzip access_log.txt.gz
+  187  dir
+  188  cat access_log.txt
+  189  cat access_log.txt | cut -d " " -f 1 | sort -u 
+  190  cat access_log.txt | cut -d " " -f 1 | sort | uniq -c | sort -urn
+  191  cat access_log.txt | grep "208.68.234.99"
+```
+
+### 3.3.5.1 Exercises
+1. Using /etc/passwd, extract the user and home directory fields for all users on your Kali
+machine for which the shell is set to /bin/false. Make sure you use a Bash one-liner to print
+the output to the screen. The output should look similar to Listing 53 below:
+kali@kali:~$ YOUR COMMAND HERE...
+The user mysql home directory is /nonexistent
+The user Debian-snmp home directory is /var/lib/snmp
+The user speech-dispatcher home directory is /var/run/speech-dispatcher
+The user Debian-gdm home directory is /var/lib/gdm3
+Listing 53 - Home directories for users with /bin/false shells
+
+![](user_home.png)
+
+2. Copy the /etc/passwd file to your home directory (/home/kali).
+
+done
+
+3. Use cat in a one-liner to print the output of the /kali/passwd and replace all instances of the
+“Gnome Display Manager” string with “GDM”.
+
+![](sed_replace.png)
+
+## Editing from command line
+
+`nano`
+
+`vi`
+
+## Comparing files
+
