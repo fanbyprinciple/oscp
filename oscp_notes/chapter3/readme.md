@@ -210,3 +210,57 @@ done
 
 `comm`
 
+![](comm.png)
+
+`diff`
+
+
+`vimdiff`
+
+
+### 3.5.3.1 Exercises
+1. Download the archive from the following URL https://offensive-security.com/pwkfiles/scans.tar.gz
+
+page not found 
+
+2. This archive contains the results of scanning the same target machine at different times.
+Extract the archive and see if you can spot the differences by diffing the scans.
+
+page not found
+
+## managing Process
+
+The Linux kernel manages multitasking through the use of processes. The kernel maintains
+information about each process to help keep things organized, and each process is assigned a
+number called a process ID (PID).
+The Linux shell also introduces the concept of jobs69 to ease the user’s workflow during a terminal
+session. As an example, cat error.txt | wc -m is a pipeline of two processes, which the shell
+considers a single job. Job control refers to the ability to selectively suspend the execution of jobs 
+
+sending process to background
+
+`&`
+
+jobs
+
+`jobs`
+
+Second, the use of “%1” in the fg %1 command is new. There are various ways to refer to a job in
+the shell. The “%” character followed by a JobID represents a job specification. The JobID can be a
+process ID (PID) number or you can use one of the following symbol combinations:
+• %Number : Refers to a job number such as %1 or %2
+• %String : Refers to the beginning of the suspended command’s name such as
+%commandNameHere or %ping
+• %+ OR %% : Refers to the current job
+• %- : Refers to the previous job
+Note that if only one process has been backgrounded, the job number is not needed.
+
+`ps -ef`
+`ps -aux`
+The -ef73 options we used above stand for:
+• e: select all processes
+• f: display full format listing (UID, PID, PPID, etc.)
+
+`$ ps -fC leafpad`
+
+`kill`
