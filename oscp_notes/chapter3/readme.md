@@ -208,3 +208,5 @@ done
 
 ## Comparing files
 
+`comm`
+
