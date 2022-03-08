@@ -145,3 +145,6 @@ file on your Kali Linux system.
 
 ![](new_file.png)
 
+## Text search and manipulation
+
+
