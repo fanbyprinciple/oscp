@@ -265,3 +265,91 @@ The -ef73 options we used above stand for:
 
 `kill`
 
+## JObs and fb and bg
+
+to bring proces to bg use `&`
+to list all background jobs use `bg`
+to bring jobs to foreground use `fg %1`
+
+### 3.6.3.1 Exercises
+1. Find files that have changed on your Kali virtual machine within the past 7 days by running a
+specific command in the background.
+
+not done.
+
+2. Re-run the previous command and suspend it; once suspended, background it.
+3. Bring the previous background job into the foreground.
+4. Start the Firefox browser on your Kali system. Use ps and grep to identify Firefox’s PID.
+5. Terminate Firefox from the command line using its PID.
+
+## file and command monitoring
+
+3.7.1 tail
+The most common use of tail75 is to monitor log file entries as they are being written. For example,
+we may want to monitor the Apache logs to see if a web server is being contacted by a given client
+we are attempting to attack via a client-side exploit. This example will do just that:
+kali@kali:~$ sudo tail -f /var/log/apache2/access.log
+
+### 3.7.2.1 Exercises
+1. Start your apache2 web service and access it locally while monitoring its access.log file in
+real-time.
+
+`sudo tail -f /var/log/apache2/access.log`
+
+![](apache_access.png)
+
+2. Use a combination of watch and ps to monitor the most CPU-intensive processes on your
+Kali machine in a terminal window; launch different applications to see how the list changes
+in real time.
+
+![](watch_command.png)
+
+
+## for download you can use 
+
+curl
+wget
+axel 
+
+### 3.8.3.1 Exercise
+1. Download the PoC code for an exploit from https://www.exploit-db.com using curl, wget,
+and axel, saving each download with a different name.
+
+![](downloading_poc.png)
+
+
+## customising bash environment
+
+`export HISTCONTROL=ignoredups`
+
+## Alias
+
+`alias 'lsa= ls -al'`
+
+`unalias lsa`
+
+## persistant bash customisation
+
+The behavior of interactive shells in Bash is determined by the system-wide bashrc file located in
+/etc/bash.bashrc. The system-wide Bash settings can be overridden by editing the .bashrc file
+located in any user’s home directory.
+In the previous section, we explored the alias command, which sets an alias for the current terminal
+session. We can also insert this command into the .bashrc file in a user’s home directory to set a
+persistent alias. The .bashrc script is executed any time that user logs in. Since this file is a shell
+script, we can insert any command that could be executed from the command prompt.
+Let’s examine a few lines of the default /home/kali/.bashrc file in Kali Linux:
+
+`/etc/bashrc` / `/etc/zshrc`
+
+### 3.9.3.1 Exercises
+1. Create an alias named “..” to change to the parent directory and make it persistent across
+terminal sessions.
+
+![](mod_zshrc.png)
+
+2. Permanently configure the history command to store 10000 entries and include the full date
+in its output.
+
+![](history_format.png)
+
+
