@@ -78,4 +78,3 @@ okay if firewall blocks both incoming and outcoming that will be a problem.
 
 ![](../chapter3/nc_shell.png)
 
-
