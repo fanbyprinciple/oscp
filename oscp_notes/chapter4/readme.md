@@ -152,3 +152,18 @@ EXEC option based on the error you receive.
 
 ![](unencrypted_with_socat_and_netcat.png)
 
+## Powershell and Powercat
+
+Windows PowerShell88 is a task-based command line shell and scripting language. It is designed
+specifically for system administrators and power-users to rapidly automate the administration of
+multiple operating systems (Linux, macOS, Unix, and Windows) and the processes related to the
+applications that run on them.
+Needless to say, PowerShell is a powerful tool for penetration testing and can be installed on (or is
+installed by default on) various versions of Windows. It is installed by default on modern Windows
+platforms beginning with Windows Server 2008 R2 and Windows 7. Windows PowerShell 5.0 runs
+on the following versions of Windows:
+
+` Set-ExecutionPolicy Unrestricted`
+
+### Powershell file transfer
+
