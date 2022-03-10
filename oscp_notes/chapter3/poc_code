@@ -1,0 +1,11 @@
+--2022-03-08 11:58:09--  https://www.exploit-db.com/download/50808
+Resolving www.exploit-db.com (www.exploit-db.com)... 192.124.249.13
+Connecting to www.exploit-db.com (www.exploit-db.com)|192.124.249.13|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 7509 (7.3K) [application/txt]
+Saving to: ‘50808’
+
+     0K .......                                               100%  139M=0s
+
+2022-03-08 11:58:11 (139 MB/s) - ‘50808’ saved [7509/7509]
+
