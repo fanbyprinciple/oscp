@@ -250,9 +250,145 @@ following tcp streams
 ### 4.4.5.1 Exercises
 1. Use Wireshark to capture network activity while attempting to connect to 10.11.1.217 on
 port 110 using Netcat, and then attempt to log into it.
+
+![](capturing_nc_data.png)
+
 2. Read and understand the output. Where is the three-way handshake happening? Where is
 the connection closed?
+
+able to make out some details in the above pictures
+
 3. Follow the TCP stream to read the login attempt.
+
+gotcha. but not gotcha
+
 4. Use the display filter to only monitor traffic on port 110.
+
+![](tcp_4444.png)
+
 5. Run a new session, this time using the capture filter to only collect traffic on port 110.
+
+![](not_able_to_get_capture.png)
+
+## TCPDUMP
+
+Network sniffing tool
+
+lets look at password_cracking_filltered pcap file.
+
+`tcpdump -r password_cracking_filtered.pcap`
+
+First, we will use the -n option to skip DNS name lookups and -r to read from our packet capture
+file. Then, we can pipe the output into awk, printing the destination IP address and port (the third
+space-separated field) and pipe it again to sort and uniq -c to sort and count the number of times
+the field appears in the capture, respectively. Lastly we use head to only display the first 10 lines of
+the output
+
+```
+/home/ash/codeplay/oscp/oscp_notes/chapter4 on  master! ⌚ 13:49:31
+$ tcpdump -n -r password_cracking_filtered.pcap| awk -F" " '{print $3}' | sort | uniq -c | head
+reading from file password_cracking_filtered.pcap, link-type EN10MB (Ethernet), snapshot length 65535
+  12324 172.16.40.10.81
+     18 208.68.234.99.32768
+     18 208.68.234.99.32769
+     18 208.68.234.99.32770
+     18 208.68.234.99.32771
+     18 208.68.234.99.32772
+     18 208.68.234.99.32773
+     18 208.68.234.99.32774
+     18 208.68.234.99.32775
+     18 208.68.234.99.32776
+
+
+```
+
+We can see that 172.16.40.10 was the most common destination address followed by
+208.68.234.99. Given that 172.16.40.10 was contacted on a low destination port (81) and
+208.68.234.99 was contacted on high destination ports, we can rightly assume that the former is a
+server and the latter is a client.
+
+In order to filter from the command line, we will use the source host (src host) and destination
+host (dst host) filters to output only source and destination traffic respectively. We can also filter
+by port number (-n port 81) to show both source and destination traffic against port 81. Let’s try
+those filters now
+
+tcpdump -n src 172.16.40.10 -r password_cracking_filtered.pcap | head 
+
+```
+tcpdump -n src 172.16.40.10 -r password_cracking_filtered.pcap | head 
+tcpdump -n dst 172.16.40.10 -r password_cracking_filtered.pcap | head 
+
+tcpdump -n port 81 -r password_cracking_filtered.pcap | head 
+```
+
+HEx and ascii mode
+
+```
+sudo tcpdump -nX -r password_cracking_filtered.pcap
+$ sudo tcpdump -nX -r password_cracking_filtered.pcap | head
+reading from file password_cracking_filtered.pcap, link-type EN10MB (Ethernet), snapshot length 65535
+08:51:20.800917 IP 208.68.234.99.60509 > 172.16.40.10.81: Flags [S], seq 1855084074, win 14600, options [mss 1460,sackOK,TS val 25538253 ecr 0,nop,wscale 7], length 0
+	0x0000:  4500 003c f8e7 4000 3906 ba11 d044 ea63  E..<..@.9....D.c
+	0x0010:  ac10 280a ec5d 0051 6e92 562a 0000 0000  ..(..].Qn.V*....
+	0x0020:  a002 3908 1e77 0000 0204 05b4 0402 080a  ..9..w..........
+	0x0030:  0185 aecd 0000 0000 0103 0307            ............
+08:51:20.800953 IP 172.16.40.10.81 > 208.68.234.99.60509: Flags [S.], seq 4166855389, ack 1855084075, win 14480, options [mss 1460,sackOK,TS val 71430591 ecr 25538253,nop,wscale 4], length 0
+	0x0000:  4500 003c 0000 4000 4006 abf9 ac10 280a  E..<..@.@.....(.
+	0x0010:  d044 ea63 0051 ec5d f85d 2add 6e92 562b  .D.c.Q.].]*.n.V+
+	0x0020:  a012 3890 8ef1 0000 0204 05b4 0402 080a  ..8.............
+	0x0030:  0441 f1bf 0185 aecd 0103 0304            .A..........
+tcpdump: Unable to write output: Broken pipe
+
+```
+At this point, to better inspect the requests and responses in the dump, we would like to filter out
+and display only the data packets. To do this, we will look for packets that have the PSH and ACK
+flags turned on. All packets sent and received after the initial 3-way handshake will have the ACK
+flag set. The PSH flag109 is used to enforce immediate delivery of a packet and is commonly used
+in interactive Application Layer protocols to avoid buffering.
+The following diagram depicts the TCP header and shows that the TCP flags are defined starting
+from the 14th byte.
+
+Looking at Figure 16, we can see that ACK and PSH are represented by the fourth and fifth bits of
+the 14th byte, respectively:
+
+24
+`echo "$((2#00011000))"`
+
+We can pass this number to tcpdump with ‘tcp[13] = 24’ as a display filter to indicate that we
+only want to see packets with the ACK and PSH bits set (“data packets”) as represented by the
+fourth and fifth bits (24) of the 14th byte of the TCP header. Bear in mind, the tcpdump array index
+used for counting the bytes starts at zero, so the syntax should be (tcp[13]).
+The combination of these two flags will hopefully show us only the HTTP requests and responses
+data. Here’s the command we’ll use to display packets that have the ACK or PSH flags set:
+
+` sudo tcpdump -A -n 'tcp[13] = 24' -r password_cracking_filtered.pcap`
+
+### 4.5.3.1 Exercises
+1. Use tcpdump to recreate the Wireshark exercise of capturing traffic on port 110.
+
+`tcpdump -i eth0`
+
+![](live_tcpdump.png)
+
+2. Use the -X flag to view the content of the packet. If data is truncated, investigate how the -s
+flag might help.
+
+![](x_flag.png)
+
+3. Find all ‘SYN’, ‘ACK’, and ‘RST’ packets in the password_cracking_filtered.pcap file.
+
+okAY
+4. An alternative syntax is available in tcpdump where you can use a more user-friendly filter to
+display only ACK and PSH packets. Explore this syntax in the tcpdump manual by searching
+for “tcpflags”. Come up with an equivalent display filter using this syntax to filter ACK and
+PSH packets
+
+```
+man tcpdump | grep tcpflags                                      ✔  57s 
+              tcpdump 'tcp[tcpflags] & (tcp-syn|tcp-fin) != 0 and not src and dst net localnet'
+              tcpdump 'tcp[tcpflags] & (tcp-rst|tcp-ack) == (tcp-rst|tcp-ack)'
+              src > dst: Flags [tcpflags], seq data-seqno, ack ackno, win window, urg urgent, options [opts], length len
+       numeric values. For example tcp[13] may be replaced with tcp[tcpflags].
+                   tcpdump -i xl0 'tcp[tcpflags] & tcp-push != 0'
+```
 
