@@ -114,3 +114,104 @@ Or executes only if previous command failed.
 user=ddd
 grep $user /etc/passwd || echo "$user not found"
 ```
+
+For loop
+
+```
+for ip in $(seq 1 10)
+do echo "The ip is $ip"
+done
+```
+
+while loop
+
+```
+#!/bin/bash
+counter=1
+
+while [ $counter -lt 10 ]
+do
+    echo "10.10.11.$counter"
+    ((counter=counter+1))
+done
+```
+
+functions 
+
+There are two ways to decalre functions in c
+
+`print_me () {}`
+
+`function print_me {}`
+
+calling and passing an argument in function
+
+```
+#!/bin/bash
+
+pass_arg () {
+    echo "the argument passed is $1"
+}
+
+pass_arg $RANDOM
+
+```
+
+
+return value is stored in $?
+
+```
+#!/bin/bash
+
+pass_args () {
+    counter=20
+    echo "gonna return $counter"
+    return $counter
+}
+
+echo "calling passs_args()"
+
+pass_args
+
+echo "the value returned is $?"
+```
+
+Remeber while doing this with random values
+
+```
+/home/ash/codeplay/oscp/oscp_notes/chapter5 on  master! ⌚ 21:37:01
+$ ./fun_return.sh
+calling passs_args()
+gonna return 9213
+the value returned is 253
+
+```
+
+Local and global scope
+
+```
+#!/bin/bash
+
+name1="Jon"
+name2="Bismillah"
+
+name_change () {
+    local name1="Edward"
+    echo "inside the function name1 is $name1 and name2 is $name2"
+    name2="Lucas"
+}
+
+echo "before function call name1 is $name1 and name2 is $name2"
+
+name_change 
+
+echo "after function call name1 is $name1 and name2 is $name2"
+```
+
+```
+$ ./var_scope.sh
+before function call name1 is Jon and name2 is Bismillah
+inside the function name1 is Edward and name2 is Bismillah
+after function call name1 is Jon and name2 is Lucas
+
+```
