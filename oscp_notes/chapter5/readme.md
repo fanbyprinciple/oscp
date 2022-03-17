@@ -215,3 +215,28 @@ inside the function name1 is Edward and name2 is Bismillah
 after function call name1 is Jon and name2 is Lucas
 
 ```
+
+## subdomain finder
+
+trying to create a subdomain finder but cannot acces inidiual elements of array
+
+```
+#!/bin/bash
+
+a=("ls" "dir" "ls -al" "!!")
+b=(${a[2]})
+echo ${b[1]}
+```
+
+This prints -al 
+
+This prints individual elements
+
+```
+#!/bin/bash
+
+foo=string
+for (( i=0; i<${#foo}; i++ )); do
+  echo "${foo:$i:1}"
+done
+```

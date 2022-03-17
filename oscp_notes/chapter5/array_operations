@@ -1,0 +1,5 @@
+#!/bin/bash
+
+a=("ls" "dir" "ls -al" "!!")
+b=(${a[2]})
+echo ${b[1]}
