@@ -15,10 +15,11 @@ do
     echo $len
     last_char=${target:$len:1}
 
-    if [ last_char -q '.' ]
-    then
-        echo $target.com
-    else
-        echo $target
-    fi
+    echo $targetcom
+    # if [ last_char -q '.' ]
+    # then
+    #     echo $target.com
+    # else
+    #     echo $target
+    # fi
 done
