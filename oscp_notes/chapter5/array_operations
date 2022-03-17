@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# accessing a 2d array
 a=("ls" "dir" "ls -al" "!!")
 b=(${a[2]})
 echo ${b[1]}

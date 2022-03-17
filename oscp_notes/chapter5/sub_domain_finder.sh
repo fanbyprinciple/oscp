@@ -11,6 +11,14 @@ targets=$(grep http index.html | grep -v "www\.alibaba\.com" | awk -F "http" '{p
 for target in $targets
 do
     #echo ${target[-1]}
-    a=($target)
-    echo ${a[0]}
+    len=${#target}-1
+    echo $len
+    last_char=${target:$len:1}
+
+    if [ last_char -q '.' ]
+    then
+        echo $target.com
+    else
+        echo $target
+    fi
 done
