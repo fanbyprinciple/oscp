@@ -1,11 +1,12 @@
 # trying to use winapi
 
 https://docs.microsoft.com/en-us/windows/win32/learnwin32/your-first-windows-program
-not running in dev cpp
+
+failed : not running in dev cpp
 
 ### new.cpp
 
-new.cpp creates a window
+new.cpp creates a window, this works.
 
 ![](new.png)
 
@@ -15,13 +16,23 @@ Microsoft Windows services, formerly known as NT services, enable you to create 
 
 https://www.c-sharpcorner.com/article/create-windows-services-in-c-sharp/
 
+failed : This also did not go according to plan.
+
 ## Creating a MFC appliCATION
 
 Starting initial application:
 
 ![](./mfc/mfc_simple.png)
 
-It didnt work was too complicated.
+failed : It didnt work was too complicated. Did not work.
+
+## working with SDL and C++
+
+https://lazyfoo.net/tutorials/SDL/
+
+
+
+
 
 
 
