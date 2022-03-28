@@ -104,3 +104,50 @@ https://www.linode.com/docs/guides/control-network-traffic-with-iptables/
 
 COMMIT
 ```
+
+This enables us to restrict the routes followed however in order to actually route the packet we need to use policy based routing in linux
+
+This policy based routing is defined in the `ip rule list`
+
+```
+root@ubuntu:/home/bison# echo 200 custom >> /etc/iproute2/rt_tables
+root@ubuntu:/home/bison# cat /etc/iproute2/rt_tables
+
+# reserved values
+#
+255	local
+254	main
+253	default
+0	unspec
+#
+# local
+#
+#1	inr.ruhep
+200 custom
+```
+## creating load balancers
+
+https://scalingo.com/blog/iptables
+
+DNAT 
+SNAT
+NAT
+
+
+if put a DROP rule in forward the only way possible to reach internal network is through SSH tunneling
+
+
+## SSH port forwarding 
+
+local port forwarding
+
+ssh -L local_ip:locla_port:remote_ip:remote_port -N -f ssh_target
+
+so when accessing the local_port it goes to the ssh_target and then connects to the remote port of remote ip, which then comes back to the local port
+
+check on related,established field. whenever you modify the firewall rules
+
+best tool-
+https://linuxize.com/post/how-to-setup-ssh-tunneling/
+
+
