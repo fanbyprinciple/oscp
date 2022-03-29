@@ -30,6 +30,9 @@ failed : It didnt work was too complicated. Did not work.
 
 https://lazyfoo.net/tutorials/SDL/
 
+Able to compile sdl
+
+![](sdl_tut.png)
 
 
 
