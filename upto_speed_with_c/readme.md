@@ -65,6 +65,18 @@ Was able to load the image.
 
 ![](sdl.gif)
 
+# Persisting with svchost.exe with a service dll servicemain
 
+Create a service EvilSvc.dll DLL (the DLL that will be loaded into an svchost.exe) with the code we want executed on each system reboot
+Create a new service EvilSvc with binPath= svchost.exe
+Add the ServiceDll value to EvilSvc service and point it to the service DLL compiled in step 1
+Modify HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Svchost to specify under which group your service should be loaded into
+Start EvilSvc service
+The EvilSvc is started and its service DLL EvilSvc.dll is loaded into an svchost.exe
+
+https://www.ired.team/offensive-security/persistence/persisting-in-svchost.exe-with-a-service-dll-servicemain
+
+![](./service_dll_for_svchost/servicedll.png)
  
+
 
