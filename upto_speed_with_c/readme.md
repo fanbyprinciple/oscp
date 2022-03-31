@@ -107,7 +107,7 @@ C:\Windows\system32>sc.exe create EvilSvc binPath= "c:\windows\System32\svchost.
 status : done
 
 ```
-C:\Windows\system32>reg add HKLM\SYSTEM\CurrentControlSet\services\EvilSvc\Parameters /v ServiceDll /t REG_EXPAND_SZ /d "D:\VS Studio projects\svchost_dll\Debug\svchostdll.dll" /f
+C:\Windows\system32>reg add HKLM\SYSTEM\CurrentControlSet\services\EvilSvc\Parameters /v ServiceDll /t REG_EXPAND_SZ /d "C:\Users\HP\source\repos\svchost_dll\Debug\svchost_dll.dll" /f
 The operation completed successfully.
 
 ```
@@ -130,3 +130,6 @@ status : added
 status : Didnot registre as service with antivirus enabled
 
 ![](service_dll_for_svchost/evilsvc_not_found.png)
+
+We can create a dll and find what is not working.
+
