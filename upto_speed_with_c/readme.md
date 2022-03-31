@@ -133,3 +133,9 @@ status : Didnot registre as service with antivirus enabled
 
 We can create a dll and find what is not working.
 
+creating a benign dll that creates a file.
+
+![](service_dll_for_svchost/benign_dll.png)
+
+
+
