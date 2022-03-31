@@ -76,7 +76,10 @@ The EvilSvc is started and its service DLL EvilSvc.dll is loaded into an svchost
 
 https://www.ired.team/offensive-security/persistence/persisting-in-svchost.exe-with-a-service-dll-servicemain
 
+failed:
 ![](./service_dll_for_svchost/servicedll.png)
  
+More thoughts - go at the root
 
+https://docs.microsoft.com/en-us/windows/win32/services/writing-a-servicemain-function
 
