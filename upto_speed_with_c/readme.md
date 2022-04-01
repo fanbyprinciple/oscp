@@ -131,11 +131,31 @@ status : Didnot registre as service with antivirus enabled
 
 ![](service_dll_for_svchost/evilsvc_not_found.png)
 
+TO find service : `sc queryex type=service state=all | find /i "SERVICE_NAME:"`
+
+```
+C:\Windows\system32>sc queryex type=service state=all | find /i "EvilSvc"
+
+```
 We can create a dll and find what is not working.
 
 creating a benign dll that creates a file.
 
 ![](service_dll_for_svchost/benign_dll.png)
 
+## creating a dll with message box
+
+![](servie_dll_for_svchost/message_box_dll.png)
+
+running with rundll.
+
+Problems with dll,
+
+1. cannot call dll directly (dllmain), needs to interface with one function
+2. once i add servicemain to the function why am I not able to call the service with svchost. Can I instead of interfacing with svchost call it directly as creating a service? (need to create an appropriate exe first). 
+3. plan of action 
+    a. create a dll, a service dll and an exe all with the same code but differences
+    b. try loading the exe as a service see if it works
+    c. try running the service dll to see if it works with svchost
 
 

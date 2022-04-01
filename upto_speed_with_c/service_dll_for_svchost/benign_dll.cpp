@@ -3,15 +3,21 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <fstream>
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 using namespace std;
 
-extern "C" __declspec(dllexport) void new_function(std::string name) {
+extern "C" __declspec(dllexport) void new_function() {
     fstream file;
-
+    std::string name;
+    srand(time(0));
     // opening file "Gfg.txt"
     // in out(write) mode
     // ios::out Open for output operations.
-    file.open(name , ios::out);
+    //name =  rand() + "gfg.txt";
+    
+    file.open("gfg.txt", ios::out);
 
     // If no file is created, then
     // show the error message.
@@ -37,6 +43,8 @@ BOOL APIENTRY DllMain( HMODULE hModule,
                        LPVOID lpReserved
                      )
 {
+    
+    new_function();
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
