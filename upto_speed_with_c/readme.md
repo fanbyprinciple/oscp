@@ -129,3 +129,10 @@ status : added
 status : Didnot registre as service with antivirus enabled
 
 ![](service_dll_for_svchost/evilsvc_not_found.png)
+
+TO find service : `sc queryex type=service state=all | find /i "SERVICE_NAME:"`
+
+```
+C:\Windows\system32>sc queryex type=service state=all | find /i "EvilSvc"
+
+```
