@@ -158,4 +158,31 @@ Problems with dll,
     b. try loading the exe as a service see if it works
     c. try running the service dll to see if it works with svchost
 
+C:\Users\HP\source\repos\justdll\Debug\justdll.dll
+
+using  created dll
+
+https://docs.microsoft.com/en-us/cpp/build/linking-an-executable-to-a-dll?view=msvc-170
+
+
+able to create justdll and load it with a client app
+
+![](just_dll_loaded.png)
+
+Able to load from dll from just service main. Also used servicemain in the dll. 
+to do - create a service out of the dll.
+
+![](./service_dll_for_svchost/just_dll_dllmain.png)
+
+Creating a hello world
+
+![](./service_dll_for_svchost/justdll_helloworld.png)
+
+Cannot load the service with EvilSvc
+
+![](./service_dll_for_svchost/EvilSvc_not_starting.png)
+
+The problem with error 193:
+
+https://bobcares.com/blog/error-193-0xc1-service-fails-to-start/
 
