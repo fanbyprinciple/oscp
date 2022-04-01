@@ -76,6 +76,7 @@ The EvilSvc is started and its service DLL EvilSvc.dll is loaded into an svchost
 
 https://www.ired.team/offensive-security/persistence/persisting-in-svchost.exe-with-a-service-dll-servicemain
 
+failed:
 ![](./service_dll_for_svchost/servicedll.png)
  
 Theory on svchost :  https://www.geoffchappell.com/studies/windows/win32/services/svchost/index.htm?tx=21%2C22
@@ -106,7 +107,7 @@ C:\Windows\system32>sc.exe create EvilSvc binPath= "c:\windows\System32\svchost.
 status : done
 
 ```
-C:\Windows\system32>reg add HKLM\SYSTEM\CurrentControlSet\services\EvilSvc\Parameters /v ServiceDll /t REG_EXPAND_SZ /d "D:\VS Studio projects\svchost_dll\Debug\svchostdll.dll" /f
+C:\Windows\system32>reg add HKLM\SYSTEM\CurrentControlSet\services\EvilSvc\Parameters /v ServiceDll /t REG_EXPAND_SZ /d "C:\Users\HP\source\repos\svchost_dll\Debug\svchost_dll.dll" /f
 The operation completed successfully.
 
 ```
@@ -136,3 +137,5 @@ TO find service : `sc queryex type=service state=all | find /i "SERVICE_NAME:"`
 C:\Windows\system32>sc queryex type=service state=all | find /i "EvilSvc"
 
 ```
+We can create a dll and find what is not working.
+
