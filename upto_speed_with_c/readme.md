@@ -186,3 +186,12 @@ The problem with error 193:
 
 https://bobcares.com/blog/error-193-0xc1-service-fails-to-start/
 
+checking wether the problem is with svcname in the dll.
+
+tried - ut ddl in windows system32, renamed it to hellosvc still no luck.
+
+lets create a new HelloSvc that can work.
+
+its is still showing 0xc1 error.
+
+
