@@ -194,4 +194,48 @@ lets create a new HelloSvc that can work.
 
 its is still showing 0xc1 error.
 
+Can it be because the operation we are performing is more than what the dcomlauncher user is using.
+
+# Registry persistence
+
+https://blogs.blackberry.com/en/2013/08/windows-registry-persistence-part-1-introduction-attack-phases-and-windows-services
+
+![](registry_persistence/autorun_check.png)
+
+# Running a service dll from didier blog
+
+https://blog.didierstevens.com/2019/10/29/quickpost-running-a-service-dll/
+
+
+Creating a service dll is a success!
+
+What worked this time- 
+
+- created a group called my group.
+
+- Replace SystemRoot with your C:\Windows 
+
+- ensure that you are compiling for windows x64
+
+- always put your dll in C:\Windows\System32\
+
+![](./running_a_service_dll/screen.png)
+
+- to kill an unkillable process find the process Id with `sc queryex servicename`
+
+- Use taskkill /f /pid <PROCESS ID> to kill the process.
+
+`copy HelloSvc.dll C:\Windows\System32\SvcHostDemo.dll`
+
+![](./running_a_service_dll/procexp.png)
+
+`SvcHostDemo.cpp` works.
+
+![](SvcHostDemo_file.png)
+
+
+
+
+
+
 
