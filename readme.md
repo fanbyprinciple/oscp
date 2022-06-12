@@ -106,7 +106,7 @@ https://www.abatchy.com/2017/02/oscp-like-vulnhub-vms
 
 
 # htb
-
+trying to do starting point
 
 # exploit development
 
