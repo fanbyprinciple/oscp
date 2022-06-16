@@ -5,7 +5,12 @@ lame
 
 # challenges done
 
-osint - first 4
+osint - 
+    Monstrosity
+    Easy phish
+    Infiltration
+    Missing in action
+    
 reversing - 
     behind the scenes
-    partially encrypted
+    bypass
