@@ -14,3 +14,11 @@ osint -
 reversing - 
     behind the scenes
     bypass
+
+web -
+    phonebook 
+    blinker fluids
+    templated htb
+
+misc -
+    canvas

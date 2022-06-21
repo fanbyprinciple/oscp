@@ -62,3 +62,16 @@ The page '<Config {'ENV': 'production', 'DEBUG': False, 'TESTING': False, 'PROPA
 # phonebook
 
 after doing passwird bruteforcing it worked.
+
+# gunship
+
+while looking at the code I could see the line 
+
+`pug.compile('span Hello #{user}, thank you for letting us know!')({ user: 'guest' })`
+
+maybe if instead of 'guest we can put something else?
+
+AST injection was the original hint in one of the comments in the machine
+
+looking at AST injection
+
