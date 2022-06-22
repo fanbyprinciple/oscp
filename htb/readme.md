@@ -2,6 +2,7 @@
 
 paper
 lame
+cap
 
 # challenges done
 
