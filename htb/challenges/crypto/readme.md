@@ -1,6 +1,5 @@
 # Babyencryption
 
-
 ```
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -148,7 +147,6 @@ print(m)
 
 flag = n2s(m)
 print(flag)
-
 
 ```
 

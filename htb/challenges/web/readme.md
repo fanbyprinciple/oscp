@@ -75,3 +75,9 @@ AST injection was the original hint in one of the comments in the machine
 
 looking at AST injection
 
+# sanitize
+
+sql injection in 
+HTB{SQL_1nj3ct1ng_my_w4y_0utta_h3r3}
+
+# 
