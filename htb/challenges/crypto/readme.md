@@ -149,4 +149,57 @@ flag = n2s(m)
 print(flag)
 
 ```
+# Nuclear Sale
 
+``
+220 hacktopia Python SMTP proxy version 0.3
+ehlo [127.0.1.1]
+250-hacktopia
+250-8BITMIME
+250 HELP
+mail FROM:<management@plutonium.lab>
+250 OK
+rcpt TO:<sales@plutonium.lab>
+250 OK
+data
+354 End data with <CR><LF>.<CR><LF>
+From: Management Department <management@plutonium.lab>
+To: Sales Department <sales@plutonium.lab>
+Subject: RE:Potential Buyer - Are we sure we can deliver?
+
+We are very XORry but the management does not approve such a sale. It may damage our business.
+Who is the buyer?
+
+Best Regards,
+Management
+.
+250 OK
+`
+``
+```
+220 hacktopia Python SMTP proxy version 0.3
+ehlo 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+250-hacktopia
+250-8BITMIME
+250 HELP
+mail FROM:<sales@plutonium.lab>
+250 OK
+rcpt TO:<management@plutonium.lab>
+250 OK
+data
+354 End data with <CR><LF>.<CR><LF>
+From: Sales Department <sales@plutonium.lab>
+To: Management Department <management@plutonium.lab>
+Subject: RE:Potential Buyer - Are we sure we can deliver?
+
+He is a high profile individual. His information is encrypted below:
+
+6b65813f4fe991efe2042f79988a3b2f2559d358e55f2fa373e53b1965b5bb2b175cf039
+
+You know what you have to do.
+
+Best Regards,
+Sales Dept
+.
+250 OK
+```
