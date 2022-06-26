@@ -203,3 +203,34 @@ Sales Dept
 .
 250 OK
 ```
+
+```
+220 hacktopia Python SMTP proxy version 0.3
+ehlo [127.0.1.1]
+250-hacktopia
+250-8BITMIME
+250 HELP
+mail FROM:<management@plutonium.lab>
+250 OK
+rcpt TO:<sales@plutonium.lab>
+250 OK
+data
+354 End data with <CR><LF>.<CR><LF>
+
+From: Management Department <management@plutonium.lab>
+To: Sales Department <sales@plutonium.lab>
+Subject: RE:Potential Buyer - Are we sure we can deliver?
+
+Here is the ciphertext encrypted with our key.
+
+fd034c32294bfa6ab44a28892e75c4f24d8e71b41cfb9a81a634b90e6238443a813a3d34
+
+Best Regards,
+Management
+.
+250 OK
+
+```
+
+xoring thrice with keys runs into difficulty
+https://www.youtube.com/watch?v=aAC1bJj7Tf4s
