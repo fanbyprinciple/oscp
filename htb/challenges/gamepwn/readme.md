@@ -4,3 +4,7 @@ Most unity games are developed with C# which can be de-compiled directly using d
 
 this cubemadness1 would require the use of cheat engine.
 
+solved using cheat engine
+
+HTB{CU83_M4DN355_UNM4DD3N3D}
+

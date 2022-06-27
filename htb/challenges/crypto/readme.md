@@ -1,6 +1,5 @@
 # Babyencryption
 
-
 ```
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -18,6 +17,7 @@ def decryption(msg):
         print(pt)
 ```
 
+b'Th3 nucl34r w1ll 4rr1v3 0n fr1d4y.\nHTB{l00k_47_y0u_r3v3rs1ng_3qu4710n5_c0ngr475}'
 # RLotto
 
 looking at the file we have python file and it seems we need to provide input to the progam through web. 
@@ -71,3 +71,166 @@ dont knwo how to derive key
 
 use xor function to find flag very interesting
 
+# twoforone
+
+```
+~/Downloads/TwoForOne ⌚ 14:20:14
+$ openssl rsautl -decrypt -in d_message1.bin -out decrypted_message1_key1.txt -inkey key1.pem
+unable to load Private Key
+140600317699456:error:0909006C:PEM routines:get_name:no start line:../crypto/pem/pem_lib.c:745:Expecting: ANY PRIVATE KEY
+
+```
+
+use base 64 decoding but problem is we need private key but the key provided are public.
+
+```
+'\xc5jxU\xa7,\t\x9dI\x84\x99)\x00Z\xaa\xe5+|\x8c\xbfs\xf4;\xff\xf4_\xab\xd7\xb8I\x9dI\xaa*\x95\x85\xb4\xa6:E#\xfe\xfa*A\x94\x9f%\xee>\x07\x9c\xefG\x82Vkl\x871/\xc4\x06+\x82\x94N\xf1\x15\xa8]}S\xee\x81\xaa\xea\x97\x85\x9e\xef\xdfE1\nC)\xaaY\x1d\x14k\x8d\x08\x99<\xe1(\x0c\x06\x8fHkP\xa2n\x8b\xe9\x14\x93L\xb3\xe0\xd0 \x83c\xe6\x89d\xdbw^p\x94\x9f\xa6\x00_\x9ck]yx>\xf4\x03\xecp\x0e\xa63\x05\xaaVD\x9f\xd5\xdc\xa5qh\x1f3\xc5RDz\x84\xe0\xaa\xec\xccR\xe1S\x96\x8e\x7f\xaf\xe4c\xa5\xcc\xff;XI\x8e\xd1\xf3\x88V\xd2f\x06& \xe1l\x80N\x83\xb6\xa9\xef-\x04Bxr\x85\xa4\n%A\x9c\xe9\xea\xc2\x8aW\xcb\x8f\x88\x9aQ\x7f[.\x0c\xd8\xfb\xf6=\xd9\x06\xc9\xfar,\\\xba\x16\x98\x89\xa1~\xe3\x86\x9b\x13\xcc\x9d\xba:\x15\x80\xffbJ\xae\xdd\x87\x96\x10'
+```
+
+not geting correct answer
+
+```
+from base64 import b64decode, b64encode
+from libnum import xgcd, invmod, n2s
+
+"""
+Algo RSA
+Format X.509
+ ASN1 Dump
+RSA Public Key [a8:50:bd:91:69:2a:d6:c1:76:15:11:4a:0e:d8:62:7e:1d:28:93:8c]
+            modulus: c6acb8df486e6671d4a5564803e1c3214a8e274de0ac0043ec28c8589f377c7e8d308bc3e302850384344ba7988885620a418e6ad955578284fc04f289f126b38a01816251cef9a14fd4c249d96b69087fa91b2e1adbdc80cb96ff0ccb6129d8f6737da850c451f2ed3f6cb61c36891dc924d0ab28f26adf0ed357ce848d02ffe00912714ccf6372c1f41080e86747a0303eb5cdf6ce912f1144fd4f55743c796875a14fdff8f8b662150c56be58b09239771dc44d969079c4ad8fd993bc630b7855d2e02e8be16824dcd5ab3813231c1731110a8bd028d7a1dfab892e75294557bafc71aeaf5e48db0267a6db63d350f995068ee1cad6d32df11a49bd24ba97
+    public exponent: 10001
+"""
+
+"""
+Algo RSA
+Format X.509
+ ASN1 Dump
+RSA Public Key [ee:3d:fe:e7:ab:cd:14:a7:f4:1a:29:d3:d6:a8:8b:05:35:95:c2:23]
+            modulus: c6acb8df486e6671d4a5564803e1c3214a8e274de0ac0043ec28c8589f377c7e8d308bc3e302850384344ba7988885620a418e6ad955578284fc04f289f126b38a01816251cef9a14fd4c249d96b69087fa91b2e1adbdc80cb96ff0ccb6129d8f6737da850c451f2ed3f6cb61c36891dc924d0ab28f26adf0ed357ce848d02ffe00912714ccf6372c1f41080e86747a0303eb5cdf6ce912f1144fd4f55743c796875a14fdff8f8b662150c56be58b09239771dc44d969079c4ad8fd993bc630b7855d2e02e8be16824dcd5ab3813231c1731110a8bd028d7a1dfab892e75294557bafc71aeaf5e48db0267a6db63d350f995068ee1cad6d32df11a49bd24ba97
+    public exponent: 53cb7
+
+"""
+
+# using pem parser - https://8gwifi.org/PemParserFunctions.jsp
+
+e1 = int('10001', 16)
+e2 = int('53cb7', 16)
+N = int('c6acb8df486e6671d4a5564803e1c3214a8e274de0ac0043ec28c8589f377c7e8d308bc3e302850384344ba7988885620a418e6ad955578284fc04f289f126b38a01816251cef9a14fd4c249d96b69087fa91b2e1adbdc80cb96ff0ccb6129d8f6737da850c451f2ed3f6cb61c36891dc924d0ab28f26adf0ed357ce848d02ffe00912714ccf6372c1f41080e86747a0303eb5cdf6ce912f1144fd4f55743c796875a14fdff8f8b662150c56be58b09239771dc44d969079c4ad8fd993bc630b7855d2e02e8be16824dcd5ab3813231c1731110a8bd028d7a1dfab892e75294557bafc71aeaf5e48db0267a6db63d350f995068ee1cad6d32df11a49bd24ba97', 16)
+c1 = '[a8:50:bd:91:69:2a:d6:c1:76:15:11:4a:0e:d8:62:7e:1d:28:93:8c]'
+c2 = '[ee:3d:fe:e7:ab:cd:14:a7:f4:1a:29:d3:d6:a8:8b:05:35:95:c2:23]'
+
+c1 = int.from_bytes(b64decode(c1), 'big')
+c2 = int.from_bytes(b64decode(c2), 'big')
+
+print(c1, c2)
+
+def common_modulus(e1, e2, c1, c2, N):
+    # Extended Euclidean algorithm
+    a, b, d = xgcd(e1,e2)
+
+    # Invert negative factor
+    if b < 0:
+        c2 = invmod(c2, N)
+        b = -b
+    if a < 0:
+        c1 = invmod(c1, N)
+        a = -a
+
+    # Get the message (c1^a * c2^b) % N
+    m = (pow(c1,a,N) * pow(c2,b,N)) % N
+    return [m, a, b, d]
+
+m, _, _, _ = common_modulus(e1,e2,c1,c2,N)
+
+print(m)
+
+flag = n2s(m)
+print(flag)
+
+```
+# Nuclear Sale
+
+``
+220 hacktopia Python SMTP proxy version 0.3
+ehlo [127.0.1.1]
+250-hacktopia
+250-8BITMIME
+250 HELP
+mail FROM:<management@plutonium.lab>
+250 OK
+rcpt TO:<sales@plutonium.lab>
+250 OK
+data
+354 End data with <CR><LF>.<CR><LF>
+From: Management Department <management@plutonium.lab>
+To: Sales Department <sales@plutonium.lab>
+Subject: RE:Potential Buyer - Are we sure we can deliver?
+
+We are very XORry but the management does not approve such a sale. It may damage our business.
+Who is the buyer?
+
+Best Regards,
+Management
+.
+250 OK
+`
+``
+```
+220 hacktopia Python SMTP proxy version 0.3
+ehlo 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+250-hacktopia
+250-8BITMIME
+250 HELP
+mail FROM:<sales@plutonium.lab>
+250 OK
+rcpt TO:<management@plutonium.lab>
+250 OK
+data
+354 End data with <CR><LF>.<CR><LF>
+From: Sales Department <sales@plutonium.lab>
+To: Management Department <management@plutonium.lab>
+Subject: RE:Potential Buyer - Are we sure we can deliver?
+
+He is a high profile individual. His information is encrypted below:
+
+6b65813f4fe991efe2042f79988a3b2f2559d358e55f2fa373e53b1965b5bb2b175cf039
+
+You know what you have to do.
+
+Best Regards,
+Sales Dept
+.
+250 OK
+```
+
+```
+220 hacktopia Python SMTP proxy version 0.3
+ehlo [127.0.1.1]
+250-hacktopia
+250-8BITMIME
+250 HELP
+mail FROM:<management@plutonium.lab>
+250 OK
+rcpt TO:<sales@plutonium.lab>
+250 OK
+data
+354 End data with <CR><LF>.<CR><LF>
+
+From: Management Department <management@plutonium.lab>
+To: Sales Department <sales@plutonium.lab>
+Subject: RE:Potential Buyer - Are we sure we can deliver?
+
+Here is the ciphertext encrypted with our key.
+
+fd034c32294bfa6ab44a28892e75c4f24d8e71b41cfb9a81a634b90e6238443a813a3d34
+
+Best Regards,
+Management
+.
+250 OK
+
+```
+
+xoring thrice with keys runs into difficulty
+https://www.youtube.com/watch?v=aAC1bJj7Tf4s
