@@ -23,3 +23,6 @@ web -
 
 misc -
     canvas
+
+hardware - 
+    debugging interface
