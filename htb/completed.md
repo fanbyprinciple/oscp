@@ -23,6 +23,7 @@ web -
 
 misc -
     canvas
+    misdirection
 
 mobile -
     cat
