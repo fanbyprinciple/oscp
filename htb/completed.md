@@ -23,6 +23,8 @@ web -
 
 misc -
     canvas
+    misdirection
+    eternal loop
 
 mobile -
     cat
