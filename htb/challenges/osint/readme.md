@@ -74,5 +74,18 @@ combining both
 
 HTB{RIP_SPF_Always_2nd_F1ddl3_2_DMARC}
 
-# EVIl corp LLC
+# Id exposed
 
+HTB {i_W4S_D_I_S_c_O_v_3_R_3_D}
+
+https://www.linkedin.com/pulse/hack-box-id-exposed-write-up-charles-leerink
+
+turns out you can use inspect element in google maps to find out the address.
+
+# blockchain challenge
+
+https://edanurbksn.gitbook.io/edanurbksn/writeup/htb-block-hunt3r-write-up
+
+HTB{H4v1gFuN::W1tH-th3;d0ubl3-ed}
+
+HTB{CryPt0Curr3ncy_1s_FuNz::}
