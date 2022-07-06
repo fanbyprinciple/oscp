@@ -29,4 +29,16 @@ $ ./impossible_password.bin
 [%x]
 ```
 
- 
+# Debug me
+
+you need to use something like https://github.com/x64dbg/ScyllaHide
+
+this is anti anti debugging
+
+# Hackybird
+
+https://shakuganz.com/2021/06/27/hackthebox-hackybird-write-up/
+
+it gets detected as a virus
+
+# 
