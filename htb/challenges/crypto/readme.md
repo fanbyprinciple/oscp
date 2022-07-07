@@ -60,6 +60,96 @@ Good Job!
 HTB{f4k3_fl4g_f0r_t3st1ng}
 ```
 
+it was about random seeds
+
+```
+~ ⌚ 5:38:14
+$ telnet 46.101.47.107 30304
+Trying 46.101.47.107...
+Connected to 46.101.47.107.
+Escape character is '^]'.
+__/\____/\____/\____/\____/\____/\____/\____/\__
+\    /\    /\    /\    /\    /\    /\    /\    /
+/_  _\/_  _\/_  _\/_  _\/_  _\/_  _\/_  _\/_  _\
+  \/    \/    \/    \/    \/    \/    \/    \/  
+   __       _   _       ____   ___ ____   ___   
+  / /  ___ | |_| |_ ___|___ \ / _ \___ \ / _ \  
+ / /  / _ \| __| __/ _ \ __) | | | |__) | | | | 
+/ /__| (_) | |_| || (_) / __/| |_| / __/| |_| | 
+\____/\___/ \__|\__\___/_____|\___/_____|\___/  
+                                                
+__/\____/\____/\____/\____/\____/\____/\____/\__
+\    /\    /\    /\    /\    /\    /\    /\    /
+/_  _\/_  _\/_  _\/_  _\/_  _\/_  _\/_  _\/_  _\
+  \/    \/    \/    \/    \/    \/    \/    \/  
+------------------------------------------------
+1    2    3    4    5    6    7    8    9    10
+11   12   13   14   15   16   17   18   19   20
+21   22   23   24   25   26   27   28   29   30
+31   32   33   34   35   36   37   38   39   40
+41   42   43   44   45   46   47   48   49   50
+51   52   53   54   55   56   57   58   59   60
+61   62   63   64   65   66   67   68   69   70
+71   72   73   74   75   76   77   78   79   80
+81   82   83   84   85   86   87   88   89   90
+------------------------------------------------
+[+] EXTRACTION: 69 19 75 46 63 
+[?] Guess the next extraction!!!
+[?] Put here the next 5 numbers: 14 49 10 84 86
+Good Job!
+HTB{n3v3r_u53_pr3d1c74bl3_533d5_1n_p53ud0-r4nd0m_numb3r_63n3r470r}
+Connection closed by foreign host.
+
+```
+
+program used : https://gist.github.com/fanbyprinciple/30acd6b1d28a5e40becea4be82e4c699
+
+```
+# from https://medium.com/@wiiz4rd/hackthebox-rlotto-challenge-68f4b01006ba
+# connect to rlotto using nc or telnet
+# get the first sequence of numbers 
+# input into this program
+
+import time
+import random
+
+seed = int(input("Enter the timestamp (enter 0 if not aware) :"))
+
+if seed == 0:
+    seed = int(time.time()) - 2_500_500 #2_500_500 10 sec
+if seed == 1:
+    seed = int(time.time()) - 15_000_000
+
+winning_numbers = list(int(x) for x in input("Enter extracted numbers from the rlotto program: ").split(" "))
+
+print("starred seed: ", seed)
+
+while True:
+    random.seed(seed)
+    extracted = []
+    for item in winning_numbers:
+        r = random.randint(1,90)
+        if item != r:
+            seed +=1 
+            break
+        else:
+            extracted.append(r)
+    if len(extracted) == 5:
+        break
+
+print("Found seed: ", seed)
+
+solution = ""
+next_five = []
+
+while(len(next_five)<5):
+    r = random.randint(1,90)
+    if (r not in next_five):
+        next_five.append(r)
+        solution += str(r) + " "
+solution = solution.strip()
+print("\nsolution: " , solution)
+```
 # how the columns have turned 
 
 we need to use inverse of function 
