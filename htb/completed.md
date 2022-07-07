@@ -3,6 +3,7 @@
 paper
 lame
 cap
+return
 
 # challenges done
 
@@ -31,6 +32,8 @@ mobile -
 
 Hardware -
     Debugging interface
+    the needle
 
 crypto - 
     rlotto
+    
