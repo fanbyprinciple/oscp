@@ -150,4 +150,12 @@ check on related,established field. whenever you modify the firewall rules
 best tool-
 https://linuxize.com/post/how-to-setup-ssh-tunneling/
 
+to do remote port forwarding, 
+
+ssh -R remote_port:local_ip:local_port user@remoteip
+
+while doing it remember to change a line in ssh_config
+
+listeningserver 0.0.0.0
+gateway port yes
 
