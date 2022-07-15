@@ -357,4 +357,8 @@ HTB{P0i5on_1n_Cyb3r_W4rF4R3?!}
 
 
 
+# petpetrcbee challenge
 
+```
+https://shakuganz.com/2021/06/11/hackthebox-petpet-rcbee-write-up/
+```

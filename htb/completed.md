@@ -4,6 +4,7 @@ paper
 lame
 cap
 return
+timelapse
 
 # challenges done
 
