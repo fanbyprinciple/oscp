@@ -233,3 +233,26 @@ Traceback (most recent call last):
 ValueError: invalid literal for int() with base 10: '90B9C695F498DE92A39F8B59C09B17763DEDE9C30099D7F357520CDEF566096C7C0E6FEE242DFD9EAED81565556FFBFE7A63E2FB3CF0010D918AEDA2AAE0F6940C876F67FCC1610369CB2999EA4C60D7BAE752380E0BB21EDA2591AE5C0AB5D7E800A92
                                  
 ```
+
+# lost modulus
+
+```python
+# ead challenge.py, for RSA encryption and decryption related code, get e=3 from the code, a typical low encryption index (e) decomposition attack, it is likely that m 3 is smaller than n, that is, m 3 =c, then pass gmpy2.iroot (c,3) solve
+# ————————————————
+# 版权声明：本文为CSDN博主「galaxy3000」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+# 原文链接：https://blog.csdn.net/galaxy3000/article/details/122265747
+
+# also refer to weak RSA htb
+# https://blog.csdn.net/galaxy3000/article/details/122265747
+
+c = 0x05c61636499a82088bf4388203a93e67bf046f8c49f62857681ec9aaaa40b4772933e0abc83e938c84ff8e67e5ad85bd6eca167585b0cc03eb1333b1b1462d9d7c25f44e53bcb568f0f05219c0147f7dc3cbad45dec2f34f03bcadcbba866dd0c566035c8122d68255ada7d18954ad604965
+
+import gmpy2
+
+print(gmpy2.iroot(c,3))
+
+from Crypto.Util.number import long_to_bytes
+
+print(long_to_bytes(gmpy2.iroot(c,3)[0]))
+
+```
