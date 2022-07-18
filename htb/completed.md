@@ -4,6 +4,7 @@ paper
 lame
 cap
 return
+timelapse
 
 # challenges done
 
@@ -33,3 +34,7 @@ mobile -
 Hardware -
     Debugging interface
     the needle
+
+crypto - 
+    rlotto
+    

