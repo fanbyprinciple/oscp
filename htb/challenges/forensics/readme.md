@@ -143,6 +143,11 @@ https://ctftime.org/writeup/33938
 
 https://ctftime.org/writeup/33938
 
+using regshell
 
+we looked at software/microsoft/windows/currentversion/run
 
+a file was scheduled to run
+
+putting the name in cyberchef we got the answer/.
 

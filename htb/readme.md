@@ -1,13 +1,16 @@
-# sql injection queries
-https://www.invicti.com/blog/web-security/sql-injection-cheat-sheet/
-for login pages
+# Machines done
 
-admin' --
-admin' #
-admin'/*
-' or 1=1--
-' or 1=1#
-' or 1=1/*
-') or '1'='1--
-') or ('1'='1--
+paper
+lame
 
+# challenges done
+
+osint - 
+    Monstrosity
+    Easy phish
+    Infiltration
+    Missing in action
+    
+reversing - 
+    behind the scenes
+    bypass
