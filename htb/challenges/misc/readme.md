@@ -299,3 +299,9 @@ https://www.dcode.fr/mary-stuart-code
 
 we can decode
 
+# fs0ciety
+
+using fzip crack find password justdoit
+then get the text convert to binary then to ascii
+
+HTB{if_y0u_c@n_$m3ll_wh@t_th3_r0ck_is_c00king}
