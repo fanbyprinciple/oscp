@@ -256,3 +256,12 @@ from Crypto.Util.number import long_to_bytes
 print(long_to_bytes(gmpy2.iroot(c,3)[0]))
 
 ```
+
+# Old is g0ld
+
+HTB{R1PSAMU3LM0RS3}
+
+# weak RSA
+
+RSACtftool
+
