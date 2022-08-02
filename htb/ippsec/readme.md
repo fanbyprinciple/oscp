@@ -24,8 +24,25 @@ sql map
 upload file  opyion
 
 using linpea
-
-
 msql dump complex suid in sysinfo
+
+# optimum
+
+uses an http 2.3 exploit 
+
+we can view cached website from google itself
+
+he used burpsuit to add null character and used nishang for a reverse shell
+
+for priv es
+
+looked at systeminfo
+
+sherlock.ps1 - from empire
+
+exploit suggester
+
+
+
 
 
