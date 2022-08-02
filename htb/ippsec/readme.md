@@ -42,6 +42,24 @@ sherlock.ps1 - from empire
 
 exploit suggester
 
+# legacy
+
+nmap scanning
+
+nmap -sS -sV -A -p- -oN 10.129.227.181
+
+https://medium.com/@simonsulyma/hack-the-box-legacy-penetration-testing-with-metasploit-ad6016757504
+
+for smb cve
+
+ nmap — script smb-vuln* -p 137,139,445 10.10.10.4
+
+ we need kali machine for this.
+
+ 
+
+
+
 
 
 
