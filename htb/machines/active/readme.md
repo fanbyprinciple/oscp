@@ -210,8 +210,6 @@ Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
 
 C:\Windows\system32> cd /
 
-
-
 C:\Users\Administrator\Desktop> type root.txt
 b5188a49a2578c8517ed684d35aa26c8
 
