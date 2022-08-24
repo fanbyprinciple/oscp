@@ -169,4 +169,5 @@ smb: \>
 ```
 
 maybe we have to do something about the various dlls
+can we reverse engineer the exe
 
