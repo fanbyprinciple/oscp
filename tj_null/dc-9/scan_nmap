@@ -1,0 +1,34 @@
+# Nmap 7.92 scan initiated Sun Jan  8 00:19:42 2023 as: nmap -sV -sC -p- -O -T4 -oN ./pen300/tj_null/dc-9/scan_nmap 192.168.203.136
+Nmap scan report for 192.168.203.136
+Host is up (0.0040s latency).
+Not shown: 65529 filtered tcp ports (no-response)
+PORT     STATE SERVICE       VERSION
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds?
+5040/tcp open  unknown
+5357/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Service Unavailable
+7680/tcp open  pando-pub?
+MAC Address: 00:0C:29:4C:72:8B (VMware)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows XP|7|2008 (89%)
+OS CPE: cpe:/o:microsoft:windows_xp::sp3 cpe:/o:microsoft:windows_7 cpe:/o:microsoft:windows_server_2008::sp1 cpe:/o:microsoft:windows_server_2008:r2
+Aggressive OS guesses: Microsoft Windows XP SP3 (89%), Microsoft Windows XP SP2 (87%), Microsoft Windows 7 (85%), Microsoft Windows Server 2008 SP1 or Windows Server 2008 R2 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-time: 
+|   date: 2023-01-08T05:23:58
+|_  start_date: N/A
+|_nbstat: NetBIOS name: DESKTOP-ATB3U19, NetBIOS user: <unknown>, NetBIOS MAC: 00:0c:29:4c:72:8b (VMware)
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled but not required
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Jan  8 00:24:39 2023 -- 1 IP address (1 host up) scanned in 297.15 seconds
