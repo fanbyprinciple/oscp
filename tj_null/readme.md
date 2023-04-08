@@ -10,6 +10,7 @@ https://www.netsecfocus.com/oscp/2021/05/06/The_Journey_to_Try_Harder-_TJnull-s_
 
 Bashed - not done 
 Bastard - not done drupal
+Beep - issue with the ssh
 Blue - not eodne eternal blue somtime up
 dc-9 - not done vulnhub setup ?
 Devel - not done ftp
