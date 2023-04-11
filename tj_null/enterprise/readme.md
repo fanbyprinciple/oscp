@@ -42,4 +42,6 @@ WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
    
 ![](20230411070651.png)
 
+The server is very unstable actually
 
+based on limited walkthorugh i have seen its  about brute forcing some or the other directory ot get admin access but not able  to brute force because of website unstability.
