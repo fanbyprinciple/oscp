@@ -90,6 +90,7 @@ can we add something in the name itself to make it execute?
 
 ![](20230723101916.png)
 
+### imagemagick vulnerability
 
 IMageMagick library has an arbitrary file read vulnerability
 
@@ -119,5 +120,6 @@ this works
 
 so we have arbitrary file read
 
+I have created a repo at https://github.com/fanbyprinciple/ImageMagick-lfi-poc 
 
-
+### lets try and get the user flag
