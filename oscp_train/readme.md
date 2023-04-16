@@ -46,33 +46,61 @@ Resources:
 https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/NoSQL%20Injection
 https://github.com/erev0s/VAmPI
 https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap
+https://www.hackingarticles.in/active-directory-enumeration-rpcclient/
+
+https://github.com/igniterealtime/Spark/releases/download/v2.8.3/spark_2_8_3.deb
 
 Exploits
 https://www.exploit-db.com/exploits/48296
 https://medium.com/@_crac/cve-2022-33891-apache-spark-shell-command-injection-vulnerability-7c76d0e53155
 
 CTFs
+Easy
 https://ringzer0ctf.com/challenges
 https://tryhackme.com/room/bolt
-https://tryhackme.com/room/sqlilab
+
+LFI
+==
 http://challenges.ringzer0team.com:10075/?page=lorem.php
 https://tryhackme.com/room/fileinc
 https://app.hackthebox.com/machines/Inject
+
+Command Injection
+==
 https://app.hackthebox.com/machines/Precious
 https://tryhackme.com/room/owaspapisecuritytop105w
-https://tryhackme.com/room/vulnnetactive
 https://tryhackme.com/room/sudovulnssamedit
 https://tryhackme.com/room/hydra
 https://tryhackme.com/room/windows10privesc
 https://tryhackme.com/room/linuxprivesc
 https://tryhackme.com/room/linprivesc
+AD 
+==
+Easy - 
 https://tryhackme.com/room/attacktivedirectory
 https://tryhackme.com/room/breachingad
-https://tryhackme.com/room/adenumeration
-https://tryhackme.com/room/sudovulnssamedit
-https://app.hackthebox.com/machines/Precious
+https://tryhackme.com/room/k
+Medium - 
+https://tryhackme.com/room/vulnnetactive
+https://app.hackthebox.com/machines/Escape
+Hard -
 https://tryhackme.com/room/enterprise
-==============
+
+
+SQLi/SQL exploitation
+==
+Easy
+https://app.hackthebox.com/machines/Stocker
+https://tryhackme.com/room/sqlilab
+Medium
+https://app.hackthebox.com/machines/Escape
+
+Current Machine
+============================
+https://tryhackme.com/room/overpass3hosting
+============================
+
 
 Getting familiar with Kali linux
 
@@ -780,7 +808,165 @@ ok mam.
 from Akhil Vijayan to everyone:    4:55 PM
 request if you can share the contents of the exploits created in codeshare2023
 
-https://gtfobins.github.io/
-searchsploit exploit suggester
+https://www.misecurity.net/tryhackme-enterprise-walkthrough2/
 
+
+
+
+
+
+
+
+
+
+
+------- chat from 11 am 11 apr 23
+
+from Akhil Vijayan to Everyone11:11
+Hi sir, why does my nmap scan of port 445 with -sC didnt show up any of the shares listed?..
+from Akhil Vijayan to Everyone11:12
+first i did all port scan
+from Akhil Vijayan to Everyone11:12
+then selected 445 specifically
+from Akhil Vijayan to Everyone11:13
+ok.. i will check sir .
+from Swati to Everyone11:18
+https://github.com/fortra/impacket/blob/master/examples/GetNPUsers.py
+from Swati to Everyone11:18
+" This script will attempt to list and get TGTs for those users that have the property # 'Do not require Kerberos preauthentication' set (UF_DONT_REQUIRE_PREAUTH). # For those users with such configuration, a John The Ripper output will be generated so # you can send it for cracking."
+from Swati to Everyone11:31
+https://github.com/fortra/impacket/blob/master/examples/GetUserSPNs.py
+from Swati to Everyone11:32
+This module will try to find Service Principal Names that are associated with normal user account. # Since normal account's password tend to be shorter than machine accounts, and knowing that a TGS request # will encrypt the ticket with the account the SPN is running under, this could be used for an offline # bruteforcing attack of the SPNs account NTLM hash if we can gather valid TGS for those SPNs. # This is part of the kerberoast attack
+from Swati to Everyone11:38
+https://github.com/fortra/impacket/blob/master/examples/GetADUsers.py
+from Swati to Everyone11:38
+This script will gather data about the domain's users and their corresponding email addresses. It will also # include some extra information about last logon and last password set attributes.
+from Swati to Everyone11:52
+https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation/privilege-escalation-abusing-tokens
+from Ash to Everyone11:58
+try restarting python server
+from Kartikey Jain to Everyone12:37
+YAML Deserialization Attack Notes
+from Kartikey Jain to Everyone12:37
+https://infosecwriteups.com/learning-more-about-yaml-deserialization-9c08093b4a3d
+from Kartikey Jain to Everyone12:37
+Insecure Deserialization Attacks
+from Kartikey Jain to Everyone12:37
+https://portswigger.net/web-security/deserialization/exploiting
+from Swati to Everyone13:17
+https://medium.com/@_crac/cve-2022-26923-active-directory-domain-privilege-escalation-cc105d7ecbb0
+from Swati to Everyone13:19
+https://tryhackme.com/room/cve202226923
+from Swati to Everyone13:46
+next machine - https://tryhackme.com/room/vulnnetactive
+from Swati to Everyone13:47
+We will go over linux priv esc post lunch at around 2:15
+from Kartikey Jain to Everyone14:00
+https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap
+from Swati to Everyone14:05
+ldap* and not brute
+from Akhil Vijayan to Everyone14:48
+mam, i have read to use kernel exploit at the last, if nothing works.. does that mean the machine may get corrupted?.
+from Swati to Everyone16:06
+https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation
+from Akhil Vijayan to Everyone16:45
+sir, request if you can be bit more louder..
+from Kartikey Jain to Everyone17:03
+
+rom Swati to everyone:    9:35 AM
+https://tryhackme.com/room/overpass3hosting
+from Swati to everyone:    9:35 AM
+https://codeshare.io/oscp2023
+from AMIT to everyone:    9:36 AM
+Good morning mam we have not recieved voucher. req if any update on that
+from AMIT to everyone:    9:36 AM
+thanks
+from AMIT to everyone:    9:37 AM
+no mam its about exam
+from Swati to everyone:    10:11 AM
+command | tee -a output.txt
+from Akhil Vijayan to everyone:    10:19 AM
+whats the alternative mam?.
+from Akhil Vijayan to everyone:    10:21 AM
+if for one year we can have the voucher in the mailbox, then its better you can send the vouchers asap.. within one year we will redeem and attend the exam mam..
+from Akhil Vijayan to everyone:    10:22 AM
+let them release mam.. within one year we will start with the oscp labs
+from Swati to everyone:    10:26 AM
+sure
+from Swati to everyone:    10:26 AM
+https://superuser.com/questions/920793/how-to-specify-private-key-when-decrypting-a-file-using-gnupg
+from Swati to everyone:    10:28 AM
+https://superuser.com/questions/920793/how-to-specify-private-key-when-decrypting-a-file-using-gnupg
+from Swati to everyone:    11:12 AM
+https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
+from Kartikey Jain to everyone:    11:27 AM
+https://security.stackexchange.com/questions/242880/how-do-i-stabilize-a-reverse-shell-in-when-the-attack-box-is-using-powershell
+from Kartikey Jain to everyone:    11:27 AM
+Shell Stabilization Way
+from Kartikey Jain to everyone:    11:56 AM
+How to check ports without netstat
+from Kartikey Jain to everyone:    11:56 AM
+grep -v "rem_address" /proc/net/tcp  | awk  '{x=strtonum("0x"substr($3,index($3,":")-2,2)); for (i=5; i>0; i-=2) x = x"."strtonum("0x"substr($3,i,2))}{print x":"strtonum("0x"substr($3,index($3,":")+1,4))}'
+
+from Swati to everyone:    12:54 PM
+https://phoenixnap.com/kb/ssh-port-forwarding
+from Akhil Vijayan to everyone:    1:03 PM
+Mam, unable to hear any audio incase if you are taking the class..
+from Swati to everyone:    1:13 PM
+we were just discussing port forwarding.. shared resource as well above. machine walkthrough will be done after lunch
+from Swati to everyone:    1:13 PM
+if you have any doubts you can post here
+from Akhil Vijayan (privately):    1:34 PM
+Mam, from morning i could'nt hear any audio.. As of now only the overpass tryhackme machine is being worked upon?..
+from Swati to everyone:    1:37 PM
+righ
+from Swati to everyone:    1:37 PM
+rigjt*
+from Swati to everyone:    1:37 PM
+right*, we will cover walkthrough in somerime
+from Akhil Vijayan (privately):    1:48 PM
+no audio mam. incase if you are showing some walkthrough..
+from Akhil Vijayan to everyone:    1:48 PM
+audio issues anyone?.
+from Swati to everyone:    1:48 PM
+not yet. will start in sometime .. after lunch 2:15
+from Akhil Vijayan to everyone:    1:49 PM
+ok mam
+from rahul (privately):    2:03 PM
+please increase font size
+from Akhil Vijayan to everyone:    2:24 PM
+how to identify the webserver was running in php mam?
+from Akhil Vijayan to everyone:    2:24 PM
+it was not available in the nmap / page source
+from Akhil Vijayan to everyone:    2:28 PM
+i have did a nikto scan as well
+from Akhil Vijayan to everyone:    2:28 PM
+that too didnt give me any server side scripting language confirmation
+from Akhil Vijayan to everyone:    2:29 PM
+or is a trial and error?.
+from Akhil Vijayan to everyone:    2:37 PM
+what was the requirement of going to james instead of dong the priv esc from paradox mam?
+from Akhil Vijayan to everyone:    2:38 PM
+ok mam..
+from Swati to everyone:    2:39 PM
+https://tryhackme.com/room/ra
+from Swati to everyone:    2:51 PM
+@Akhil - nmap for last machine had apache in the results which would indicate php
+from Akhil Vijayan to everyone:    3:00 PM
+ok mam..
+from Swati to everyone:    4:13 PM
+https://github.com/theart42/cves/blob/master/cve-2020-12772/CVE-2020-12772.md
+from Swati to everyone:    4:23 PM
+https://www.igniterealtime.org/downloads/#spark
+from Akhil Vijayan to everyone:    5:00 PM
+mam, did you host any image file 
+from Akhil Vijayan to everyone:    5:00 PM
+or just started the responder..?
+from Akhil Vijayan to everyone:    5:01 PM
+the msg can be sent to other offline users also?.
+https://github.com/kartikeyj96/Tryhackme-Writeups/blob/main/Vulnet_Active_Writeup.pdf
+
+
+need to do some machines
 
