@@ -1,5 +1,7 @@
 sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.150.83 -oG allPorts
 
+https://hyperbeast.es/snoopy-htb/
+
 nmap 10.10.11.212
 Starting Nmap 7.93 ( https://nmap.org ) at 2023-07-14 02:29 EDT
 Nmap scan report for 10.10.11.212
