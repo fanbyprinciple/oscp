@@ -970,3 +970,18 @@ https://github.com/kartikeyj96/Tryhackme-Writeups/blob/main/Vulnet_Active_Writeu
 
 need to do some machines
 
+vulnhub typo
+start with nmap scan
+
+website at 80
+phpmyadmin creds added
+
+file upload admin
+got a shell using fiel upload
+privilege escalation through binary
+
+
+
+
+
+

