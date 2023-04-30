@@ -51,4 +51,10 @@ you can execute the file by host ing it using smiple HHTPserver and then saying 
 
 LInenum.sh
 
+dirbuster go buster
+
+sudo -u 
+
+pentestmonkey reverse shell cheatsheet - https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+
 
