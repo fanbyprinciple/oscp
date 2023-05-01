@@ -179,8 +179,7 @@ on sudo -l :
 
 find / -user puma -ls 2>/dev/null
 
-# privilege escalation
-
+### privilege escalation
 
 script /dev/null /bin/bash
 
