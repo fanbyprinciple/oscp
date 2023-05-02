@@ -1,4 +1,4 @@
-# OSCP
+# OSCP - OBSTACLE IS THE WAY
 
 strategy :
 
