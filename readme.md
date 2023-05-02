@@ -113,3 +113,13 @@ trying to do starting point
 corelan blog - 
 https://www.corelan.be/
 
+## Repos to look at
+https://github.com/rewardone/OSCPRepo
+check with the enum scripst are working
+https://github.com/areyou1or0/OSCP - check with a box
+https://github.com/ihack4falafel/OSCP/tree/master - more ttps
+nmap -p- -T5 <ip> -v
+nmap -p 22,25,80 -A <ip> -v
+
+
+
