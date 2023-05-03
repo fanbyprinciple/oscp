@@ -57,4 +57,19 @@ sudo -u
 
 pentestmonkey reverse shell cheatsheet - https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
 
+# sysmon blocking unwanted files
+
+you cn download sysmon
+
+rule file at Neo23x0/ sysmon-config
+
+windows system 32 and then using sysmon -i sysmon-conifg
+
+custom logs in sysmon is through using task scheduler
+
+and then it can be hooked onto lack but the method no longer works
+The format is UTF-16LE
+
+allright so this an be done
+
 
