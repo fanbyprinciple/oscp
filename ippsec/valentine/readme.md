@@ -54,5 +54,9 @@ sudo apt-add-repository universe
 sudo apt-get update
 sudo apt-get install python3-pip
 
+it is vulnerable to heartbleed however there is no reverse shell for the exploit
+
+instead we can focus on hype.key and decrypt it
+
 
 
