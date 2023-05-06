@@ -421,7 +421,7 @@ cat root.txt
 
 
 
-
+linux exploit suggestor.
 
 # Learning
 
@@ -429,4 +429,4 @@ use recon moduel for initial enumeration
 use burpsuite on web
 always look for cutom programs
 look for a way to upload a shell.
-
+in ipsec there would be alternate ways of doing the same things
