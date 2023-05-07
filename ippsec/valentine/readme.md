@@ -58,5 +58,5 @@ it is vulnerable to heartbleed however there is no reverse shell for the exploit
 
 instead we can focus on hype.key and decrypt it
 
-
+We can use openssl to try to decrypt. It asks for a password… the decode of the base64 collected with heartbleed, heartbleedbelievethehype works:
 
