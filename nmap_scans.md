@@ -39,4 +39,10 @@ slow comprehensive scan
 `nmap -sS -sU -T4 -A -v -PE -PP -PS80,443 -PA3389 -PU40125 -PY -g 53 --script "default or (discovery and safe)" 10.129.158.219`
 
 
+# ippsec style
 
+nmap -sC -sV -oA nmap/valentine 10.129.186.207
+
+nmap --script vuln -oA nmap/vulnscan 10.129.186.207
+
+gobuster -u http://10.129.186.207 -w /usr/share/wordlists/dirbuster/directory-list-2/3-medium.txt -o fobuster.log -t 50
