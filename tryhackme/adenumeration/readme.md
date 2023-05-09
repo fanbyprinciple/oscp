@@ -34,4 +34,15 @@ xfreerdp /d:za.tryhackme.com /u:'rachel.dunn' /p:'Bmlj9838' /v:thmjmp1.za.tryhac
 Using microsoft management console to enumerate
 I dont know how to enumerate through RSAT however enumerating through command prompt i need to see
 
+`net user /domain`
+
+`net user rachel.dunn /domain`
+
+![](20230613220133.png)
+
+net group /domain
+
+net group "Tier 1 Admins" /domain
+
+net accounts /domain
 
