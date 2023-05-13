@@ -12,6 +12,8 @@ ldap search for enumeration can run without user requirement
 
 https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap
 
+breif information about ldap protocol
+
 Domain admin 
 
 /domain parameter
