@@ -1,0 +1,11 @@
+[0;32m---------------------Recon Recommendations---------------------
+[0m
+[0m
+[0;33mWeb Servers Recon:
+[0m
+nikto -host "http://10.129.228.98:80" | tee "recon/nikto_10.129.228.98_80.txt"
+ffuf -ic -w /usr/share/wordlists/dirb/common.txt -e '' -u "http://10.129.228.98:80/FUZZ" | tee "recon/ffuf_10.129.228.98_80.txt"
+
+
+
+

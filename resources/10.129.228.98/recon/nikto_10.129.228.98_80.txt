@@ -1,0 +1,16 @@
+- Nikto v2.5.0
+---------------------------------------------------------------------------
++ Target IP:          10.129.228.98
++ Target Hostname:    10.129.228.98
++ Target Port:        80
++ Start Time:         2023-05-16 05:16:46 (GMT-4)
+---------------------------------------------------------------------------
++ Server: nginx/1.18.0
++ /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
++ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
++ Root page / redirects to: http://precious.htb/
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ Scan terminated: 20 error(s) and 2 item(s) reported on remote host
++ End Time:           2023-05-16 06:19:47 (GMT-4) (3781 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested

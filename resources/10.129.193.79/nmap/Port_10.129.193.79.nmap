@@ -1,0 +1,11 @@
+# Nmap 7.93 scan initiated Tue May 16 06:22:47 2023 as: /usr/bin/nmap -T4 --max-retries 1 --max-scan-delay 20 --open -oN nmap/Port_10.129.193.79.nmap --system-dns --stats-every 1s 10.129.193.79
+Nmap scan report for 10.129.193.79
+Host is up (0.36s latency).
+Not shown: 951 closed tcp ports (conn-refused), 46 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+9091/tcp open  xmltec-xmlmail
+
+# Nmap done at Tue May 16 06:22:57 2023 -- 1 IP address (1 host up) scanned in 9.85 seconds

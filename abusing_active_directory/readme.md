@@ -6,9 +6,6 @@ Active Directory Centralized database for everything in domain
 
 Find domain controller
      User accounts > security principals
-    
-
-
 
 FInd domain admin accounts
 

@@ -1,0 +1,191 @@
+
+[0;33mRunning all scans on [0m10.129.193.79
+[0m
+[0;32mHost is likely running Linux
+
+
+[0;32m---------------------Starting Port Scan-----------------------
+[0m
+In progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: Ping Scan (0:00:01 elapsed - 0:00:02 remaining)   
+[#########################>                         ] 50% done   
+[2AIn progress: Connect Scan (0:00:03 elapsed - 0:00:26 remaining)   
+[#>                                                 ] 3% done   
+[2AIn progress: Connect Scan (0:00:03 elapsed - 0:00:26 remaining)   
+[#>                                                 ] 3% done   
+[2AIn progress: Connect Scan (0:00:04 elapsed - 0:00:18 remaining)   
+[#######>                                           ] 14% done   
+[2AIn progress: Connect Scan (0:00:06 elapsed - 0:00:06 remaining)   
+[###################>                               ] 39% done   
+[2AIn progress: Connect Scan (0:00:07 elapsed - 0:00:03 remaining)   
+[##############################>                    ] 60% done   
+[2AIn progress: Connect Scan (0:00:08 elapsed - 0:00:01 remaining)   
+[#########################################>         ] 82% done   
+[2AIn progress: Connect Scan (0:00:09 elapsed - 0:00:00 remaining)   
+[#################################################> ] 99% done   
+[2A[0K
+[0K
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+9091/tcp open  xmltec-xmlmail
+
+
+
+[0;32m---------------------Starting Script Scan-----------------------
+[0m
+In progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: Service Scan (0:00:02 elapsed - 0:00:02 remaining)   
+[################>                                  ] 33% done   
+[2AIn progress: Service Scan (0:00:02 elapsed - 0:00:02 remaining)   
+[################>                                  ] 33% done   
+[2AIn progress: Service Scan (0:00:08 elapsed - 0:00:14 remaining)   
+[################>                                  ] 33% done   
+[2AIn progress: Service Scan (0:00:09 elapsed - 0:00:04 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:09 elapsed - 0:00:04 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:09 elapsed - 0:00:04 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:15 elapsed - 0:00:07 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:16 elapsed - 0:00:08 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:20 elapsed - 0:00:10 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:22 elapsed - 0:00:11 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:24 elapsed - 0:00:12 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:26 elapsed - 0:00:13 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:27 elapsed - 0:00:14 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:30 elapsed - 0:00:15 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:32 elapsed - 0:00:16 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:34 elapsed - 0:00:17 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:36 elapsed - 0:00:18 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:38 elapsed - 0:00:19 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:40 elapsed - 0:00:20 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Service Scan (0:00:42 elapsed - 0:00:21 remaining)   
+[#################################>                 ] 66% done   
+[2AIn progress: Script Scan (0:00:43 elapsed - 0:00:00 remaining)   
+[#################################################> ] 98% done   
+[2AIn progress: Script Scan (0:00:45 elapsed - 0:00:00 remaining)   
+[#################################################> ] 99% done   
+[2AIn progress: Script Scan (0:00:47 elapsed - 0:00:00 remaining)   
+[#################################################> ] 99% done   
+[2AIn progress: Script Scan (0:00:49 elapsed - 0:00:00 remaining)   
+[#################################################> ] 99% done   
+[2AIn progress: Script Scan (0:00:51 elapsed - 0:00:00 remaining)   
+[#################################################> ] 99% done   
+[2AIn progress: Script Scan (0:00:53 elapsed - 0:00:00 remaining)   
+[#################################################> ] 99% done   
+[2A[0K
+[0K
+PORT     STATE SERVICE         VERSION
+22/tcp   open  ssh             OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 ad0d84a3fdcc98a478fef94915dae16d (RSA)
+|   256 dfd6a39f68269dfc7c6a0c29e961f00c (ECDSA)
+|_  256 5797565def793c2fcbdb35fff17c615c (ED25519)
+80/tcp   open  http            nginx 1.18.0 (Ubuntu)
+|_http-title: Did not follow redirect to http://soccer.htb/
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+9091/tcp open  xmltec-xmlmail?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, Help, RPCCheck, SSLSessionReq, drda, informix: 
+|     HTTP/1.1 400 Bad Request
+|     Connection: close
+|   GetRequest: 
+|     HTTP/1.1 404 Not Found
+|     Content-Security-Policy: default-src 'none'
+|     X-Content-Type-Options: nosniff
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 139
+|     Date: Tue, 16 May 2023 10:23:14 GMT
+|     Connection: close
+|     <!DOCTYPE html>
+|     <html lang="en">
+|     <head>
+|     <meta charset="utf-8">
+|     <title>Error</title>
+|     </head>
+|     <body>
+|     <pre>Cannot GET /</pre>
+|     </body>
+|     </html>
+|   HTTPOptions: 
+|     HTTP/1.1 404 Not Found
+|     Content-Security-Policy: default-src 'none'
+|     X-Content-Type-Options: nosniff
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 143
+|     Date: Tue, 16 May 2023 10:23:15 GMT
+|     Connection: close
+|     <!DOCTYPE html>
+|     <html lang="en">
+|     <head>
+|     <meta charset="utf-8">
+|     <title>Error</title>
+|     </head>
+|     <body>
+|     <pre>Cannot OPTIONS /</pre>
+|     </body>
+|     </html>
+|   RTSPRequest: 
+|     HTTP/1.1 404 Not Found
+|     Content-Security-Policy: default-src 'none'
+|     X-Content-Type-Options: nosniff
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 143
+|     Date: Tue, 16 May 2023 10:23:16 GMT
+|     Connection: close
+|     <!DOCTYPE html>
+|     <html lang="en">
+|     <head>
+|     <meta charset="utf-8">
+|     <title>Error</title>
+|     </head>
+|     <body>
+|     <pre>Cannot OPTIONS /</pre>
+|     </body>
+|_    </html>
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+
+
+
+[0;32m---------------------Starting Full Scan------------------------
+[0m
+In progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: Connect Scan (0:00:06 elapsed - 0:07:47 remaining)   
+[#>                                                  ] 1% done   
+[2AIn progress: Connect Scan (0:00:09 elapsed - 0:06:15 remaining)   
+[#>                                                 ] 2% done   
+[2AIn progress: Connect Scan (0:00:12 elapsed - 0:05:19 remaining)   
+[#>                                                 ] 3% done   
+[2AIn progress: Connect Scan (0:00:15 elapsed - 0:04:42 remaining)   
+[##>                                                ] 4% done   
+[2AIn progress: Connect Scan (0:00:18 elapsed - 0:04:14 remaining)   
+[###>                                               ] 6% done   
+[2AIn progress: Connect Scan (0:00:21 elapsed - 0:03:50 remaining)   
+[###>                                               ] 7% done   
+[2AIn progress: Connect Scan (0:00:24 elapsed - 0:03:29 remaining)   
+[####>                                              ] 9% done   
+[2A
