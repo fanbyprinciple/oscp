@@ -1,0 +1,16 @@
+# Nmap 7.93 scan initiated Wed May 17 20:00:54 2023 as: /usr/bin/nmap -sCV -p22,80 --open -oN nmap/Script_10.10.11.208.nmap --system-dns --stats-every 2s 10.10.11.208
+Nmap scan report for 10.10.11.208
+Host is up (0.37s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 4fe3a667a227f9118dc30ed773a02c28 (ECDSA)
+|_  256 816e78766b8aea7d1babd436b7f8ecc4 (ED25519)
+80/tcp open  http    Apache httpd 2.4.52
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+|_http-title: Did not follow redirect to http://searcher.htb/
+Service Info: Host: searcher.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed May 17 20:01:16 2023 -- 1 IP address (1 host up) scanned in 22.25 seconds
