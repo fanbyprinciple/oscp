@@ -1,0 +1,11 @@
+# Security Changelog 
+
+### Issue
+There was a failure in updating the firewall. Manual patching is therefore required
+
+### Mitigated
+2 of 3 vulnerabilities have been patched.
+
+### Timeline
+The remaining patches will be installed during the next maintenance window
+
