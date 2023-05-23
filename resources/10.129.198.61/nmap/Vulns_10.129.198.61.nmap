@@ -1,0 +1,178 @@
+WARNING: Duplicate port number(s) specified.  Are you alert enough to be using Nmap?  Have some coffee or Jolt(tm).
+# Nmap 7.93 scan initiated Tue May 23 14:54:27 2023 as: /usr/bin/nmap -sV --script vuln -p79,111,515,79,111,515,6787,22022 --open -oN nmap/Vulns_10.129.198.61.nmap --system-dns --stats-every 3s 10.129.198.61
+Pre-scan script results:
+| broadcast-avahi-dos: 
+|   Discovered hosts:
+|     224.0.0.251
+|   After NULL UDP avahi packet DoS (CVE-2011-1002).
+|_  Hosts are all up (not vulnerable).
+Nmap scan report for 10.129.198.61
+Host is up (0.56s latency).
+
+PORT      STATE SERVICE  VERSION
+79/tcp    open  finger?
+| fingerprint-strings: 
+|   GenericLines: 
+|     Login Name TTY Idle When Where
+|     sunny ??? pts/1 Tue 18:53 10.10.16.15
+|   GetRequest: 
+|     Login Name TTY Idle When Where
+|     HTTP/1.0 ???
+|   HTTPOptions: 
+|     Login Name TTY Idle When Where
+|     HTTP/1.0 ???
+|     OPTIONS ???
+|   Help: 
+|     Login Name TTY Idle When Where
+|     HELP ???
+|   RTSPRequest: 
+|     Login Name TTY Idle When Where
+|     OPTIONS ???
+|_    RTSP/1.0 ???
+111/tcp   open  rpcbind  2-4 (RPC #100000)
+515/tcp   open  printer
+6787/tcp  open  ssl/http Apache httpd 2.4.33 ((Unix) OpenSSL/1.0.2o mod_wsgi/4.5.1 Python/2.7.14)
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+| http-enum: 
+|_  /solaris/: Potentially interesting folder
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-server-header: Apache/2.4.33 (Unix) OpenSSL/1.0.2o mod_wsgi/4.5.1 Python/2.7.14
+|_http-vuln-cve2014-3704: ERROR: Script execution failed (use -d to debug)
+| vulners: 
+|   cpe:/a:apache:http_server:2.4.33: 
+|     	CVE-2019-9517	7.8	https://vulners.com/cve/CVE-2019-9517
+|     	PACKETSTORM:171631	7.5	https://vulners.com/packetstorm/PACKETSTORM:171631	*EXPLOIT*
+|     	EDB-ID:51193	7.5	https://vulners.com/exploitdb/EDB-ID:51193	*EXPLOIT*
+|     	CVE-2022-31813	7.5	https://vulners.com/cve/CVE-2022-31813
+|     	CVE-2022-23943	7.5	https://vulners.com/cve/CVE-2022-23943
+|     	CVE-2022-22720	7.5	https://vulners.com/cve/CVE-2022-22720
+|     	CVE-2021-44790	7.5	https://vulners.com/cve/CVE-2021-44790
+|     	CVE-2021-39275	7.5	https://vulners.com/cve/CVE-2021-39275
+|     	CVE-2021-26691	7.5	https://vulners.com/cve/CVE-2021-26691
+|     	CVE-2020-11984	7.5	https://vulners.com/cve/CVE-2020-11984
+|     	CNVD-2022-73123	7.5	https://vulners.com/cnvd/CNVD-2022-73123
+|     	CNVD-2022-03225	7.5	https://vulners.com/cnvd/CNVD-2022-03225
+|     	CNVD-2021-102386	7.5	https://vulners.com/cnvd/CNVD-2021-102386
+|     	1337DAY-ID-38427	7.5	https://vulners.com/zdt/1337DAY-ID-38427	*EXPLOIT*
+|     	1337DAY-ID-34882	7.5	https://vulners.com/zdt/1337DAY-ID-34882	*EXPLOIT*
+|     	EXPLOITPACK:44C5118F831D55FAF4259C41D8BDA0AB	7.2	https://vulners.com/exploitpack/EXPLOITPACK:44C5118F831D55FAF4259C41D8BDA0AB	*EXPLOIT*
+|     	EDB-ID:46676	7.2	https://vulners.com/exploitdb/EDB-ID:46676	*EXPLOIT*
+|     	CVE-2019-0211	7.2	https://vulners.com/cve/CVE-2019-0211
+|     	1337DAY-ID-32502	7.2	https://vulners.com/zdt/1337DAY-ID-32502	*EXPLOIT*
+|     	FDF3DFA1-ED74-5EE2-BF5C-BA752CA34AE8	6.8	https://vulners.com/githubexploit/FDF3DFA1-ED74-5EE2-BF5C-BA752CA34AE8	*EXPLOIT*
+|     	CVE-2021-40438	6.8	https://vulners.com/cve/CVE-2021-40438
+|     	CVE-2020-35452	6.8	https://vulners.com/cve/CVE-2020-35452
+|     	CNVD-2022-03224	6.8	https://vulners.com/cnvd/CNVD-2022-03224
+|     	8AFB43C5-ABD4-52AD-BB19-24D7884FF2A2	6.8	https://vulners.com/githubexploit/8AFB43C5-ABD4-52AD-BB19-24D7884FF2A2	*EXPLOIT*
+|     	4810E2D9-AC5F-5B08-BFB3-DDAFA2F63332	6.8	https://vulners.com/githubexploit/4810E2D9-AC5F-5B08-BFB3-DDAFA2F63332	*EXPLOIT*
+|     	4373C92A-2755-5538-9C91-0469C995AA9B	6.8	https://vulners.com/githubexploit/4373C92A-2755-5538-9C91-0469C995AA9B	*EXPLOIT*
+|     	0095E929-7573-5E4A-A7FA-F6598A35E8DE	6.8	https://vulners.com/githubexploit/0095E929-7573-5E4A-A7FA-F6598A35E8DE	*EXPLOIT*
+|     	CVE-2022-28615	6.4	https://vulners.com/cve/CVE-2022-28615
+|     	CVE-2021-44224	6.4	https://vulners.com/cve/CVE-2021-44224
+|     	CVE-2019-10082	6.4	https://vulners.com/cve/CVE-2019-10082
+|     	CVE-2019-10097	6.0	https://vulners.com/cve/CVE-2019-10097
+|     	CVE-2019-0217	6.0	https://vulners.com/cve/CVE-2019-0217
+|     	CVE-2022-22721	5.8	https://vulners.com/cve/CVE-2022-22721
+|     	CVE-2020-1927	5.8	https://vulners.com/cve/CVE-2020-1927
+|     	CVE-2019-10098	5.8	https://vulners.com/cve/CVE-2019-10098
+|     	1337DAY-ID-33577	5.8	https://vulners.com/zdt/1337DAY-ID-33577	*EXPLOIT*
+|     	CVE-2022-30556	5.0	https://vulners.com/cve/CVE-2022-30556
+|     	CVE-2022-29404	5.0	https://vulners.com/cve/CVE-2022-29404
+|     	CVE-2022-28614	5.0	https://vulners.com/cve/CVE-2022-28614
+|     	CVE-2022-26377	5.0	https://vulners.com/cve/CVE-2022-26377
+|     	CVE-2022-22719	5.0	https://vulners.com/cve/CVE-2022-22719
+|     	CVE-2021-36160	5.0	https://vulners.com/cve/CVE-2021-36160
+|     	CVE-2021-34798	5.0	https://vulners.com/cve/CVE-2021-34798
+|     	CVE-2021-33193	5.0	https://vulners.com/cve/CVE-2021-33193
+|     	CVE-2021-26690	5.0	https://vulners.com/cve/CVE-2021-26690
+|     	CVE-2020-9490	5.0	https://vulners.com/cve/CVE-2020-9490
+|     	CVE-2020-1934	5.0	https://vulners.com/cve/CVE-2020-1934
+|     	CVE-2019-17567	5.0	https://vulners.com/cve/CVE-2019-17567
+|     	CVE-2019-10081	5.0	https://vulners.com/cve/CVE-2019-10081
+|     	CVE-2019-0220	5.0	https://vulners.com/cve/CVE-2019-0220
+|     	CVE-2019-0196	5.0	https://vulners.com/cve/CVE-2019-0196
+|     	CVE-2018-8011	5.0	https://vulners.com/cve/CVE-2018-8011
+|     	CVE-2018-17199	5.0	https://vulners.com/cve/CVE-2018-17199
+|     	CVE-2018-17189	5.0	https://vulners.com/cve/CVE-2018-17189
+|     	CVE-2018-1333	5.0	https://vulners.com/cve/CVE-2018-1333
+|     	CNVD-2022-73122	5.0	https://vulners.com/cnvd/CNVD-2022-73122
+|     	CNVD-2022-53584	5.0	https://vulners.com/cnvd/CNVD-2022-53584
+|     	CNVD-2022-53582	5.0	https://vulners.com/cnvd/CNVD-2022-53582
+|     	CNVD-2022-03223	5.0	https://vulners.com/cnvd/CNVD-2022-03223
+|     	CVE-2020-11993	4.3	https://vulners.com/cve/CVE-2020-11993
+|     	CVE-2019-10092	4.3	https://vulners.com/cve/CVE-2019-10092
+|     	CVE-2018-11763	4.3	https://vulners.com/cve/CVE-2018-11763
+|     	4013EC74-B3C1-5D95-938A-54197A58586D	4.3	https://vulners.com/githubexploit/4013EC74-B3C1-5D95-938A-54197A58586D	*EXPLOIT*
+|     	1337DAY-ID-35422	4.3	https://vulners.com/zdt/1337DAY-ID-35422	*EXPLOIT*
+|     	1337DAY-ID-33575	4.3	https://vulners.com/zdt/1337DAY-ID-33575	*EXPLOIT*
+|     	PACKETSTORM:152441	0.0	https://vulners.com/packetstorm/PACKETSTORM:152441	*EXPLOIT*
+|     	CVE-2023-27522	0.0	https://vulners.com/cve/CVE-2023-27522
+|     	CVE-2023-25690	0.0	https://vulners.com/cve/CVE-2023-25690
+|     	CVE-2022-37436	0.0	https://vulners.com/cve/CVE-2022-37436
+|     	CVE-2022-36760	0.0	https://vulners.com/cve/CVE-2022-36760
+|     	CVE-2006-20001	0.0	https://vulners.com/cve/CVE-2006-20001
+|_    	5C1BB960-90C1-5EBF-9BEF-F58BFFDFEED9	0.0	https://vulners.com/githubexploit/5C1BB960-90C1-5EBF-9BEF-F58BFFDFEED9	*EXPLOIT*
+22022/tcp open  ssh      OpenSSH 7.5 (protocol 2.0)
+| vulners: 
+|   cpe:/a:openbsd:openssh:7.5: 
+|     	EXPLOITPACK:98FE96309F9524B8C84C508837551A19	5.8	https://vulners.com/exploitpack/EXPLOITPACK:98FE96309F9524B8C84C508837551A19	*EXPLOIT*
+|     	EXPLOITPACK:5330EA02EBDE345BFC9D6DDDD97F9E97	5.8	https://vulners.com/exploitpack/EXPLOITPACK:5330EA02EBDE345BFC9D6DDDD97F9E97	*EXPLOIT*
+|     	EDB-ID:46516	5.8	https://vulners.com/exploitdb/EDB-ID:46516	*EXPLOIT*
+|     	EDB-ID:46193	5.8	https://vulners.com/exploitdb/EDB-ID:46193	*EXPLOIT*
+|     	CVE-2019-6111	5.8	https://vulners.com/cve/CVE-2019-6111
+|     	1337DAY-ID-32328	5.8	https://vulners.com/zdt/1337DAY-ID-32328	*EXPLOIT*
+|     	1337DAY-ID-32009	5.8	https://vulners.com/zdt/1337DAY-ID-32009	*EXPLOIT*
+|     	SSH_ENUM	5.0	https://vulners.com/canvas/SSH_ENUM	*EXPLOIT*
+|     	PACKETSTORM:150621	5.0	https://vulners.com/packetstorm/PACKETSTORM:150621	*EXPLOIT*
+|     	EXPLOITPACK:F957D7E8A0CC1E23C3C649B764E13FB0	5.0	https://vulners.com/exploitpack/EXPLOITPACK:F957D7E8A0CC1E23C3C649B764E13FB0	*EXPLOIT*
+|     	EXPLOITPACK:EBDBC5685E3276D648B4D14B75563283	5.0	https://vulners.com/exploitpack/EXPLOITPACK:EBDBC5685E3276D648B4D14B75563283	*EXPLOIT*
+|     	EDB-ID:45939	5.0	https://vulners.com/exploitdb/EDB-ID:45939	*EXPLOIT*
+|     	EDB-ID:45233	5.0	https://vulners.com/exploitdb/EDB-ID:45233	*EXPLOIT*
+|     	CVE-2018-15919	5.0	https://vulners.com/cve/CVE-2018-15919
+|     	CVE-2018-15473	5.0	https://vulners.com/cve/CVE-2018-15473
+|     	CVE-2017-15906	5.0	https://vulners.com/cve/CVE-2017-15906
+|     	1337DAY-ID-31730	5.0	https://vulners.com/zdt/1337DAY-ID-31730	*EXPLOIT*
+|     	CVE-2021-41617	4.4	https://vulners.com/cve/CVE-2021-41617
+|     	CVE-2020-14145	4.3	https://vulners.com/cve/CVE-2020-14145
+|     	CVE-2019-6110	4.0	https://vulners.com/cve/CVE-2019-6110
+|     	CVE-2019-6109	4.0	https://vulners.com/cve/CVE-2019-6109
+|     	CVE-2018-20685	2.6	https://vulners.com/cve/CVE-2018-20685
+|     	PACKETSTORM:151227	0.0	https://vulners.com/packetstorm/PACKETSTORM:151227	*EXPLOIT*
+|     	MSF:AUXILIARY-SCANNER-SSH-SSH_ENUMUSERS-	0.0	https://vulners.com/metasploit/MSF:AUXILIARY-SCANNER-SSH-SSH_ENUMUSERS-	*EXPLOIT*
+|_    	1337DAY-ID-30937	0.0	https://vulners.com/zdt/1337DAY-ID-30937	*EXPLOIT*
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port79-TCP:V=7.93%I=7%D=5/23%Time=646D0C0D%P=x86_64-pc-linux-gnu%r(Gene
+SF:ricLines,93,"Login\x20\x20\x20\x20\x20\x20\x20Name\x20\x20\x20\x20\x20\
+SF:x20\x20\x20\x20\x20\x20\x20\x20\x20\x20TTY\x20\x20\x20\x20\x20\x20\x20\
+SF:x20\x20Idle\x20\x20\x20\x20When\x20\x20\x20\x20Where\r\nsunny\x20\x20\x
+SF:20\x20\x20\x20\x20\x20\x20\x20\x20\?\?\?\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20\x20\x20\x20pts/1\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20T
+SF:ue\x2018:53\x20\x2010\.10\.16\.15\x20\x20\x20\x20\x20\x20\x20\x20\x20\r
+SF:\n")%r(GetRequest,93,"Login\x20\x20\x20\x20\x20\x20\x20Name\x20\x20\x20
+SF:\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20TTY\x20\x20\x20\x20\x20
+SF:\x20\x20\x20\x20Idle\x20\x20\x20\x20When\x20\x20\x20\x20Where\r\n/\x20\
+SF:x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+SF:\x20\x20\?\?\?\r\nGET\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x
+SF:20\x20\x20\x20\x20\x20\x20\?\?\?\r\nHTTP/1\.0\x20\x20\x20\x20\x20\x20\x
+SF:20\x20\x20\x20\x20\x20\x20\x20\?\?\?\r\n")%r(Help,5D,"Login\x20\x20\x20
+SF:\x20\x20\x20\x20Name\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20\x20TTY\x20\x20\x20\x20\x20\x20\x20\x20\x20Idle\x20\x20\x20\x20Whe
+SF:n\x20\x20\x20\x20Where\r\nHELP\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\
+SF:x20\x20\x20\x20\x20\x20\x20\x20\?\?\?\r\n")%r(HTTPOptions,93,"Login\x20
+SF:\x20\x20\x20\x20\x20\x20Name\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20\x20\x20\x20TTY\x20\x20\x20\x20\x20\x20\x20\x20\x20Idle\x20\x20\x2
+SF:0\x20When\x20\x20\x20\x20Where\r\n/\x20\x20\x20\x20\x20\x20\x20\x20\x20
+SF:\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\?\?\?\r\nHTTP/1\.0\x20
+SF:\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\?\?\?\r\nOPTIONS\x
+SF:20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\?\?\?\r\n")%
+SF:r(RTSPRequest,93,"Login\x20\x20\x20\x20\x20\x20\x20Name\x20\x20\x20\x20
+SF:\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20TTY\x20\x20\x20\x20\x20\x20
+SF:\x20\x20\x20Idle\x20\x20\x20\x20When\x20\x20\x20\x20Where\r\n/\x20\x20\
+SF:x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+SF:\x20\?\?\?\r\nOPTIONS\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x
+SF:20\x20\x20\?\?\?\r\nRTSP/1\.0\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x
+SF:20\x20\x20\x20\?\?\?\r\n");
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue May 23 14:59:38 2023 -- 1 IP address (1 host up) scanned in 311.81 seconds

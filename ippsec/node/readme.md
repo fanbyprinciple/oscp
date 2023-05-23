@@ -334,4 +334,3 @@ gobuster dir --url http://10.129.197.50:3000 --wordlist /usr/share/wordlists/dir
 
 can gobuster as flask handler all requests for redirect.
 
-
