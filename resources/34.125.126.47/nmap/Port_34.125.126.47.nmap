@@ -1,0 +1,12 @@
+# Nmap 7.93 scan initiated Wed May 24 06:01:21 2023 as: /usr/bin/nmap -T4 --max-retries 1 --max-scan-delay 20 --open -oN nmap/Port_34.125.126.47.nmap --system-dns --stats-every 1s 34.125.126.47
+Nmap scan report for 47.126.125.34.bc.googleusercontent.com (34.125.126.47)
+Host is up (0.26s latency).
+Not shown: 995 closed tcp ports (reset), 1 filtered tcp port (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT     STATE SERVICE
+22/tcp   open  ssh
+1720/tcp open  h323q931
+5002/tcp open  rfe
+5003/tcp open  filemaker
+
+# Nmap done at Wed May 24 06:01:25 2023 -- 1 IP address (1 host up) scanned in 3.75 seconds

