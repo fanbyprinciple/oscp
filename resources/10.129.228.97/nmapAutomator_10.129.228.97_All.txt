@@ -1633,3 +1633,26 @@ Not valid after:  [32mApr 11 11:19:29 2027 GMT[0m
 + nginx/1.10.0 appears to be outdated (current is at least 1.20.1).
 + Hostname '10.129.228.97' does not match certificate's names: brainfuck.htb. See: https://cwe.mitre.org/data/definitions/297.html
 + /: The Content-Encoding header is set to "deflate" which may mean that the server is vulnerable to the BREACH attack. See: http://breachattack.com/
++ Scan terminated: 19 error(s) and 6 item(s) reported on remote host
++ End Time:           2023-05-25 02:12:54 (GMT-4) (44347 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+[0m
+[0;33mFinished nikto scan
+[0m
+[0;33m=========================
+[0m
+[0;33mStarting ffuf scan
+[0m
+[0m
+[0;33mFinished ffuf scan
+[0m
+[0;33m=========================
+
+
+
+[0;32m---------------------Finished all scans------------------------
+[0m
+
+[0;33mCompleted in -35637 seconds
+[0m

@@ -268,30 +268,47 @@ using sas the storage can be accessed
 
 storage account
 
+# for ctf players
 
+https://www.youtube.com/watch?v=g_l_vKYyb5E
 
+https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet
 
+https://medium.com/@hyphens443/attacking-domain-controllers-a45b9cb9651c
 
+1) Roast — CyberSecLabs
+2) Secret — CyberSecLabs
+3) Active — Hack The Box
+4) Monteverde — Hack The Box
+5) Resolute — Hack The Box
+6) Cascade — Hack The Box
+7) Sauna — Hack The Box
+8) Sizzle — Hack The Box
 
+## atacking ports
 
+Domain Controllers — common ports (TCP connections):
 
+Port 53 — Domain Name System — DNS (which uses TCP connection for zone transfers, maintaining database on the server).
+Port 88 — Kerberos. Its name relates to Greek Mythology and the hound of Hades — Cerberus. This multi-headed dog guarding the gate to the underworld is a good analogy when it comes to Kerberos. It is a default authentication service (and protocol) for Microsoft Windows domains, which bases on a secret key cryptography and utilizes the concept of tickets — which are used to prove the identity of an object.
+Port 135 — Remote Procedure Call. Having that port open — technically - we are able to create a procedure, which will be executed on that computer remotely.
+Ports 139, 445 — NetBIOS Session Service/Server Message Block. These are filesystem network protocols, which relate to network sharing of files, printers and other resources. Also known as CIFS — Common Internet File Sharing. SMB (as well as its free software implementation — Samba) has always been a good initial access point during security assessments, due to its open nature and multiple known vulnerabilities.
+Port 389,636 — Lightweight Directory Access Protocol/LDAPS. It is an application protocol, which allows to interact with directory services. It stores information about objects — e.g. groups, users or applications.
+Port 464 — Kerberos Password Change protocol.
+Port 593 — HTTP Remote Procedure Call Endpoint Mapper.
+Ports 3268, 3269 — LDAP Global Catalog. It allows to find objects in Active Directory domain tree.
+Port 3389 — Remote Desktop Protocol. A protocol allowing to establish a remote, GUI session with a remote host.
+Ports 5895,5896 — WinRM HTTP/WinRM HTTPS. These protocols are used to remotely manage a host, provided that we authenticate successfully (Kerberos is used for the authentication process). They allow us to use scripting objects, WinRM command line tool, or Windows Remote Shell CLI. WinRM can also use port 47001 if a listener is not created.
+Port 9389 — Active Directory Web Services. This protocol relates to a set of rules regarding web service interface for AD Domains.
+Additional Information about Ports that are used by Services utilizing UDP
 
+Port 53 — DNS. UDP - connection-less protocol is mostly used by the DNS. The service uses UDP to serve responses to various queries of clients.
+Port 69 — Trivial File Transfer Protocol — TFTP. This simple protocol uses UDP protocol to transfer files between a client and a server. TFTP does not provide authentication feature (due to the UDP’s nature).
+Port 161 —Simple Network Management Protocol — SNMP. This protocol is used to manage nodes on the network. Windows Management Information Base is used in order to retrieve various information regarding the network’s entity. In such scenario, SNMPwalk tool can be used to query the system. It allows to gather names of user accounts, processes, running programs, TCP local ports, etc. To perform this enumeration, OIDs are required:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Software: 1.3.6.1.2.1.25.6.3.1.2
+User Accounts: 1.3.6.1.4.1.77.1.2.25
+TCP local ports: 1.3.6.1.2.1.6.13.1.3
+System processes: 1.3.6.1.2.1.25.1.6.0
+Running programs: 1.3.6.1.2.1.25.4.2.1.2
+Storage Units: 1.3.6.1.2.1.25.2.3.1.4For example to enumerate TCP local ports:snmpwalk -c public -v1 [IP] 1.3.6.1.2.1.6.13.1.3
