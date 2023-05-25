@@ -1,0 +1,110 @@
+┌──(kali㉿kali)-[~]
+└─$ wpscan -u https://brainfuck.htb --disable-tls-checks
+
+Scan Aborted: invalid option: -u
+Did you mean?  ua
+                                                                             
+┌──(kali㉿kali)-[~]
+└─$ wpscan --url https://brainfuck.htb --disable-tls-checks
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.22
+                               
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[i] Updating the Database ...
+[i] Update completed.
+
+
+[+] URL: https://brainfuck.htb/ [10.129.228.97]
+[+] Started: Wed May 24 14:17:39 2023
+
+Interesting Finding(s):
+
+[+] Headers
+ | Interesting Entry: Server: nginx/1.10.0 (Ubuntu)
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[+] XML-RPC seems to be enabled: https://brainfuck.htb/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[+] WordPress readme found: https://brainfuck.htb/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] The external WP-Cron seems to be enabled: https://brainfuck.htb/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[+] WordPress version 4.7.3 identified (Insecure, released on 2017-03-06).
+ | Found By: Rss Generator (Passive Detection)
+ |  - https://brainfuck.htb/?feed=rss2, <generator>https://wordpress.org/?v=4.7.3</generator>
+ |  - https://brainfuck.htb/?feed=comments-rss2, <generator>https://wordpress.org/?v=4.7.3</generator>
+
+[+] WordPress theme in use: proficient
+ | Location: https://brainfuck.htb/wp-content/themes/proficient/
+ | Last Updated: 2023-05-20T00:00:00.000Z
+ | Readme: https://brainfuck.htb/wp-content/themes/proficient/readme.txt
+ | [!] The version is out of date, the latest version is 4.4
+ | Style URL: https://brainfuck.htb/wp-content/themes/proficient/style.css?ver=4.7.3
+ | Style Name: Proficient
+ | Description: Proficient is a Multipurpose WordPress theme with lots of powerful features, instantly giving a prof...
+ | Author: Specia
+ | Author URI: https://speciatheme.com/
+ |
+ | Found By: Css Style In Homepage (Passive Detection)
+ |
+ | Version: 1.0.6 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - https://brainfuck.htb/wp-content/themes/proficient/style.css?ver=4.7.3, Match: 'Version: 1.0.6'
+
+[+] Enumerating All Plugins (via Passive Methods)
+[+] Checking Plugin Versions (via Passive and Aggressive Methods)
+
+[i] Plugin(s) Identified:
+
+[+] wp-support-plus-responsive-ticket-system
+ | Location: https://brainfuck.htb/wp-content/plugins/wp-support-plus-responsive-ticket-system/
+ | Last Updated: 2019-09-03T07:57:00.000Z
+ | [!] The version is out of date, the latest version is 9.1.2
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ |
+ | Version: 7.1.3 (80% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - https://brainfuck.htb/wp-content/plugins/wp-support-plus-responsive-ticket-system/readme.txt
+
+[+] Enumerating Config Backups (via Passive and Aggressive Methods)
+ Checking Config Backups - Time: 00:00:10 <> (100 / 137) 72.99%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:10 <> (102 / 137) 74.45%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:10 <> (103 / 137) 75.18%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:10 <> (104 / 137) 75.91%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:10 <> (105 / 137) 76.64%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:10 <> (106 / 137) 77.37%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:11 <> (107 / 137) 78.10%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:11 <> (108 / 137) 78.83%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:11 <> (109 / 137) 79.56%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:11 <> (110 / 137) 80.29%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:11 <> (111 / 137) 81.02%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:11 <> (112 / 137) 81.75%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:11 <> (115 / 137) 83.94%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:11 <> (116 / 137) 84.67%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:12 <> (117 / 137) 85.40%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:12 <> (118 / 137) 86.13%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:12 <> (120 / 137) 87.59%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:12 <> (122 / 137) 89.05%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:12 <> (123 / 137) 89.78%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:12 <> (124 / 137) 90.51%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:12 <> (125 / 137) 91.24%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:12 <> (126 / 137) 91.97%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:13 <> (128 / 137) 93.43%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:13 <> (130 / 137) 94.89%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:13 <> (131 / 137) 95.62%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:13 <> (132 / 137) 96.35%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:13 <> (133 / 137) 97.08%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:13 <> (134 / 137) 97.81%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:13 <> (135 / 137) 98.54%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:13 <> (136 / 137) 99.27%  ETA: 00:00:0 Checking Config Backups - Time: 00:00:43 <> (137 / 137) 100.00% Time: 00:00:43
+
+[i] No Config Backups Found.
+
+[!] No WPScan API Token given, as a result vulnerability data has not been output.
+[!] You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
+
+[+] Finished: Wed May 24 14:18:44 2023
+[+] Requests Done: 189
+[+] Cached Requests: 5
+[+] Data Sent: 45.951 KB
+[+] Data Received: 20.177 MB
+[+] Memory used: 265.828 MB
+[+] Elapsed time: 00:01:04
