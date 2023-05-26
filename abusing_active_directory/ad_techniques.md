@@ -7,7 +7,6 @@ sekurlsa::logonPasswords #to obtain credentials of currently logged users#DCSync
 ```
 
 
-
 Useful recon tools and their description:
 
 LDAPsearch — is a command line utility and a shell-accessible interface, which bases on ldap_search_ext(3) library call. The tool maintains a connection to the server using Lightweight Directory Access Protocol and — using specified parameters — performs querying LDAP service on our behalf¹.
