@@ -91,6 +91,32 @@ its using a one time pad
 
 https://rumkin.com/tools/cipher/ for ciphers
 
+its a keyed vigenere with key from th emessage itself
+
+![](20230527055851.png)
+
+wegot a key to enter from
+
+bu not the passphrase we need to  crack the key for the passphrase
+
+3poulakia!
+
+this is the ssh password so we got shell
+
+![](20230527060829.png)
+
+2c11cfbc5b959f73ac15a3310bd097c9
+
+apparently not much was revealed in iipsec video after that
+
+
+
+
+
+
+
+
+
 
 
 
