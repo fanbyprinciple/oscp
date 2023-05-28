@@ -20,3 +20,8 @@ https://gtfobins.github.io/
 wpscan --url https://brainfuck.htb --disable-tls-checks
 
 https://rumkin.com/tools/cipher/ for ciphers
+
+`sqlmap -r login.req`
+
+sqlinjection try: `admin'-- -`
+
