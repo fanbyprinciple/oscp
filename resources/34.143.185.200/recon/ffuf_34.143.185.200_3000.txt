@@ -1,0 +1,45 @@
+[2K[Status: 200, Size: 7606, Words: 2329, Lines: 141, Duration: 8442ms][0m
+[2K    * FUZZ: 
+
+[2K[Status: 403, Size: 281, Words: 20, Lines: 10, Duration: 8600ms][0m
+[2K    * FUZZ: .htpasswd.html FFUFHASH : cdfe14 
+
+[2K[Status: 403, Size: 281, Words: 20, Lines: 10, Duration: 9902ms][0m
+[2K    * FUZZ: .htaccess
+
+[2K[Status: 403, Size: 281, Words: 20, Lines: 10, Duration: 89ms][0m
+[2K    * FUZZ: .html FFUFHASH : cdfe14 
+
+[2K[Status: 403, Size: 281, Words: 20, Lines: 10, Duration: 82ms][0m
+[2K    * FUZZ: .htpasswd
+
+[2K[Status: 403, Size: 281, Words: 20, Lines: 10, Duration: 82ms][0m
+[2K    * FUZZ: .hta
+
+[2K[Status: 403, Size: 281, Words: 20, Lines: 10, Duration: 78ms][0m
+[2K    * FUZZ: .hta.html FFUFHASH : cdfe14 
+
+[2K[Status: 403, Size: 281, Words: 20, Lines: 10, Duration: 87ms][0m
+[2K    * FUZZ: .htaccess.html FFUFHASH : cdfe14 
+
+[2K[Status: 301, Size: 321, Words: 20, Lines: 10, Duration: 79ms][0m
+[2K    * FUZZ: css
+
+[2K[Status: 301, Size: 321, Words: 20, Lines: 10, Duration: 92ms][0m
+[2K    * FUZZ: img
+
+[2K[Status: 200, Size: 7606, Words: 2329, Lines: 141, Duration: 98ms][0m
+[2K    * FUZZ: index.html
+
+[2K[Status: 301, Size: 323, Words: 20, Lines: 10, Duration: 80ms][0m
+[2K    * FUZZ: login
+
+[2K[Status: 301, Size: 325, Words: 20, Lines: 10, Duration: 80ms][0m
+[2K    * FUZZ: profile
+
+[2K[Status: 403, Size: 281, Words: 20, Lines: 10, Duration: 89ms][0m
+[2K    * FUZZ: server-status
+
+[2K[Status: 301, Size: 324, Words: 20, Lines: 10, Duration: 82ms][0m
+[2K    * FUZZ: signup
+

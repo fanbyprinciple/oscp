@@ -25,7 +25,6 @@ mfa.enabled@alto.tel
 
 # answers
 
-
 Import Modules
 --------------
 cd 'C:\Users\hacker\Desktop\Az-Tools'; Set-ExecutionPolicy Bypass -Scope CurrentUser; Import-Module AADInternals; Import-Module .\MicroBurst-master\MicroBurst.psm1; Import-Module .\MFASweep-master\MFASweep.ps1; Import-Module .\MSOLSpray-master\MSOLSpray.ps1
@@ -38,7 +37,7 @@ Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization 
 Get AAD Connect Account Credentials
 -----------------------------------
 Install-Module AADInternals
-Import-Module AADInternals
+Import-Module AADInternalsGet
 Get-AADIntSyncCredentials
 
 

@@ -1,0 +1,8 @@
+# Nmap 7.93 scan initiated Wed May 24 06:06:36 2023 as: /usr/bin/nmap -sU --max-retries 1 --open --open -oN nmap/UDP_34.125.126.47.nmap --system-dns --stats-every 3s 34.125.126.47
+Warning: 34.125.126.47 giving up on port because retransmission cap hit (1).
+Nmap scan report for 47.126.125.34.bc.googleusercontent.com (34.125.126.47)
+Host is up (0.25s latency).
+All 1000 scanned ports on 47.126.125.34.bc.googleusercontent.com (34.125.126.47) are in ignored states.
+Not shown: 739 open|filtered udp ports (no-response), 261 closed udp ports (port-unreach)
+
+# Nmap done at Wed May 24 06:10:51 2023 -- 1 IP address (1 host up) scanned in 254.87 seconds

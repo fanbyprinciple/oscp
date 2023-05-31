@@ -312,3 +312,38 @@ TCP local ports: 1.3.6.1.2.1.6.13.1.3
 System processes: 1.3.6.1.2.1.25.1.6.0
 Running programs: 1.3.6.1.2.1.25.4.2.1.2
 Storage Units: 1.3.6.1.2.1.25.2.3.1.4For example to enumerate TCP local ports:snmpwalk -c public -v1 [IP] 1.3.6.1.2.1.6.13.1.3
+
+# Azure AD deployment
+
+Introduction to Ms Azure: 
+
+[url=https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiAp5vYs5z_AhVVSmwGHeBCDLAQFnoECAsQAQ&url=https%3A%2F%2Faddons.mozilla.org%2Fen-US%2Ffirefox%2Faddon%2Fabsolute-enable-right-click%2F&usg=AOvVaw1sSQTnSokDbDl0v3bOwQ6y]Absolute Enable Right Click & Copy - Firefox Browser Add-onsmozilla.orghttps://addons.mozilla.org › en-US › firefox › addon[/url]
+
+links for login : 
+https://labs.azure.com/virtualmachines
+https://portal.azure.com/#home
+
+hacker@123
+
+In order to connect either we can start with Connect-AzAccount and then login with credentials 
+
+```
+PS C:\Users\hacker\Desktop\Az-Tools> Connect-AzureAD
+
+Account                      Environment TenantId                             TenantDomain       AccountType
+-------                      ----------- --------                             ------------       -----------
+hacker525@hackersacademy.net AzureCloud  5b6c8028-c0c3-406c-9eac-f5446118784e hackersacademy.net User
+```
+
+```
+PS C:\Users\hacker\Desktop\Az-Tools> Get-AzureADDirectoryRole
+
+ObjectId                             DisplayName                                Description
+--------                             -----------                                -----------
+0975c30e-5b40-427b-9925-b7b07e0d607d Azure AD Joined Device Local Administrator Users assigned to this role are added to the local administrators group on Azure AD-joined devices.
+3f633d2c-ae2d-409a-bd71-3dc9b297c54e Global Administrator                       Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities.
+6ece4747-c9eb-4a26-981d-8111262a3225 User Administrator                         Can manage all aspects of users and groups, including resetting passwords for limited admins.
+99e37a42-1561-4677-92a5-57ad5818f805 Directory Readers                          Can read basic directory information. Commonly used to grant directory read access to applications and guests.
+
+```
+
