@@ -416,9 +416,70 @@ credentials.\r\nTrace ID: ef9599fd-c88c-4902-afb3-1ae83a9be000\r\nCorrelation ID
 the userame should be of the format mfa.enabled@alto.tel
 
 pwd.spray@alto.tel
-mobi.alto.tel
+mobicon.alto.tel
 
-how do you login
+how do you login - using Connect-AzureAD or loging into azure portal
+
+https://learn.microsoft.com/en-us/answers/questions/734269/windows-log-in-using-azure-ad-identity
+
+https://www.youtube.com/watch?v=Ma7VAQE7ga4
+
+Identity is a thing that gets authenticated
+could be username with passwoed or applications or tother servers with secret keys and certificates
+
+```
+PS C:\Users\hacker\Desktop\Az-Tools> Connect-AzureAD
+
+Account            Environment TenantId                             TenantDomain AccountType
+-------            ----------- --------                             ------------ -----------
+pwd.spray@alto.tel AzureCloud  17e2a955-2919-4798-bb93-28b9ef7055ce alto.tel     User
+```
+
+The story till now is that
+
+after password spray we got three users
+
+pwd.spray - normal user with no specific permission
+mobi.con - user with special permission but conditional access policy
+mfa.enabled - user with multi factor authentication
+
+To bypass conditonal access we can use MFA sweep
+
+`Invoke-MFASweep -Username mobi.con@alto.tel -Password "BH@Asia2023"`
+
+MFA sweep didnt work but we got to know that we can gain entry using MFAsweep
+
+now looking at mobi.con user permissions
+
+we see that we are guest inviter
+
+and also part of automation admins
+m o b i . c o n @ a l t o . t e l
+p w d . s p r a y @ a l t o . t e l
+
+it means we can look into one of the service principals
+service principal - assigned access to resources
+
+we use the service principles
+ to login but we have managed identites now
+
+once we are inside we can hunt of resources in mulitple places
+
+```
+Search VMs for keys, environment variables, etc. Apps
+App functions Containers
+Dynamic memberships Azure Resource Manager General misconfigurations Etc.
+
+```
+Holds automation configuration to automate operations
+For example, holds resources like Runbooks
+To access other resources:
+Run As, not recommended (retires 30 Sept 2023)
+Managed Identities
+
+
+
+
 
 
 

