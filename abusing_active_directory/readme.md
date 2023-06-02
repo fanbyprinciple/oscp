@@ -478,8 +478,8 @@ Run As, not recommended (retires 30 Sept 2023)
 Managed Identities
 
 
-
-
+made a presentation : 
+https://docs.google.com/presentation/d/1vMOn_-kw7GZWlF_mEY9wf3hci0GH0uR2Ss5dWJMH10g/edit?usp=drivesdk
 
 
 
