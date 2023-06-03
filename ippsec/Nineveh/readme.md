@@ -53,3 +53,9 @@ found a password
 
 ![](20230529214536.png)
 
+
+. SecLists (apt install seclists) has a twitter-banned.txt that seems like a reasonable place to start:
+
+password123 is a password
+
+
