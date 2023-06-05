@@ -25,4 +25,10 @@ website opens at 10.129.166.248
 gobuster dir -u 10.129.166.248 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
 
 nmap -p- -T5 nmap/allports 
+nmap -p 110 -sC -sV --script vuln 
+
+nc solidstate.htb 4555
+
+and you van do a  lot
+
 
