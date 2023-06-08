@@ -1,0 +1,188 @@
+
+[0;33mRunning all scans on [0m10.1.11.211
+[0m
+[0;33mNo ping detected.. Will not use ping scans!
+[0m
+[0m
+[0;32mHost is likely running Unknown OS!
+
+
+[0;32m---------------------Starting Port Scan-----------------------
+[0m
+In progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2AIn progress: No Scan (0:00:00 elapsed - 0:00:00 remaining)   
+[#>                                                  ] 0% done   
+[2A
