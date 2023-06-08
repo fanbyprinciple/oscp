@@ -30,5 +30,3 @@ enumad - 10.50.47.172
 
 
 xfreerdp /d:za.tryhackme.com /u:'rachel.dunn' /p:'Bmlj9838' /v:thmjmp1.za.tryhackme.com /drive:.,kali-share +clipboard
-
-
