@@ -1,0 +1,1 @@
+# Notes ot insane machines
