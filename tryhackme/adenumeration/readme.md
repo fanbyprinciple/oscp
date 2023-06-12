@@ -24,3 +24,11 @@ after that I got hte following credentials
 
 `Your credentials have been generated: Username: rachel.dunn Password: Bmlj9838`
 
+enumad - 10.50.47.172
+
+`ssh za.tryhackme.com\\rachel.dunn@thmjmp1.za.tryhackme.com`
+
+
+xfreerdp /d:za.tryhackme.com /u:'rachel.dunn' /p:'Bmlj9838' /v:thmjmp1.za.tryhackme.com /drive:.,kali-share +clipboard
+
+
