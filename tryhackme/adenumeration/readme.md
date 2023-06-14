@@ -30,3 +30,8 @@ enumad - 10.50.47.172
 
 
 xfreerdp /d:za.tryhackme.com /u:'rachel.dunn' /p:'Bmlj9838' /v:thmjmp1.za.tryhackme.com /drive:.,kali-share +clipboard
+
+Using microsoft management console to enumerate
+I dont know how to enumerate through RSAT however enumerating through command prompt i need to see
+
+
