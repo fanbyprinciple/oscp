@@ -63,3 +63,10 @@ Get-ADObject -Filter 'badPwdCount -gt 0' -Server za.tryhackme.com
 Get-ADDomain
 et-ADAccountPassword -Identity gordon.stevens -Server za.tryhackme.com -OldPassword (ConvertTo-SecureString -AsPlaintext "old" -force) -NewPassword (ConvertTo-SecureString -AsPlainText "new" -Force)
 
+ Get-ADUser -Identity Beth.Nolan -properties *
+
+  CN=annette.manning,OU=Marketing,OU=People,DC=za,DC=tryhackme,DC=com
+
+
+Get-ADGroup -Identity "Tier 2 Admins"
+get-aduser -Identity beth.nolan -Properties * |Select-object 'Title'
