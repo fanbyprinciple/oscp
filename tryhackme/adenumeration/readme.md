@@ -46,3 +46,20 @@ net group "Tier 1 Admins" /domain
 
 net accounts /domain
 
+### USER ENUMERATION
+
+get-ADuser
+get-ADGroup
+Get-ADGroupMember
+Get-ADObject
+
+A more generic search for any AD objects can be performed using the Get-ADObject cmdlet. For example, if we are looking for all AD objects that were changed after a specific date:
+
+PS C:\> $ChangeDate = New-Object DateTime(2022, 02, 28, 12, 00, 00)
+PS C:\> Get-ADObject -Filter 'whenChanged -gt $ChangeDate' -includeDeletedObjects -Server za.tryhackme.com
+
+Get-ADObject -Filter 'badPwdCount -gt 0' -Server za.tryhackme.com
+
+Get-ADDomain
+et-ADAccountPassword -Identity gordon.stevens -Server za.tryhackme.com -OldPassword (ConvertTo-SecureString -AsPlaintext "old" -force) -NewPassword (ConvertTo-SecureString -AsPlainText "new" -Force)
+
