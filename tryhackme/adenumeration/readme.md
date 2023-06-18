@@ -94,6 +94,19 @@ cd SharpHound-v1.1.0
 
 .\SharpHound.exe --CollectionMethods All --Domain za.tryhackme.com --ExcludeDCs
 
+scp username@za.tryhackme.com@thmjmp1.za.tryhackme.com:C:/Users/username/Documents/SharpHound-v1.1.0/20220805005305_BloodHound.zip .
+
+neo4j console &
+bloodhound &
+
+    You can use the Search for a node... area to find specific users, groups, etc.
+    You can click on specific properties of the object to graph things out (eg. group memberships)
+    You can use the Analysis tab to run built-in queries (or write your own)
+    Much, much more
+
+`SharpHound.exe --CollectionMethods All --Domain za.tryhackme.com --ExcludeDCs`
+
+4
 
 
 
