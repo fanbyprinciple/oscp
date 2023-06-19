@@ -1,0 +1,7 @@
+# Nmap 7.93 scan initiated Sun Jun 18 13:34:13 2023 as: /usr/bin/nmap -sU --max-retries 1 --open --open -oN nmap/UDP_10.10.11.214.nmap --system-dns --stats-every 3s 10.10.11.214
+Nmap scan report for 10.10.11.214
+Host is up (0.33s latency).
+All 1000 scanned ports on 10.10.11.214 are in ignored states.
+Not shown: 1000 open|filtered udp ports (no-response)
+
+# Nmap done at Sun Jun 18 13:39:53 2023 -- 1 IP address (1 host up) scanned in 339.29 seconds
