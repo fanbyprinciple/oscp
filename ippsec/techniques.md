@@ -11,6 +11,10 @@ python3 -c 'import pty; pty.spawn("/bin/sh")'
 
 gobuster dir --url https://10.129.240.189 --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -k
 
+### subdomain enumeration gobuster
+gobuster vhost -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u stocker.htb -t 50 --append-domain 
+
+
 go buster status code : `gobuster dir -u https://www.jmicc.gov.pk/ -w /usr/share/wordlists/dirb/common.txt -b '403,404'`
 
 using wget to reveal the text as /root/root

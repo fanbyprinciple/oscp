@@ -45,4 +45,4 @@ nmap -sC -sV -oA nmap/valentine 10.129.186.207
 
 nmap --script vuln -oA nmap/vulnscan 10.129.186.207
 
-gobuster -u http://10.129.186.207 -w /usr/share/wordlists/dirbuster/directory-list-2/3-medium.txt -o fobuster.log -t 50
+gobuster dir -u http://10.129.186.207 -w /usr/share/wordlists/dirbuster/directory-list-2/3-medium.txt -o fobuster.log -t 50

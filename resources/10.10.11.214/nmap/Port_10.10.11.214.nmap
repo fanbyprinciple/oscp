@@ -1,9 +1,0 @@
-# Nmap 7.93 scan initiated Sun Jun 18 13:26:40 2023 as: /usr/bin/nmap -T4 --max-retries 1 --max-scan-delay 20 --open -oN nmap/Port_10.10.11.214.nmap --system-dns --stats-every 1s 10.10.11.214
-Nmap scan report for 10.10.11.214
-Host is up (0.36s latency).
-Not shown: 999 filtered tcp ports (no-response)
-Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
-PORT   STATE SERVICE
-22/tcp open  ssh
-
-# Nmap done at Sun Jun 18 13:27:07 2023 -- 1 IP address (1 host up) scanned in 27.05 seconds

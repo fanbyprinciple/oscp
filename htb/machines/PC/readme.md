@@ -163,3 +163,4 @@ wwe had to createa  bash.sh at the system
 ![](20230620002815.png)
 
 pwnd
+
