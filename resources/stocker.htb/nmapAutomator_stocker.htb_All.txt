@@ -1498,3 +1498,48 @@ All (Default), ffuf, nikto, Skip <!>
 + /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
 + No CGI Directories found (use '-C all' to force check all possible dirs)
 + nginx/1.18.0 appears to be outdated (current is at least 1.20.1).
++ /#wp-config.php#: #wp-config.php# file found. This file contains the credentials.
++ 7966 requests: 0 error(s) and 4 item(s) reported on remote host
++ End Time:           2023-06-20 03:35:52 (GMT-4) (2469 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+[0m
+[0;33mFinished nikto scan
+[0m
+[0;33m=========================
+[0m
+[0;33mStarting ffuf scan
+[0m
+[2K[Status: 200, Size: 15463, Words: 4199, Lines: 322, Duration: 248ms][0m
+[2K    * FUZZ: 
+
+[2K[Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 244ms][0m
+[2K    * FUZZ: css
+
+[2K[Status: 200, Size: 1150, Words: 4, Lines: 1, Duration: 296ms][0m
+[2K    * FUZZ: favicon.ico
+
+[2K[Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 244ms][0m
+[2K    * FUZZ: fonts
+
+[2K[Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 318ms][0m
+[2K    * FUZZ: img
+
+[2K[Status: 200, Size: 15463, Words: 4199, Lines: 322, Duration: 249ms][0m
+[2K    * FUZZ: index.html
+
+[2K[Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 254ms][0m
+[2K    * FUZZ: js
+
+[0m
+[0;33mFinished ffuf scan
+[0m
+[0;33m=========================
+
+
+
+[0;32m---------------------Finished all scans------------------------
+[0m
+
+[0;33mCompleted in 1 hour(s), 18 minute(s) and 51 second(s)
+[0m

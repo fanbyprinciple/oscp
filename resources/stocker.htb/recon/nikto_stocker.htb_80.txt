@@ -10,3 +10,8 @@
 + /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
 + No CGI Directories found (use '-C all' to force check all possible dirs)
 + nginx/1.18.0 appears to be outdated (current is at least 1.20.1).
++ /#wp-config.php#: #wp-config.php# file found. This file contains the credentials.
++ 7966 requests: 0 error(s) and 4 item(s) reported on remote host
++ End Time:           2023-06-20 03:35:52 (GMT-4) (2469 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested

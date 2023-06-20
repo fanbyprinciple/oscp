@@ -1,0 +1,21 @@
+[2K[Status: 200, Size: 15463, Words: 4199, Lines: 322, Duration: 248ms][0m
+[2K    * FUZZ: 
+
+[2K[Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 244ms][0m
+[2K    * FUZZ: css
+
+[2K[Status: 200, Size: 1150, Words: 4, Lines: 1, Duration: 296ms][0m
+[2K    * FUZZ: favicon.ico
+
+[2K[Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 244ms][0m
+[2K    * FUZZ: fonts
+
+[2K[Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 318ms][0m
+[2K    * FUZZ: img
+
+[2K[Status: 200, Size: 15463, Words: 4199, Lines: 322, Duration: 249ms][0m
+[2K    * FUZZ: index.html
+
+[2K[Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 254ms][0m
+[2K    * FUZZ: js
+
