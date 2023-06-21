@@ -49,6 +49,7 @@ def bash(url,ip,port):
     all = url + path
     try:
         req=requests.post(url=all,headers=headers,data=data,verify=False,timeout=3)
+        print(url)
         code =req.status_code
         text = req.text
         rsp = '"error":"Internal Server Error"'
