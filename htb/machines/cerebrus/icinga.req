@@ -1,0 +1,18 @@
+POST /icingaweb2/authentication/login HTTP/1.1
+Host: icinga.cerberus.local:8080
+Content-Length: 183
+Accept: */*
+X-Icinga-WindowId: tzejgrqnhucw
+X-Icinga-Accept: text/html
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.5481.78 Safari/537.36
+X-Icinga-Container: layout
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Origin: http://icinga.cerberus.local:8080
+Referer: http://icinga.cerberus.local:8080/icingaweb2/authentication/login
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Cookie: _chc=1; Icingaweb2=ng368i91njeisai2g1amaunt5c; icingaweb2-tzo=-14400-1
+Connection: close
+
+username=icingaadmin&password=icinga&rememberme=0&redirect=&formUID=form_login&CSRFToken=1025474869%7Ced22a8a7a8ba80e9617f89f574939102b58b80523679dad08d6ad2cf47ecbc68&btn_submit=Login
