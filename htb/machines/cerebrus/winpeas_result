@@ -1,0 +1,296 @@
+*Evil-WinRM* PS C:\Users\matthew\Documents> ./winpeas.ps1
+[proxychains] Strict chain  ...  127.0.0.1:1080  ...  172.16.22.1:5985  ...  OK
+[proxychains] Strict chain  ...  127.0.0.1:1080  ...  172.16.22.1:5985  ...  OK
+
+    ((,.,/((((((((((((((((((((/,  */
+,/*,..*(((((((((((((((((((((((((((((((((,
+,*/((((((((((((((((((/,  .*//((//**, .*((((((*
+((((((((((((((((* *****,,,/########## .(* ,((((((
+(((((((((((/* ******************/####### .(. ((((((
+((((((..******************/@@@@@/***/###### /((((((
+,,..**********************@@@@@@@@@@(***,#### ../(((((
+, ,**********************#@@@@@#@@@@*********##((/ /((((
+..(((##########*********/#@@@@@@@@@/*************,,..((((
+.(((################(/******/@@@@@#****************.. /((
+.((########################(/************************..*(
+.((#############################(/********************.,(
+.((##################################(/***************..(
+.((######################################(************..(
+.((######(,.***.,(###################(..***(/*********..(
+.((######*(#####((##################((######/(********..(
+.((##################(/**********(################(**...(
+.(((####################/*******(###################.((((
+.(((((############################################/  /((
+..(((((#########################################(..(((((.
+....(((((#####################################( .((((((.
+......(((((#################################( .(((((((.
+(((((((((. ,(############################(../(((((((((.
+  (((((((((/,  ,####################(/..((((((((((.
+        (((((((((/,.  ,*//////*,. ./(((((((((((.
+           (((((((((((((((((((((((((((/
+          by @RandolphConley & carlospolop
+ADVISORY: WinPEAS - Windows local Privilege Escalation Awesome Script
+WinPEAS should be used for authorized penetration testing and/or educational purposes only
+Any misuse of this software will not be the responsibility of the author or of any other collaborator
+Use it at your own networks and/or with the network owner's explicit permission
+Indicates special privilege over an object or misconfiguration
+Indicates protection is enabled or something is well configured
+Indicates active users
+Indicates disabled users
+Indicates links
+Indicates information
+You can find a Windows local PE Checklist here: https://book.hacktricks.xyz/windows-hardening/checklist-windows-privilege-escalation
+
+Time Running: 0:0
+====================================||SYSTEM INFORMATION ||====================================
+The following information is curated. To get a full list of system information, run the cmdlet get-computerinfo
+Program 'systeminfo.exe' failed to run: Access is deniedAt C:\Users\matthew\Documents\winpeas.ps1:178 char:1
++ systeminfo.exe
++ ~~~~~~~~~~~~~~.
+At C:\Users\matthew\Documents\winpeas.ps1:178 char:1
++ systeminfo.exe
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (:) [], ApplicationFailedException
+    + FullyQualifiedErrorId : NativeCommandFailed
+
+Time Running: 0:0
+=========|| WINDOWS HOTFIXES
+=| Check if windows is vulnerable with Watson https://github.com/rasta-mouse/Watson
+Possible exploits (https://github.com/codingo/OSCP-2/blob/master/Windows/WinPrivCheck.bat)
+Access denied 
+At C:\Users\matthew\Documents\winpeas.ps1:187 char:11
++ $Hotfix = Get-HotFix | Sort-Object -Descending -Property InstalledOn  ...
++           ~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Get-HotFix], ManagementException
+    + FullyQualifiedErrorId : System.Management.ManagementException,Microsoft.PowerShell.Commands.GetHotFixCommand
+
+Time Running: 0:5
+=========|| ALL UPDATES INSTALLED
+Creating an instance of the COM component with CLSID {4CB43D7F-7EEE-4906-8698-60DA1C38F2FE} from the IClassFactory failed due to the following error: 80070005 Access is denied. (Exception from HRESULT: 0x80070005 (E_ACCESSDENIED)).
+At C:\Users\matthew\Documents\winpeas.ps1:201 char:13
++ $session = (New-Object -ComObject 'Microsoft.Update.Session')
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [New-Object], UnauthorizedAccessException
+    + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.NewObjectCommand
+You cannot call a method on a null-valued expression.
+At C:\Users\matthew\Documents\winpeas.ps1:203 char:1
++ $history = $session.QueryHistory("", 0, 1000) | Select-Object ResultC ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvokeMethodOnNull
+
+Time Running: 0:5
+==|| Drive Info
+Exception calling "Get" with "0" argument(s): "Access denied "
+At C:\Users\matthew\Documents\winpeas.ps1:264 char:1
++ $systemDrives = $diskSearcher.Get()
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : ManagementException
+
+Time Running: 0:10
+==|| Antivirus Detection (attemping to read exclusions as well)
+WMIC.exe : ERROR:
+    + CategoryInfo          : NotSpecified: (ERROR::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+Description = Invalid namespace
+Time Running: 0:10
+==|| NET ACCOUNTS Info
+Force user logoff how long after time expires?:       Never
+Minimum password age (days):                          30
+Maximum password age (days):                          42
+Minimum password length:                              0
+Length of password history maintained:                24
+Lockout threshold:                                    Never
+Lockout duration (minutes):                           10
+Lockout observation window (minutes):                 10
+Computer role:                                        PRIMARY
+The command completed successfully.
+
+
+Time Running: 0:10
+=========|| REGISTRY SETTINGS CHECK
+
+Time Running: 0:10
+==|| Audit Log Settings
+No Audit Log settings, no registry entry found.
+
+Time Running: 0:10
+==|| Windows Event Forward (WEF) registry
+Logs are not being fowarded, no registry entry found.
+
+Time Running: 0:10
+==|| LAPS Check
+LAPS dlls not found on this machine
+
+Time Running: 0:10
+==|| WDigest Check
+The system was unable to find the specified registry value: UesLogonCredential
+
+Time Running: 0:10
+==|| LSA Protection Check
+The system was unable to find the specified registry value: RunAsPPL / RunAsPPLBoot
+
+Time Running: 0:10
+==|| Credential Guard Check
+The system was unable to find the specified registry value: LsaCfgFlags
+
+Time Running: 0:10
+==|| Cached WinLogon Credentials Check
+10
+However, only the SYSTEM user can view the credentials here: HKEY_LOCAL_MACHINE\SECURITY\Cache
+Or, using mimikatz lsadump::cache
+
+Time Running: 0:10
+==|| Additonal Winlogon Credentials Check
+CERBERUS
+
+
+Time Running: 0:10
+==|| RDCMan Settings Check
+No RCDMan.Settings found.
+
+Time Running: 0:10
+==|| RDP Saved Connections Check
+HK_Users
+
+Name           Used (GB)     Free (GB) Provider      Root                                                                                                                                                                                 CurrentLocation
+----           ---------     --------- --------      ----                                                                                                                                                                                 ---------------
+HKU                                    Registry      HKEY_USERS
+Not found for HKEY_USERS\.DEFAULT
+Not found for HKEY_USERS\S-1-5-21-4088429403-1159899800-2753317549-1104
+Not found for HKEY_USERS\S-1-5-21-4088429403-1159899800-2753317549-1104_Classes
+Not found for HKEY_USERS\S-1-5-18
+HKCU
+Terminal Server Client not found in HCKU
+
+Time Running: 0:10
+==|| Putty Stored Credentials Check
+No putty credentials found in HKCU:\SOFTWARE\SimonTatham\PuTTY\Sessions
+
+Time Running: 0:10
+=========|| SSH Key Checks
+
+Time Running: 0:10
+==|| If found:
+https://blog.ropnop.com/extracting-ssh-private-keys-from-windows-10-ssh-agent/
+
+Time Running: 0:10
+==|| Checking Putty SSH KNOWN HOSTS
+No putty ssh keys found
+
+Time Running: 0:10
+==|| Checking for OpenSSH Keys
+No OpenSSH Keys found.
+
+Time Running: 0:10
+==|| Checking for WinVNC Passwords
+No WinVNC found.
+
+Time Running: 0:10
+==|| Checking for SNMP Passwords
+SNPM Key found at HKLM:\SYSTEM\CurrentControlSet\Services\SNMP
+
+Time Running: 0:10
+==|| Checking for TightVNC Passwords
+No TightVNC found.
+
+Time Running: 0:10
+==|| UAC Settings
+EnableLUA is equal to 1. Part or all of the UAC components are on.
+https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation#basic-uac-bypass-full-file-system-access
+
+Time Running: 0:10
+==|| Recently Run Commands (WIN+R)
+
+Time Running: 0:10
+==||HKCU Recently Run Commands
+
+Time Running: 0:10
+==|| Always Install Elevated Check
+Checking Windows Installer Registry (will populate if the key exists)
+
+Time Running: 0:10
+=========|| PowerShell Info
+PowerShell 2.0 available
+PowerShell 5.1.17763.1 available
+
+Time Running: 0:10
+==|| PowerShell Registry Transcript Check
+
+Time Running: 0:10
+==|| PowerShell Module Log Check
+
+Time Running: 0:10
+==|| PowerShell Script Block Log Check
+
+Time Running: 0:10
+==|| WSUS check for http and UseWAServer = 1, if true, might be vulnerable to exploit
+https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation#wsus
+
+Property      : {}
+PSPath        : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate
+PSParentPath  : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows
+PSChildName   : WindowsUpdate
+PSDrive       : HKLM
+PSProvider    : Microsoft.PowerShell.Core\Registry
+PSIsContainer : True
+SubKeyCount   : 1
+View          : Default
+Handle        : Microsoft.Win32.SafeHandles.SafeRegistryHandle
+ValueCount    : 0
+Name          : HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate
+
+
+Time Running: 0:10
+==|| Internet Settings HKCU / HKLM
+DisableCachingOfSSLPages - 1
+IE5_UA_Backup_Flag - 5.0
+PrivacyAdvanced - 1
+SecureProtocols - 2048
+User Agent - Mozilla/4.0 (compatible; MSIE 8.0; Win32)
+CertificateRevocation - 1
+ZonesSecurityUpgrade - 207 225 200 221 165 194 216 1
+WarnonZoneCrossing - 1
+EnableNegotiate - 1
+MigrateProxy - 1
+ProxyEnable - 0
+ActiveXCache - C:\Windows\Downloaded Program Files
+CodeBaseSearchPath - CODEBASE
+EnablePunycode - 1
+MinorVersion - 0
+WarnOnIntranet - 1
+
+Time Running: 0:14
+=========|| RUNNING PROCESSES
+
+Time Running: 0:14
+=========|| Checking user permissions on running processes
+
+Time Running: 0:14
+==|| System processes
+
+Time Running: 0:19
+=========|| SERVICE path vulnerable check
+Checking for vulnerable service .exe
+Access denied 
+At C:\Users\matthew\Documents\winpeas.ps1:650 char:1
++ Get-WmiObject Win32_Service | Where-Object { $_.PathName -like '*.exe ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject], ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+
+Time Running: 0:24
+=========|| Checking for Unquoted Service Paths
+Fetching the list of services, this may take a while...
+Access denied 
+At C:\Users\matthew\Documents\winpeas.ps1:87 char:15
++   $services = Get-WmiObject -Class Win32_Service | Where-Object { $_. ...
++               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-WmiObject], ManagementException
+    + FullyQualifiedErrorId : GetWMIManagementException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
+No unquoted service paths were found
+
+Time Running: 0:29
+==|| Checking Service Registry Permissions
+This will take some time.
