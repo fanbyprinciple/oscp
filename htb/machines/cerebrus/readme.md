@@ -269,3 +269,4 @@ since 10.10.16.24 is our ip
 
 this will not wokr because then it needs two layers of proxy
 
+.\chisel client 10.10.16.24:8001 R:1080:socks
