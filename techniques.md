@@ -86,5 +86,13 @@ sudo nano /etc/proxychains4.conf
 
 how to add attacker ot proxychains is what i need to look into
 
+# using chisel through evilwinrm
+
+./chisel client 10.10.16.24:8001 R:5985:172.16.22.1:5985
+./chisel server -p 8001 — reverse
+
+.\chisel.exe client 10.10.16.24:9095 R:80localhost:80 R:443:localhost:443 R:8888:localhost:8888 R:9251:localhost:9251
+./chisel server -p 9095 -reverse
+
 
 
