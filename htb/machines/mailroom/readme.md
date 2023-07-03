@@ -147,4 +147,45 @@ yes they did
 
 hahaha. anywhoo.
 
+dirsearch -u http://mailroom.htb -t 200
+
+```
+ gobuster vhost -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u mailroom.htb -t 50 --append-domain
+===============================================================
+Gobuster v3.5
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:             http://mailroom.htb
+[+] Method:          GET
+[+] Threads:         50
+[+] Wordlist:        /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+[+] User Agent:      gobuster/3.5
+[+] Timeout:         10s
+[+] Append Domain:   true
+===============================================================
+2023/07/02 20:23:15 Starting gobuster in VHOST enumeration mode
+===============================================================
+Found: git.mailroom.htb Status: 200 [Size: 13201]
+Progress: 4989 / 4990 (99.98%)
+===============================================================
+2023/07/02 20:23:57 Finished
+
+```
+
+lets add to /etc/hosts 
+
+![](20230702202632.png)
+
+got a gittea directory.
+
+lets do adirectory enumeration on subdomain
+
+we will get to know th eusers of gitea
+
+in the repo htereis a metnion of another subdomain
+
+staff-review-panel.mailroom.htb
+
+
+
 

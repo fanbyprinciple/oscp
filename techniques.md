@@ -13,16 +13,24 @@ https://www.nickczh.com/upgrading-your-shell/
 
 ### gobuster
 
-gobuster dir --url https://10.129.240.189 --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -k
+`gobuster dir --url https://10.129.240.189 --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -k`
 
 ### dirb
 
 for php pages dirb works best
 
-dirb http://mailroom.htb
+`dirb http://mailroom.htb`
+
+### dirsearch
+
+`dirsearch -u http://mailroom.htb -t 200`
+
+### fuff subdomain enumeration
+
+`ffuf -w /snap/seclists/25/Discovery/Web-Content/directory-list-2.3-medium.txt -H "Host: FUZZ.mailroom.htb" -u http://mailroom.htb -fs 7746`
 
 ### subdomain enumeration gobuster
-gobuster vhost -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u stocker.htb -t 50 --append-domain 
+`gobuster vhost -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u stocker.htb -t 50 --append-domain` 
 
 ### gobuster status code
 go buster status code : `gobuster dir -u https://www.jmicc.gov.pk/ -w /usr/share/wordlists/dirb/common.txt -b '403,404'`
