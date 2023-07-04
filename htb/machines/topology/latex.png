@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE items [
+<!ELEMENT items (item*)>
+<!ATTLIST items burpVersion CDATA "">
+<!ATTLIST items exportTime CDATA "">
+<!ELEMENT item (time, url, host, port, protocol, method, path, extension, request, status, responselength, mimetype, response, comment)>
+<!ELEMENT time (#PCDATA)>
+<!ELEMENT url (#PCDATA)>
+<!ELEMENT host (#PCDATA)>
+<!ATTLIST host ip CDATA "">
+<!ELEMENT port (#PCDATA)>
+<!ELEMENT protocol (#PCDATA)>
+<!ELEMENT method (#PCDATA)>
+<!ELEMENT path (#PCDATA)>
+<!ELEMENT extension (#PCDATA)>
+<!ELEMENT request (#PCDATA)>
+<!ATTLIST request base64 (true|false) "false">
+<!ELEMENT status (#PCDATA)>
+<!ELEMENT responselength (#PCDATA)>
+<!ELEMENT mimetype (#PCDATA)>
+<!ELEMENT response (#PCDATA)>
+<!ATTLIST response base64 (true|false) "false">
+<!ELEMENT comment (#PCDATA)>
+]>
+<items burpVersion="2023.1.2" exportTime="Wed Jul 05 00:24:47 EDT 2023">
+  <item>
+    <time>Wed Dec 31 19:00:00 EST 1969</time>
+    <url><![CDATA[http://latex.topology.htb/equation.php?eqn=../../../../../etc/passwd&submit=../../../../../etc/passwd]]></url>
+    <host ip="10.10.11.217">latex.topology.htb</host>
+    <port>80</port>
+    <protocol>http</protocol>
+    <method><![CDATA[GET]]></method>
+    <path><![CDATA[/equation.php?eqn=../../../../../etc/passwd&submit=../../../../../etc/passwd]]></path>
+    <extension>php</extension>
+    <request base64="true"><![CDATA[R0VUIC9lcXVhdGlvbi5waHA/ZXFuPS4uLy4uLy4uLy4uLy4uL2V0Yy9wYXNzd2Qmc3VibWl0PS4uLy4uLy4uLy4uLy4uL2V0Yy9wYXNzd2QgSFRUUC8xLjENCkhvc3Q6IGxhdGV4LnRvcG9sb2d5Lmh0Yg0KQ2FjaGUtQ29udHJvbDogbWF4LWFnZT0wDQpVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzOiAxDQpVc2VyLUFnZW50OiBNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTEwLjAuNTQ4MS43OCBTYWZhcmkvNTM3LjM2DQpBY2NlcHQ6IHRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuNw0KQWNjZXB0LUVuY29kaW5nOiBnemlwLCBkZWZsYXRlDQpBY2NlcHQtTGFuZ3VhZ2U6IGVuLVVTLGVuO3E9MC45DQpDb25uZWN0aW9uOiBjbG9zZQ0KDQo=]]></request>
+    <status>200</status>
+    <responselength>2700</responselength>
+    <mimetype>PNG</mimetype>
+    <response base64="true"><![CDATA[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]]></response>
+    <comment></comment>
+  </item>
+</items>
