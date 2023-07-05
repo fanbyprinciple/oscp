@@ -263,3 +263,4 @@ looking at the hotfixes
 
 `wmic qfe get Caption,Description,HotFixID,InstalledOn`
 
+
