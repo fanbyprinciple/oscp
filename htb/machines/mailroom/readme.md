@@ -186,6 +186,7 @@ in the repo htereis a metnion of another subdomain
 
 staff-review-panel.mailroom.htb
 
+https://hyperbeast-es.translate.goog/mailroom-htb/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp
 
 
 
