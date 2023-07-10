@@ -135,3 +135,25 @@ silentobserver@sandworm:/opt/tipnet/target/debug$ cat tipnet.d
 /opt/tipnet/target/debug/tipnet: /opt/crates/logger/src/lib.rs /opt/tipnet/src/main.rs
 ```
 
+Exploit to be run is firejail
+
+```
+silentobserver@sandworm:~$ python3 exploit.py
+Traceback (most recent call last):
+  File "/home/silentobserver/exploit.py", line 136, in <module>
+    helper_proc, join_file = createHelperSandbox()
+  File "/home/silentobserver/exploit.py", line 58, in createHelperSandbox
+    proc = subprocess.Popen(
+  File "/usr/lib/python3.10/subprocess.py", line 969, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.10/subprocess.py", line 1845, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+PermissionError: [Errno 13] Permission denied: 'firejail'
+
+silentobserver@sandworm:~$ firejail
+-bash: /usr/local/bin/firejail: Permission denied
+
+silentobserver@sandworm:~$ ls -al /usr/local/bin/firejail
+-rwsr-x--- 1 root jailer 1777952 Nov 29  2022 /usr/local/bin/firejail
+```
+
