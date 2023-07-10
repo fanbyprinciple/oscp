@@ -151,9 +151,32 @@ Traceback (most recent call last):
 PermissionError: [Errno 13] Permission denied: 'firejail'
 
 silentobserver@sandworm:~$ firejail
--bash: /usr/local/bin/firejail: Permission denied
+-bash: /usr/local/bin/fire
+jail: Permission denied
 
 silentobserver@sandworm:~$ ls -al /usr/local/bin/firejail
 -rwsr-x--- 1 root jailer 1777952 Nov 29  2022 /usr/local/bin/firejail
 ```
+nano /opt/crates/loggger/src/lib.rs
 
+use std::process::Command;
+
+ ![](20230708082431.png)
+
+ somehow i got it
+
+ added my keys for persistence
+
+```
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC0fQqdcN8qxqB3OH9lCBMyGcAz+c8a5uRxuvif1A98/jv5LLYy/2GO7r68nHOSIviFtkbnydmuTyzBBSWhbxC/MWAX8XZx5C3rF598/phDzwN4seus2SMhZi5zUZ6iylBBI8xht5J+u/InI6BlsXQ65H3xw+yFxndxeKi3Gu17glt3OEe8aAPaxj3qU89L1xbOr4m3mSqnhJne7eV05nqYvZDHP+pgOQE02dmmplRfTHCKbEfwqY/nDx7QWw6WtrQigNlEGNcWJUVKNlXBGoGHZuyHNMpoh4XjinLeM9GKFY4xRxk2CyFBLwlouOtj7s5EtFB5CLnaQMpDtzI+gJyma7nzxJZxELrlTHyjPJoQHQSmlQe+tBNBRAEL92wac79psK7s3PARdCcyEnpe8l9cplPP8YIS8tMg6BVVjTGPQNN0BJBwRxEjrvAKae1phztkQD7tZKy3aEl8VCUR8tpJ0fw0mK6/PJGxgCYXZWWKwycHOnJKQYDL17qsTypaLL8= kali@kali" >> authorized_keys
+
+```
+
+then did the firejail exploit
+
+remember to have proper shell before running it
+
+
+![](20230708084343.png)
+
+git root

