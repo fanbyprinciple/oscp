@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ─$ nmap 10.10.11.206
 Starting Nmap 7.93 ( https://nmap.org ) at 2023-07-11 23:42 EDT
 Nmap scan report for 10.10.11.206
@@ -20,7 +19,6 @@ python3 STEWS-vuln-detect.py http://10.10.11.206
 
 so  5789 oirt us also open
 
-=======
  10.10.11.206 
 
  nmap showed 22 80 and there is one more higher port
@@ -37,4 +35,3 @@ so  5789 oirt us also open
 ====Full list of vulnerable URLs===
 ['ws://10.10.11.206:5789']
 ['>>>VANILLA CSWSH DETECTED: ws://10.10.11.206:5789 likely vulnerable to vanilla CSWSH (any origin)']
->>>>>>> bb32d1f61b70fe651cf257fb42fac72571cd0b7b
