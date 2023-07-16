@@ -150,12 +150,10 @@ but not able to
 nothing came maybe because we did not transfer the zone properly before
 
 
-
-
-
-
-
-
-
 ```
+gobuster dns -d snoopy.htb -w /usr/share/spiderfoot/spiderfoot/dicts/subdomains-10000.txt -r 10.129.188.75 -i
+```
+
+we do a dns mitm
+
 

@@ -15,6 +15,10 @@ https://www.nickczh.com/upgrading-your-shell/
 
 `gobuster dir --url https://10.129.240.189 --wordlist /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -k`
 
+### gobuster dns enumeration
+
+`gobuster dns -d snoopy.htb -w /usr/share/spiderfoot/spiderfoot/dicts/subdomains-10000.txt -r 10.129.188.75 -i`
+
 ### dirb
 
 for php pages dirb works best
