@@ -151,6 +151,15 @@ dig command syntaxt snoopy.htb @<snoopy actual ip>
 
 GET /download?file=....//....//....//....//etc/passwd HTTP/1.1
 
+### nmap reference
 
+```
+❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.150.83 -oG allPorts
+```
 
+### targeted nmap
+
+```
+nmap -p22,53,80 -sCV 10.129.150.83 -oN targeted
+```
 
