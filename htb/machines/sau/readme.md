@@ -186,3 +186,6 @@ script /dev/null /bin/bash
 sudo /usr/bin/systemctl status trail.service
 
 ![](20230717030603.png)
+
+
+
