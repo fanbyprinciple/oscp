@@ -178,10 +178,16 @@ python -m smtpd -c DebuggingServer -n 127.0.0.1:25
 
 GET /download?file=....//....//....//....//etc/passwd HTTP/1.1
 
-### nmap reference
+### nmap reference hyperbeast
 
 ```
 ❯ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.129.150.83 -oG allPorts
+```
+
+then on specific ports
+
+```
+nmap -p22,80 -sCV 10.129.90.230 -oN targeted
 ```
 
 ### targeted nmap
