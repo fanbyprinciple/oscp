@@ -116,10 +116,32 @@ note updated:
 <img src="http://10.10.16.47:8000/yolo">
 ```
 
-and we got th e post request at
+and we got the post request at
 
 ![](20230718032815.png)
 
 
 
+steps to do to get user flag:
+1. get the bot id from page inspection
+2. change the avatar with the mod_pdf_viewer.js, ensure that you add %00.png to the file and change the type to image/png at /profile
+3. get the smae book as the bot
+4. got to /basket, edit text
+5. in the edit text add 
+<script src="/static/img/uploads/14"></script> which points to the image
+6. click on complete checkout while running the python server for collecting the post requests
+7. you should have a sdatabase file with the password then
+
+587
+
+<script src="/static/img/uploads/14"></script>
+
+most infuriatingly just when you think you may have had a break through
+this comes in picture
+
+![](20230719022646.png)
+
+problem with following this
+
+![](20230719060109.png)
 

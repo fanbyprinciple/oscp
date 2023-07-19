@@ -1,0 +1,46 @@
+WARNING: Duplicate port number(s) specified.  Are you alert enough to be using Nmap?  Have some coffee or Jolt(tm).
+# Nmap 7.93 scan initiated Wed Jul 19 03:20:40 2023 as: /usr/bin/nmap -sV --script vuln -p22,80,22,80 --open -oN nmap/Vulns_10.10.11.216.nmap --system-dns --stats-every 3s 10.10.11.216
+Pre-scan script results:
+| broadcast-avahi-dos: 
+|   Discovered hosts:
+|     224.0.0.251
+|   After NULL UDP avahi packet DoS (CVE-2011-1002).
+|_  Hosts are all up (not vulnerable).
+Nmap scan report for jupiter.htb (10.10.11.216)
+Host is up (0.38s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    nginx 1.18.0 (Ubuntu)
+| http-vuln-cve2011-3192: 
+|   VULNERABLE:
+|   Apache byterange filter DoS
+|     State: VULNERABLE
+|     IDs:  BID:49303  CVE:CVE-2011-3192
+|       The Apache web server is vulnerable to a denial of service attack when numerous
+|       overlapping byte ranges are requested.
+|     Disclosure date: 2011-08-19
+|     References:
+|       https://www.tenable.com/plugins/nessus/55976
+|       https://seclists.org/fulldisclosure/2011/Aug/175
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3192
+|_      https://www.securityfocus.com/bid/49303
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| http-csrf: 
+| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=jupiter.htb
+|   Found the following possible CSRF vulnerabilities: 
+|     
+|     Path: http://jupiter.htb:80/
+|     Form id: 
+|     Form action: #
+|     
+|     Path: http://jupiter.htb:80/services.html
+|     Form id: 
+|_    Form action: #
+|_http-internal-ip-disclosure: ERROR: Script execution failed (use -d to debug)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Jul 19 03:38:31 2023 -- 1 IP address (1 host up) scanned in 1071.25 seconds

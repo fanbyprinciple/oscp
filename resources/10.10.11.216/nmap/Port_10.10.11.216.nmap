@@ -1,0 +1,9 @@
+# Nmap 7.93 scan initiated Wed Jul 19 03:02:21 2023 as: /usr/bin/nmap -T4 --max-retries 1 --max-scan-delay 20 --open -oN nmap/Port_10.10.11.216.nmap --system-dns --stats-every 1s 10.10.11.216
+Nmap scan report for 10.10.11.216
+Host is up (0.90s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+# Nmap done at Wed Jul 19 03:02:26 2023 -- 1 IP address (1 host up) scanned in 5.06 seconds

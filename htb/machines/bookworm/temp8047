@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookworm</title>
+    <link
+      href="/static/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Bookworm</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <a class="nav-link " href="/">Home</a>
+              <a class="nav-link " href="/shop">Shop</a>
+            </ul>
+            <div class="navbar-nav">
+              
+                <a class="nav-link " href="/basket">Basket (0)</a>
+                <a class="nav-link active" href="/profile">aa</a>
+                <img class="nav-brand" src="/static/img/uploads/14" width="40" height="40"/>
+              
+            </div>
+          </div>
+      </div>
+    </nav>
+
+  <div class="container mt-2">
+    
+    <div class="alert alert-danger">
+      
+      <p class="mb-0">Sorry, we can&#39;t find that order!</p>
+      
+    </div>
+      
+
+<div class="row">
+  <div class="col-10">
+    <h1>Profile</h1>
+  </div>
+  <div class="col-2 d-flex align-items-center">
+    <a href="/logout" class="btn btn-danger w-100">Logout</a>
+  </div>
+</div>
+
+<h3>Your Profile</h3>
+<div class="row">
+  <div class="col-6">
+    <form method="POST" enctype="multipart/form-data" action="/profile">
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input class="form-control" type="text" name="name" required value="aa">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Address Line 1</label>
+        <input type="text" class="form-control" name="addressLine1" required value="aa">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Address Line 2</label>
+        <input type="text" class="form-control" name="addressLine2" required value="aa">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Town</label>
+        <input type="text" class="form-control" name="town" required value="aa">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Postcode</label>
+        <input type="text" class="form-control" name="postcode" required value="aa">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Update Profile</button>
+    </form>
+
+    <hr>
+    <form method="POST" enctype="multipart/form-data" action="/profile/avatar">
+      <div class="mb-3">
+        <label class="form-label">Avatar</label>
+        <input class="form-control" type="file" name="avatar" accept=".jpg,.png,.jpeg">
+      </div>
+      <button type="submit" class="btn btn-primary">Update Avatar</button>
+    </form>
+  </div>
+  <div class="col-3">
+    <img class="img-fluid" src="/static/img/uploads/14">
+  </div>
+</div>
+
+<hr>
+<h3>Order History</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Ordered At</th>
+      <th scope="col">Total Price</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <th scope="row">Order #203</th>
+      <td>Wed Jul 19 2023 09:55:55 GMT+0000 (Coordinated Universal Time)</td>
+      <td>£14</td>
+      <td>
+        <a href="/order/203">View Order</
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+  </div>
+
+  </body>
+</html>

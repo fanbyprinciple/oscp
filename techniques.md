@@ -172,8 +172,6 @@ keycreate
 
 python -m smtpd -c DebuggingServer -n 127.0.0.1:25
 
-
-
 ### LFI vulnerability
 
 GET /download?file=....//....//....//....//etc/passwd HTTP/1.1

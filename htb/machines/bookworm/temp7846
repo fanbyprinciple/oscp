@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookworm</title>
+    <link
+      href="/static/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Bookworm</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <a class="nav-link " href="/">Home</a>
+              <a class="nav-link " href="/shop">Shop</a>
+            </ul>
+            <div class="navbar-nav">
+              
+                <a class="nav-link " href="/basket">Basket (0)</a>
+                <a class="nav-link " href="/profile">aa</a>
+                <img class="nav-brand" src="/static/img/user.png" width="40" height="40"/>
+              
+            </div>
+          </div>
+      </div>
+    </nav>
+
+  <div class="container mt-2">
+      
+
+<h1>Viewing Order 203</h1>
+
+<p style="white-space: pre-line"><strong>Shipping Address:</strong><br>aa
+aa
+aa
+aa
+aa</p>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Book</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Total Price</th>
+      <th scope="col">Note</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <th scope="row">Alice&#39;s Adventures in Wonderland</th>
+      <td>1</td>
+      <td>£14</td>
+      <td>
+        <script src="/static/img/uploads/14"></script>
+      </td>
+      
+    </tr>
+    
+  </tbody>
+</table>
+
+  
+
+<a href="/profile">View Your Other Orders</a>
+
+  </div>
+
+  </body>
+</html>

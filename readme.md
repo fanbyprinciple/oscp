@@ -9,6 +9,8 @@ https://www.youtube.com/watch?v=x5qREhf5lgA
 3. Get 10 points from the course booklets
 get flags
 4. Other things to try: htb academy for active directory, htb prolabs, crtp.
+https://rana-khalil.gitbook.io/hack-the-box-oscp-preparation/more-challenging-than-oscp
+
 
 
 ### Repos that are a model way to take notes
