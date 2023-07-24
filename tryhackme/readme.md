@@ -8,3 +8,4 @@ https://tryhackme.com/room/blue
 
 git commit --date='2023-06-08' -m "new"
 
+https://tryhackme.com/room/linuxprivescarena
