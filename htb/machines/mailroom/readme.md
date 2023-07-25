@@ -188,5 +188,39 @@ staff-review-panel.mailroom.htb
 
 https://hyperbeast-es.translate.goog/mailroom-htb/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp
 
+using fuff to enumerate the subdomain
+
+```
+ffuf -w /snap/seclists/25/Discovery/Web-Content/directory-list-2.3-medium.txt -H "Host: FUZZ.mailroom.htb" -u http://mailroom.htb -fs 7746
+```
+
+```
+dirsearch -u http://git.mailroom.htb -t 200 -x 500
+```
+
+```
+        // Send an email to the user with the 2FA token
+        $to = $user['email'];
+        $subject = '2FA Token';
+        $message = 'Click on this link to authenticate: http://staff-review-panel.mailroom.htb/auth.php?token=' . $token;
+
+```
+
+tristan 69trisRulez!
+
+![](20230725075251.png)
+
+by using 
+
+`ssh -L 8080:127.0.0.1:80 tristan@10.10.11.209`
+
+after this we can add entry in the localhost for mailroom panel
+
+![](20230725075723.png)
+
+
+
+
+
 
 
