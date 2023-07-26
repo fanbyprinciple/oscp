@@ -1,0 +1,1 @@
+"use strict";(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[12985],{12985:(t,e,s)=>{var i=s(15312);function n(t,e){this.main=t,this.fn=e,this.lastResults=null}s(17705)(n,i),n.prototype.detach=function(){this.removeAllListeners(),this.main.detachDerivedHelper(this)},n.prototype.getModifiedState=function(t){return this.fn(t)},t.exports=n}}]);

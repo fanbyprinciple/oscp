@@ -1,0 +1,1 @@
+"use strict";(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[61074],{61074:(_,s,e)=>{e.d(s,{Z:()=>D});var n=e(89644),o=e.n(n),r=e(81785),A=e.n(r);const D=_=>()=>o().post(A().route("api.user.onboarding.seen"),{journey:_})}}]);

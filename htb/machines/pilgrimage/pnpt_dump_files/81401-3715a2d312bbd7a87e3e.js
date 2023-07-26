@@ -1,0 +1,1 @@
+"use strict";(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[81401,97933],{81401:(_,s,i)=>{i.d(s,{Z:()=>t});const t={transitionTime:"300ms",transitionTimeLong:"600ms"}}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.__LOADABLE_LOADED_CHUNKS__=self.__LOADABLE_LOADED_CHUNKS__||[]).push([[28847],{28847:(s,_,e)=>{e.d(_,{Z:()=>A});var l=e(83554),c=e(55381),r=e(52322);function A({className:s}){return(0,r.jsx)(l.Z,{color:"lime-solid",className:s,children:(0,r.jsx)(c.Z,{})})}}}]);
