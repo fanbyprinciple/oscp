@@ -21,4 +21,6 @@ https://github.com/ihack4falafel/OSCP/tree/master - more ttps
 nmap -p- -T5 <ip> -v
 nmap -p 22,25,80 -A <ip> -v
 
+need to go for osed next.
+
 
